@@ -9,9 +9,9 @@ file = open('oh_darling.wav');
 file.data = file.data(1 : file.fs*60);
 %file.data = file.data(file.fs*60*1 : file.fs*60*2);
 bpm_music = abs(file.data);
-figure
+%figure
 %1
-plot(bpm_music)
+%plot(bpm_music)
 
 %filtering the max pulses
 standard_deviation = std(bpm_music);
@@ -22,9 +22,9 @@ for slot = 1:length(bpm_music)
         signal_filtered_1(slot) = bpm_music(slot);
     end
 end
-figure
+%figure
 %2
-plot(signal_filtered_1)
+%plot(signal_filtered_1)
 
 %Building array with means movies
 window_size = file.fs/5;
@@ -35,9 +35,9 @@ for position = 1 : window_size : length_pulses * window_size
     signal_pulses(counter) = mean(signal_filtered_1(position : position + window_size - 1)); 
     counter = counter + 1;
 end
-figure
+%figure
 %3
-stem(signal_pulses);
+%stem(signal_pulses);
 
 % Beginnnig the correlation
 length_bpm_music = length(bpm_music);
@@ -70,7 +70,7 @@ for count = 1 : length(array_correlation)
 end
 figure
 %5
-plot(array_peaks)
+stem(array_peaks)
 
 peaks = findpeaks(array_peaks);
 
