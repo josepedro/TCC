@@ -4,10 +4,11 @@ clear all
 %file = open('metronomo/120bpm.wav');
 %file = open('metronomo/60bpm.wav');
 %file = open('metronomo/240bpm.wav');
-file = open('oh_darling.wav');
+%file = open('oh_darling.wav');
+file = open('smoke_on_the_water.wav');
 %file = open('i_can_see.wav');
-file.data = file.data(1 : file.fs*60);
-%file.data = file.data(file.fs*60*1 : file.fs*60*2);
+%file.data = file.data(1 : file.fs*60);
+file.data = file.data(file.fs*60*1 : file.fs*60*2);
 bpm_music = abs(file.data);
 %figure
 %1
