@@ -10,6 +10,6 @@ function array_correlated = correlate_moments(signal)
 	    array_correlated(position) = correlation(1,2);
 	    deslocation = deslocation + 1;
 	end
-	figure
+	%figure
 	%4
-	stem(array_correlated)
+	%stem(array_correlated)

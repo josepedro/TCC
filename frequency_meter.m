@@ -1,5 +1,6 @@
 function number_of_peaks = frequency_meter(file_path)
     % opening the file
+    file = open(file_path);
     %file = open('metronomo/120bpm.wav');
     %file = open('metronomo/60bpm.wav');
     %file = open('metronomo/240bpm.wav');

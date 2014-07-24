@@ -7,6 +7,6 @@ function array_peaks = filter_peak(signal)
 	        array_peaks(count) = signal(count);
 	    end
 	end
-	figure
+	%figure
 	%5
-	stem(array_peaks)
+	%stem(array_peaks)
