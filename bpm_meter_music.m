@@ -1,3 +1,4 @@
+% code to measure the bpm of music
 function number_of_peaks = frequency_meter(file_path)
     % opening the file
     file = open(file_path);
