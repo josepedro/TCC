@@ -1,34 +1,36 @@
 % code to measure the bpm of music
-function number_of_peaks = frequency_meter(file_path)
+function number_of_peaks = bpm_meter_music(file_path)
     % opening the file
     file = open(file_path);
-    %file = open('metronomo/120bpm.wav');
-    %file = open('metronomo/60bpm.wav');
-    %file = open('metronomo/240bpm.wav');
-    %file = open('oh_darling.wav');
-    %file = open('smoke_on_the_water.wav');
-    %file = open('i_can_see.wav');
-    file.data = file.data(1 : file.fs*60);
-    %file.data = file.data(file.fs*60*4 : file.fs*60*5);
-    bpm_music = abs(file.data);
-    %figure
-    %1
-    %plot(bpm_music)
+    minutes_in_music = fix(((length(file.data))/file.fs)/60);
 
-    %filtering the pulses of minor energy
-    signal_filtered = filter_signal(bpm_music);
+    window_begin = 1;
+    window_end = file.fs * 60;
+    for minute = 1 : minutes_in_music
+    	
+    	data = file.data(window_begin : window_end);
+    	bpm_music = abs(data);
+    	%figure
+    	%1
+    	%plot(bpm_music)
 
-    % Building array with means movies
-    signal_pulses = decrease_resolution(signal_filtered, file.fs, 10);
+    	%filtering the pulses of minor energy
+    	signal_filtered = filter_signal(bpm_music);
 
-    % Beginnnig the correlation
-    array_correlation = correlate_moments(signal_pulses);
+    	% Building array with means movies
+    	signal_pulses = decrease_resolution(signal_filtered, file.fs, 1);
 
-    % Graph with correlation done! Now I will calculate the number of peaks
-    array_peaks = filter_peak(signal_pulses);
+    	% Beginnnig the correlation
+    	array_correlation = correlate_moments(signal_pulses);
 
-    peaks = findpeaks(array_peaks);
+    	% Graph with correlation done! Now I will calculate the number of peaks
+   		array_peaks = filter_peak(signal_pulses);
 
-    number_of_peaks = length(peaks) + 1; %nao sei porque tenho que acrescentar mais 1
+   		peaks = findpeaks(array_peaks);
 
+   		number_of_peaks = length(peaks) + 1 %nao sei porque tenho que acrescentar mais 1
+
+    	window_begin = window_begin + file.fs * 60;
+    	window_end = window_end + file.fs * 60;
+    end
     %analizar cada minuto da musica e usar o espaçamento de ponto a ponto para contar os bpm
