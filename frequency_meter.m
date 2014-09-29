@@ -22,6 +22,10 @@ function number_of_peaks = frequency_meter(file_path)
 
     % Beginnnig the correlation
     array_correlation = correlate_moments(signal_pulses);
+	figure
+    %1
+    plot(array_correlation)
+
 
     % Graph with correlation done! Now I will calculate the number of peaks
     array_peaks = filter_peak(signal_pulses);
