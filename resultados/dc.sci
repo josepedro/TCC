@@ -31,7 +31,9 @@ som = get_mono_signal(som);
 //Get array with slots that are frequencies 
 respfreq = get_fourier_transform(som);
 scf(1); 
-plot(respfreq,'ro-');
+plot(respfreq, '-o');
+xtitle('Resposta em Frequência', 'Frequência (Hz)', 'Resposta');
+mtlb_axis([1, 800, 0, 0.7]);
 
 //Get signal equalizated with maximum is 1
 rfeq = get_equalization_signal(respfreq);
@@ -39,12 +41,38 @@ rfeq = get_equalization_signal(respfreq);
 //Correlate frequencies with array of notes
 scf(2);
 S1 = correlate_with_notes(rfeq);
-plot(S1,'ro-');
+bar(S1);
+a=gca();
+notas = ["do" "do#" "re" "re#" "mi" "fa" "fa#" "sol" "sol#" "la" "la#" "si"]
+notas_slot = [1:12]
+newTicks= a.x_ticks;
+newTicks(2)= notas_slot;
+newTicks(3)= notas;
+a.x_ticks=newTicks;
+
 
 //Correlate frequencies with array of chords
 scf(3);
 S2 = correlate_with_chords(S1);
-plot(S2,'ro-');
+bar(S2);
+a=gca();
+notas = ["CM" "Cm" "Caum" "Cdim" "C#M" "C#m" "C#aum" "C#dim" ...
+"DM" "Dm" "Daum" "Ddim" ... 
+"D#M" "D#m" "D#aum" "D#dim" ... 
+"EM" "Em" "Eaum" "Edim" ... 
+"FM" "Fm" "Faum" "Fdim" ... 
+"F#M" "F#m" "F#aum" "F#dim" ...
+"GM" "Gm" "Gaum" "Gdim" ...
+"G#M" "G#m" "G#aum" "G#dim" ...
+"AM" "Am" "Aaum" "Adim" ... 
+"A#M" "A#m" "A#aum" "A#dim" ... 
+"BM" "Bm" "Baum" "Bdim"]
+notas_slot = [1:48]
+newTicks= a.x_ticks;
+newTicks(2)= notas_slot;
+newTicks(3)= notas;
+a.x_ticks=newTicks;
+
 
 //Get the chord inferred
 ACORDETOC = interpret_correlation(S2);

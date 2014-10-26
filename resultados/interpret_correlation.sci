@@ -149,4 +149,12 @@ if (acordetoc == 48)
     ACORDETOC = 'Bdim';
 end
 
- endfunction
+//select expr,
+  //case expr1 then instructions1,
+  //case expr2 then instructions2,
+  //...
+  //case exprn then instructionsn,
+  //[else instructions],
+//end
+ 
+endfunction
