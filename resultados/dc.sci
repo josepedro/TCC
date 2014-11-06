@@ -33,7 +33,7 @@ respfreq = get_fourier_transform(som);
 scf(1); 
 plot(respfreq, '-o');
 xtitle('Resposta em Frequência', 'Frequência (Hz)', 'Resposta');
-mtlb_axis([1, 800, 0, 0.7]);
+mtlb_axis([1, 1000, 0, 1.1]);
 
 //Get signal equalizated with maximum is 1
 rfeq = get_equalization_signal(respfreq);

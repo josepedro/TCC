@@ -1,8 +1,7 @@
 function respfreq = get_fourier_transform(som)
 
-//--------------------------
 //TRANSFORMADA DE FOURIER
-fs = 44100; //tx amostragem
+fs = 88200;
 f = (0:length(som)-1)*fs/length(som); //vetor das frequ�ncias dispon�veis no som
 freq = f(1:round(length(f)/2)); //vetor das frequ�ncias propriamente ditas
 SOM = abs(fft(som)); //transformada de fourier criando vetor respostas
@@ -28,5 +27,8 @@ end
 //fim do la�o e zerando os contadores usados
 l = 0; j = 0; i = 0;
 //--------------------------
+
+respfreq = respfreq(1:fs/4)
+//plot(respfreq)
 
 endfunction

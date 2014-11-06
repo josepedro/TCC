@@ -2,6 +2,9 @@ function ACORDETOC = interpret_correlation(S2)
 
 acordetoc = find(S2==max(S2));
 
+if (length(acordetoc) > 1)
+    acordetoc = acordetoc(1);
+end
 //DECODIFICADOR
 
 if (acordetoc == 1)

@@ -3,6 +3,11 @@
 
 Em vista do que foi exposto, conclui-se que o sistema é de viabilidade significativa no que tange a aplicação e função principal: reconhecimento de acordes num conjunto de amostras de sinal de áudio.
 
-É importante ressaltar que na segunda camada, rede neural para sugestão de notas, há a presença de um certo erro com relação às frequências de suas determinadas notas. Deve-se portanto ajustar e calibrar com mais acurácia as faixas presentes em cada nota musical. Ajustando esse detalhe o sistema fica mais preciso para a sugestão de notas.
+É importante ressaltar que o sistema funcionou melhor para acordes maiores e menores. Para aumentados há a presença do erro que tange às inversões não detectadas no sistema. Para acordes diminutos o sistema reconhece porém na segunda camada as notas sugerem discrepâncias. 
+
+No que tange os problemas de inversões que impactam os acordes aumentados, uma solução de curto prazo é sugerir o primeiro acorde ocorrido de maior energia no conjunto de sugestões. Outra solução que é de longo prazo é a implementação de uma camada para detecção de inversões. A partir da detecção de inversão será possível distinguir acordes aumentados e adicionar novos acordes.
+
+\section{Evoluções Futuras}
+\label{sec:precondicoes}
 
 No que diz respeito a futuras evoluções, é passível de consideração o uso das transformadas wavelets para o aprimoramento da detecção de acordes localizados no tempo. É desejável um algorítmo para análise de audio na detecção de transições rítmicas ao longo do tempo, focando localizar aonde os acordes se encontram num determinado compasso musical. Também há a possibilidade de implementação do sistema num produto de software, mais especificamente numa plataforma móvel Android.

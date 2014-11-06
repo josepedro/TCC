@@ -10,8 +10,17 @@ g3 = 0.1;
 g4 = 0.4;
 g5 = 0.8;
 g6 = 1;
+g7 = g5;
+g8 = g4;
+g9 = g3;
+g10 = g2;
+g11 = g1;
+
 
 //* Linha[0] = Dó */
+
+//for kk= 1:11, execstr("nota(1 + 0," + string(kk+60-1)  +  ") = g" + string(kk) + ";"); end
+
 notas(1 + 0,60) = g1;
 notas(1 + 0,61) = g2;
 notas(1 + 0,62) = g3;
