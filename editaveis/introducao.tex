@@ -16,7 +16,7 @@ Ambos softwares apresentados são ferramentas de suporte para o músico poder ex
 \section{Problemática}
 \label{sec:problematica}
 
-Os músicos em geral sempre necessitaram do conhecimento de informações sobre as músicas com o intuito de serem melhor executadas. Informações do tipo de compasso, tom, harmonia, escalas utilizadas, andamento, expressões e variações de tempo. Especificamente obter a noção de harmonia e tom das músicas é de grande valor no que diz respeito a instrumentos melódicos e jazzistas \cite{jazzistas}. 
+Os músicos em geral sempre necessitaram do conhecimento de informações sobre as músicas com o intuito de serem melhor executadas. Informações do tipo de compasso, tom, harmonia, escalas utilizadas, andamento, expressões e variações de tempo. Especificamente obter a noção de harmonia e tom das músicas é de grande valor no que diz respeito a instrumentos melódicos e jazzistas \cite{jazzistas}.
 
 Normalmente as informações de harmonia e tom são inferidas na partitura e tablaturas por regras simples como a primeira nota que começa e termina a musica ou como o primeiro acorde que começar e terminar. Também são utilizados noções de escalas e acidentes para inferir que tais notas realmente pertencem a um determinado tom.
 
@@ -24,16 +24,16 @@ Essas técnicas são efetivas se no caso houver partituras, tablaturas ou cifras
 
 Em vista desse contexto, sistemas automáticos de transcrição de música \cite{automaticmusic} são perfeitamente adequados a atender as necessidades de extração de informações relevantes numa dada faixa de áudio.
 
-No que se trata diretamente sobre acordes, existem poucos estudos publicados sobre um sistema de detecção de acordes musicais. Um dos poucos publicados é baseado num método utilizado em tecnologias 3G CDMA para dispositivos móveis \cite{picchords}. É bastante interessante a correlação que o estudo faz de notas tocadas com clientes CDMA's. Entretanto a técnica CDMA de cancelamento de interferência paralelo (PIC) possui limitações quando se aplica a notas musicais devido a natureza não ortogonal das mesmas (em clientes CDMA são ortogonais entre si, já para notas musicais há o problema dos seus respectivos harmonônicos, que não são ortogonais entre si).
+No que se trata diretamente sobre harmonias e acordes, existem poucos estudos publicados sobre um sistema de reconhecimento. Um dos poucos publicados é baseado num método utilizado em tecnologias 3G CDMA para dispositivos móveis \cite{picchords}. É bastante interessante a correlação que o estudo faz de notas tocadas com clientes CDMA's. Entretanto a técnica CDMA de cancelamento de interferência paralelo (PIC) possui limitações quando se aplica a notas musicais devido a natureza não ortogonal das mesmas (em clientes CDMA são ortogonais entre si, já para notas musicais há o problema dos seus respectivos harmonônicos, que não são ortogonais entre si).
 
-No ponto de vista também da aprendizagem musical há uma motivação para a criação de um detector de acordes, dado que muitos iniciantes não sabem os acordes corretos para cada posição do instrumento, como também, os ouvidos são pouco treinados. Um sistema capaz de auxiliar na detecção das harmonias seria de grande ajuda para o aprendiz abstrair os padrões musicais.
+No ponto de vista também da aprendizagem musical há uma motivação para a criação de um reconhecedor de harmonias, dado que muitos iniciantes não sabem os acordes corretos para cada posição do instrumento, como também, os ouvidos são pouco treinados. Um sistema capaz de auxiliar na reconhecimento das harmonias seria de grande ajuda para o aprendiz abstrair os padrões musicais.
 
-Em visto do que foi exposto, um detector de acordes musicais facilitaria a atuação do músico por informar acordes e notas. Isso é muito bom pois substituiria parcialmente o uso da partitura, tablaturas e cifras além de funcionar como um ótimo guia para solistas e improvisadores (principalmente jazzistas).
+Em visto do que foi exposto, um reconhecimento de harmonias musicais facilitaria a atuação do músico por informar acordes e notas. Isso é muito bom pois substituiria parcialmente o uso das partituras, tablaturas e cifras além de funcionar como um ótimo guia para solistas e improvisadores (principalmente jazzistas).
 
 \section{Objetivos}
 \label{sec:objetivos}
 
-O presente trabalho tem como objetivo principal desenvolver uma solução computacional para detecção de acordes musicais.
+O presente trabalho tem como objetivo principal desenvolver uma solução computacional para reconhecimento de harmonias musicais.
 
 Como objetivos específicos têm-se:
 
@@ -45,4 +45,4 @@ Como objetivos específicos têm-se:
 \section{Organização do Trabalho}
 \label{sec:organizacao}
 
-Esse trabalho está organizado em capítulos. O capítulo 2 apresenta a metodologia de desenvolvimento da solução. O capítulo 3 apresenta um arcabouço de fundamentos teóricos físicos, musicais, de processamento de sinais e de redes neurais. O capítulo 4 apresenta o desenvolvimento da solução. O capítulo 5 apresenta resultados parciais de experimentos feitos com a solução computacional proposta. O capítulo 6 apresenta as conclusões e evoluções futuras. Segue no final referências bibliográficas e apêndice com o código da solução. 
+Esse trabalho está organizado em capítulos. O capítulo 2 apresenta a metodologia de desenvolvimento da solução. O capítulo 3 apresenta um arcabouço de fundamentos teóricos físicos, musicais, de processamento de sinais e de redes neurais. O capítulo 4 apresenta o desenvolvimento da solução. O capítulo 5 apresenta resultados parciais de experimentos feitos com a solução computacional proposta. O capítulo 6 apresenta as conclusões e evoluções futuras. Segue no final referências bibliográficas e apêndice com o código da solução.
