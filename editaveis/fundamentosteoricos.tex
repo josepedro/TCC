@@ -10,9 +10,9 @@ O som pode ser visto como uma perturbação mecânica nas moléculas do meio, um
 \begin{equation}
 \label{eqn01}
 	\frac{\partial^{2}\mathbf{p}}{\partial x^{2}} = \frac{1}{c^{2}}\cdot \frac{\partial^{2}\mathbf{p}}{\partial t^{2}}
-\end{equation} 
+\end{equation}
 
-Na qual $\textbf{p}$ é a pressão, $\textbf{x}$ é a localização longitudinal, $\textbf{c}$ é a velocidade do som e $\textbf{t}$ é a localização temporal. A solução harmônica para a Equação (2.1) é definida por:  
+Na qual $\textbf{p}$ é a pressão, $\textbf{x}$ é a localização longitudinal, $\textbf{c}$ é a velocidade do som e $\textbf{t}$ é a localização temporal. A solução harmônica para a Equação (2.1) é definida por:
 \begin{equation}
 \label{eqn02}
 	\mathbf{p(x,t)} = \mathbf{A}.{exp}^{j(wt - kx)} + \mathbf{B}.{exp}^{j(wt + kx)}
@@ -23,24 +23,24 @@ Em que $\textbf{k}$ é dado por $\textbf{w}/\textbf{c}$ e as constantes complexa
 Uma solução simples para a equação de onda 2.1 é a seguinte:
 \begin{equation}
 \label{eqn03}
-	\mathbf{p(t)} = \mathbf{1}.{cos}(440.t)
+	\mathbf{p(t)} = \mathbf{1}.{cos}(2.\pi.440.t)
 \end{equation}
 
 \newpage
-Nela a variável $\textbf{x}$ foi fixada na origem do sistema cartesiano e o comportamento da onda só está sendo analisada em relação a variável temporal $\textbf{t}$. Há de considerar de suma importância a fixação frequencial $\textbf{w}$ em 440 Hz. Em termos musicais essa nota equivale ao Lá. Um exemplo de gráfico gerado por essa função é dado por:
+Nela a variável $\textbf{x}$ foi fixada na origem do sistema cartesiano e o comportamento da onda só está sendo analisado em relação a variável temporal $\textbf{t}$. Há de considerar de suma importância a fixação frequencial $\textbf{w}$ em 440 Hz. Em termos musicais essa nota equivale ao Lá de tom puro, ou seja, nota construída artificialmente sem harmônicos somados (diferentemente dos instrumentos reais que possuem os harmônicos). Um exemplo de gráfico gerado por essa função é dado por:
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.7]{figuras/cos440.eps}
 	\caption{Função da Equação 2.3}
 \end{figure}
 
-Na forma mais teórica, um acorde, como será apresentado a seguir, é composto de no mínimo 3 ondas sonoras somadas, ou seja, para que seja formado um acorde Am por exemplo a equação total deverá ter essa forma: 
+Na forma mais teórica, um acorde, como será apresentado a seguir, é composto de no mínimo 3 ondas sonoras somadas, ou seja, para que seja formado um acorde Am por exemplo a equação total deverá ter essa forma:
 \begin{equation}
 \label{eqn04}
-	\mathbf{p(t)} = \mathbf{1}.{cos}(440.t) + \mathbf{0,5}.{cos}(523.t) + \mathbf{1}.{cos}(660.t)
+	\mathbf{p(t)} = \mathbf{1}.{cos}(2.\pi.440.t) + \mathbf{0,5}.{cos}(2.\pi.523.t) + \mathbf{1}.{cos}(2.\pi.660.t)
 \end{equation}
 
-Pode-se considerar que cada constante multiplicadora das função cosseno determinará a energia de uma onda sonora específica. Nesse caso as ondas sonoras de mais energia são as de 440 Hz e 600 Hz. A onda de menor energia é a de 523 Hz que possui a metade da energia das outras. Esse fato será decisivo para a detecção de acordes. 
+Pode-se considerar que cada constante multiplicadora das função cosseno determinará a energia de uma onda sonora específica. Nesse caso as ondas sonoras de mais energia são as de 440 Hz e 600 Hz. A onda de menor energia é a de 523 Hz que possui a metade da energia das outras. Esse fato será decisivo para a detecção de acordes. É pertinente comentar que esse acorde montado é um modelo simplificado pois possuem somente tons puros (sem harmônicos somados). No contexto da solução trabalhada será considerado também acordes com harmônicos somados assim como é nos instrumentos reais. Esse fato aumenta a complexidade da solução.
 
 \newpage
 Em termos de representação gráfica segue o resultado:
@@ -74,12 +74,12 @@ O sons que formam as melodias e as harmonias possuem características principais
 A altura e intensidade do som são as características essenciais para a formulação dos conceitos de notas e acordes. Em altura entende-se como a divisão das frequências em 7 notas musicas - $Dó$, $Ré$, $Mi$, $Fá$, $Sol$, $Lá$ e $Si$. Também essas mesmas notas possuem uma correspondente em sequência de letras alfabéticas introduzidas pelo Papa Gregório Grande - $C$, $D$, $E$, $F$, $G$, $A$ e $B$. Normalmente essa sequência de letras são usadas para denominar acordes. Entretanto tais divisões de notas não são a menor divisão para o sistema temperado \cite{med1996teoria}. A menor divisão de notas se denomina semitom e são configurados pelos acidentes sustenidos ($\#$) ou bemois ($\flat$). Considerando essa divisão semitonal o sistema fica representado nessa sequência de 12 notas musicais (entre uma divisão e outra há a presença de um semitom): $Dó$, $Dó\#$ ou $Ré\flat$, $Ré$, $Ré\#$ ou $Mi\flat$, $Mi$, $Fá$, $Fá\#$ ou $Sol\flat$, $Sol$, $Sol\#$ ou $Lá\flat$, $Lá$, $Lá\#$ ou $Si\flat$ e $Si$. Ou seguindo a denominação inglesa: $C$, $C\#$ ou $D\flat$, $D$, $D\#$ ou $E\flat$, $E$, $F$, $F\#$ ou $G\flat$, $G$, $G\#$ ou $A\flat$, $A$, $A\#$ ou $B\flat$ e $B$.
 
 \newpage
-Na divisão distributiva das faixas de frequências pelas notas segue um quadro básico \cite{notasfreq}: 
+Na divisão distributiva das faixas de frequências pelas notas segue um quadro básico \cite{notasfreq}:
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.6]{figuras/NOTASpt.eps}
 	\caption{Distribuição das frequências nas notas musicais em Hz}
-\end{figure}    
+\end{figure}
 
 Acordes são harmonias formadas por pelo menos uma tríade (três notas)\footnote{Existem acordes mais complexos com mais de 3 notas porém o escopo desse trabalho só se delimita a tríades.} tocadas simultâneamente e são definidos por certas quantidades de semitons entre as notas \cite{med1996teoria}. Essa quantidade se denomina intervalo musical.
 
@@ -111,7 +111,7 @@ Exemplos de acordes diminutos são:
 
 Na teoria dos acordes também há a presença do conceito de inversões. Inverter um acorde consiste em trocar de posição para uma oitava a cima a nota inferior, trocar a nota mais baixa do acorde por uma outra da mesma denominação só que com o dobro de frequência acima. Em tríades há a presença do acorde em seu estado fundamental, a primeira inversão (a terça fica sendo como a nota mais grave) e a segunda inversão (a quinta fica sendo como a nota mais grave).
 
-Segue exemplos de acordes em estado fundamental: 
+Segue exemplos de acordes em estado fundamental:
 \begin{itemize}
 	\item dó maior - $CM$ (tríade $Dó$, $Mi$ e $Sol$);
 	\item mi menor - $Em$ (tríade  $Mi$, $Sol$ e $Si$,);
@@ -119,7 +119,7 @@ Segue exemplos de acordes em estado fundamental:
 	\item lá sustenido diminuto - $A\#dim$ (tríade $Lá\#$, $Dó\#$ e $Mi$).
 \end{itemize}
 
-Segue exemplos de acordes em primeira inversão: 
+Segue exemplos de acordes em primeira inversão:
 \begin{itemize}
 	\item dó maior - $CM$ (tríade $Mi$, $Sol$ e $Dó$);
 	\item mi menor - $Em$ (tríade $Sol$, $Si$ e $Mi$);
@@ -127,7 +127,7 @@ Segue exemplos de acordes em primeira inversão:
 	\item lá sustenido diminuto - $A\#dim$ (tríade $Dó\#$, $Mi$ e $Lá\#$).
 \end{itemize}
 
-Segue exemplos de acordes em segunda inversão: 
+Segue exemplos de acordes em segunda inversão:
 \begin{itemize}
 	\item dó maior - $CM$ (tríade $Sol$, $Dó$ e $Mi$);
 	\item mi menor - $Em$ (tríade $Si$, $Mi$ e $Sol$);
@@ -155,10 +155,10 @@ Amostrar um sinal significa recolher um número determinado de amostras dado um 
 
 Segundo o teorema de amostragem Nyquist–Shannon \cite{Nyquist}, para sons musicais o mais adequado é que a taxa de amostragem seja o dobro da frequência máxima de audição do ouvido humano - 22.050 Hz, ou seja, a frequência será de 44.100 Hz. Essa grandeza significa que serão captadas 44.100 amostras de áudio a cada segundo.
 
-Quantizar um sinal significa alocar valores digitais para os valores analógicos do eixo da ordenada, que são normalmente valores de tenões elétricas. Essa a alocação está ligada diretamente as características do conversor analógico/digital. Nesse caso específico foi usado um conversor de 16 bits para a quantização do sinal. Tal fato permite a presença de 65.536 (2 elevado a 16) valores para representar as subidas e descidas da onda sonora.    
+Quantizar um sinal significa alocar valores digitais para os valores analógicos do eixo da ordenada, que são normalmente valores de tenões elétricas. Essa a alocação está ligada diretamente as características do conversor analógico/digital. Nesse caso específico foi usado um conversor de 16 bits para a quantização do sinal. Tal fato permite a presença de 65.536 (2 elevado a 16) valores para representar as subidas e descidas da onda sonora.
 
 %energia
-O conceito de energia está totalmente ligado a muitas outras áreas e é de extrema importância por ser essencial nos fenômenos naturais \cite{oppenheim}. Em processamento de sinais há a descrição de energia e dar-se-à pela fórmula em tempo contínuo num intervalo \textbf{$t1$} a \textbf{$t2$}: 
+O conceito de energia está totalmente ligado a muitas outras áreas e é de extrema importância por ser essencial nos fenômenos naturais \cite{oppenheim}. Em processamento de sinais há a descrição de energia e dar-se-à pela fórmula em tempo contínuo num intervalo \textbf{$t1$} a \textbf{$t2$}:
 \begin{equation}
 \label{eqn06}
 	\mathbf{E} = \int_{t1}^{t2}{|x_c(t)|^{2}dt}
@@ -167,10 +167,10 @@ O conceito de energia está totalmente ligado a muitas outras áreas e é de ext
 O aspecto energético adotado nessa presente solução será em tempo discreto que é definido como:
 \begin{equation}
 \label{eqn07}
-	\mathbf{E} = \sum_{t=t1}^{t2}{|x[n]|^{2}} 
+	\mathbf{E} = \sum_{t=t1}^{t2}{|x[n]|^{2}}
 \end{equation}
 
-Outro conceito relacionado que é de extrema importância é a lei de conservação de energia representada pelo teorema de Parseval. Esse teorema mostra que a energia do sinal sempre se conserva independentemente da projeção que o sinal foi submetido. Mais especificamente na transformada de fourier no domínio contínuo o teorema é descrito como:  
+Outro conceito relacionado que é de extrema importância é a lei de conservação de energia representada pelo teorema de Parseval. Esse teorema mostra que a energia do sinal sempre se conserva independentemente da projeção que o sinal foi submetido. Mais especificamente na transformada de fourier no domínio contínuo o teorema é descrito como:
 \begin{equation}
 \label{eqn08}
 	\int_{-\infty}^{\infty}{|x(t)|^{2}dt} = \int_{-\infty}^{\infty}{|X(f)|^{2}df}
@@ -222,11 +222,11 @@ Diante desse ambiente de incertezas, uma solução que é aderente ao contexto �
 
 Dado um especialista que possui o reconhecimento de padrões dos acordes, basta somente consolidar uma arquitetura de rede neural para receber esse conhecimento empírico de modo que o seu uso seja eficiente para classificação.
 
-Entende-se por rede neural como ``um processador maciçamente paralelamente distribuído constituído de unidades de processamento simples, que têm a propensão para armazenar conhecimento experimental e torná-lo disponível para o uso'' \cite{haykin2009neural}. 
+Entende-se por rede neural como ``um processador maciçamente paralelamente distribuído constituído de unidades de processamento simples, que têm a propensão para armazenar conhecimento experimental e torná-lo disponível para o uso'' \cite{haykin2009neural}.
 
 As redes neurais possuem uma característica essencial no que tange o aprendizado empírico. Sua estrutura oferece suporte para que conhecimentos adquiridos de maneira experimental (via ser humano muitas vezes) possam ser aprendidos e usados. O processo de aprendizagem da rede se chama algorítmo de aprendizado e o mesmo pode ser feito de várias formas como lei de Hebb, algorítmo de $backpropagation$, estratégias de competição e máquina de Boltzmann. Além disso é envolvido nesse processo paradígmas de aprendizado que é como o ambiente vai atuar sobre a rede neural para que ela possa aprender. Exemplos de paradígmas de aprendizado são aprendizado supervisionado, aprendizado por reforço e aprendizado não-supervisionado (ou auto-organizado).
 
-Outra característica essencial de uma rede neural é a representação do conhecimento. Essa característica é referente às informações armazenadas ou a modelos utilizados por uma pessoa ou máquina com o intuito de interpretar, prever e responder de forma coerente ao mundo exterior \cite{haykin2009neural}. Para tal representação deve-se levantar em conta quais informações serão abstraídas e tornadas explícitas e como a informação será codificada no sistema. Com o intuito de atingir os objetivos de uma boa representação do conhecimento na rede neural há um conjunto de regras sugeridas a se seguir \cite{haykin2009neural}: 
+Outra característica essencial de uma rede neural é a representação do conhecimento. Essa característica é referente às informações armazenadas ou a modelos utilizados por uma pessoa ou máquina com o intuito de interpretar, prever e responder de forma coerente ao mundo exterior \cite{haykin2009neural}. Para tal representação deve-se levantar em conta quais informações serão abstraídas e tornadas explícitas e como a informação será codificada no sistema. Com o intuito de atingir os objetivos de uma boa representação do conhecimento na rede neural há um conjunto de regras sugeridas a se seguir \cite{haykin2009neural}:
 \begin{itemize}
 	\item regra 1 - entradas similares normalmente devem produzir representações similares no interior da rede e devem ser classificadas como pertencentes a mesma categoria;
 	\item regra 2 - itens de classes diferentes devem ser representados de formas diferentes;
@@ -234,9 +234,9 @@ Outra característica essencial de uma rede neural é a representação do conhe
 	\item regra 4 - informações prévias e invariâncias devem ser incorporadas a rede para que o sistema fique simples e sem trabalho para aprender as mesmas.
 \end{itemize}
 
-Por fim outra característica importante de uma rede neural é a capacidade de generalização. Isso permite com que entradas desconhecidas possam ser classificadas e tratadas de forma coesa e coerente, fazendo com que circunstâncias críticas e imprevisíveis possam ser contornadas sem grandes prejuízos. 
+Por fim outra característica importante de uma rede neural é a capacidade de generalização. Isso permite com que entradas desconhecidas possam ser classificadas e tratadas de forma coesa e coerente, fazendo com que circunstâncias críticas e imprevisíveis possam ser contornadas sem grandes prejuízos.
 
-A unidade mínima de processamento de uma rede neural é o neurônio artificial. Segue uma representação de um modelo \cite{haykin2009neural}: 
+A unidade mínima de processamento de uma rede neural é o neurônio artificial. Segue uma representação de um modelo \cite{haykin2009neural}:
 
 \begin{figure}[h]
 	\centering
