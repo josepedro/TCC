@@ -7,6 +7,7 @@
 ##Melhorar definições dos sons puros (TO DO)
   Alterações: fundamentos teóricos (pag 32)
 ##Normalização da FFT (1/N) - Colocar só DFT (TO DO)
+Alterações: fundamentos teóricos (pag 38)
 ##Melhorar objetivos (TO DO)
 ##Discutir no texto os motivos do uso da rede neural (TO DO)
 ##Detalhar a complexidade do problema (TO DO)

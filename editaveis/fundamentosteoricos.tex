@@ -158,26 +158,13 @@ Segundo o teorema de amostragem Nyquist–Shannon \cite{Nyquist}, para sons musi
 Quantizar um sinal significa alocar valores digitais para os valores analógicos do eixo da ordenada, que são normalmente valores de tenões elétricas. Essa a alocação está ligada diretamente as características do conversor analógico/digital. Nesse caso específico foi usado um conversor de 16 bits para a quantização do sinal. Tal fato permite a presença de 65.536 (2 elevado a 16) valores para representar as subidas e descidas da onda sonora.
 
 %energia
-O conceito de energia está totalmente ligado a muitas outras áreas e é de extrema importância por ser essencial nos fenômenos naturais \cite{oppenheim}. Em processamento de sinais há a descrição de energia e dar-se-à pela fórmula em tempo contínuo num intervalo \textbf{$t1$} a \textbf{$t2$}:
-\begin{equation}
-\label{eqn06}
-	\mathbf{E} = \int_{t1}^{t2}{|x_c(t)|^{2}dt}
-\end{equation}
-
-O aspecto energético adotado nessa presente solução será em tempo discreto que é definido como:
+O conceito de energia está totalmente ligado a muitas outras áreas e é de extrema importância por ser essencial nos fenômenos naturais \cite{oppenheim}. O aspecto energético adotado nessa presente solução será em tempo discreto que é definido como:
 \begin{equation}
 \label{eqn07}
 	\mathbf{E} = \sum_{t=t1}^{t2}{|x[n]|^{2}}
 \end{equation}
 
-Outro conceito relacionado que é de extrema importância é a lei de conservação de energia representada pelo teorema de Parseval. Esse teorema mostra que a energia do sinal sempre se conserva independentemente da projeção que o sinal foi submetido. Mais especificamente na transformada de fourier no domínio contínuo o teorema é descrito como:
-\begin{equation}
-\label{eqn08}
-	\int_{-\infty}^{\infty}{|x(t)|^{2}dt} = \int_{-\infty}^{\infty}{|X(f)|^{2}df}
-\end{equation}
-
-Tal qual $X(f)$ é a transformada de fourier do sinal (exposto logo a seguir).
-A mesma representação em tempo e frequência discretos é formada por:
+Outro conceito relacionado que é de extrema importância é a lei de conservação de energia representada pelo teorema de Parseval. Esse teorema mostra que a energia do sinal sempre se conserva independentemente da projeção que o sinal foi submetido. Mais especificamente na transformada de fourier discreta o teorema é descrito como:
 \begin{equation}
 \label{eqn09}
 	\sum_{n=0}^{N - 1}{|x[n]|^{2}} =  \frac{1}{N}.\sum_{k=0}^{N - 1}{|X[k]|^{2}}
@@ -187,29 +174,16 @@ Tal qual $N$ é o número total de amostras e $X(k)$ a transformada discreta de 
 %transformada de fourier
 A transformada de fourier é uma ferramenta muito importante para a realização desse trabalho. Ela permite projetar o sinal em funções de base senoidais, ou seja, é possível ver através dela quais componentes frequenciais de senóides estão presentes no sinal e qual é a energia das mesmas.
 
-A representação da transformada de fourier no domínio contínuo é dada por:
-\begin{equation}
-\label{eqn10}
-	X(f) = \int_{-\infty}^{\infty}{x_c(t).{exp}^{-j2\pi.ft}dt}
-\end{equation}
-Tal qual $X(f)$ é a transformada de fourier contínua.
-
-A representação da transformada inversa de fourier no domínio contínuo é dada por:
-\begin{equation}
-\label{eqn11}
-	x_c(t) = \int_{-\infty}^{\infty}{X(f).{exp}^{j2\pi.ft}df}
-\end{equation}
-
-A representação da transformada de fourier em tempo e frequência discretos (DFT) é dada por:
+A representação da transformada de fourier em frequência discreta (DFT) é dada por:
 \begin{equation}
 \label{eqn12}
-	X[k] = \sum_{n=0}^{N - 1}{x[n].{exp}^{-j2\pi.\frac{k}{N}.t}}
+	X[k] = \sum_{n=0}^{N - 1}{x[n].{exp}^{-j2\pi.\frac{k}{N}.n}}
 \end{equation}
 
-A representação da transformada inversa de fourier em tempo e frequência discretos é dada por:
+A representação da transformada inversa de fourier em frequência discreta é dada por:
 \begin{equation}
 \label{eqn13}
-	x[n] = \sum_{k=0}^{N - 1}{X[k].{exp}^{j2\pi.\frac{k}{N}.t}}
+	x[n] = \frac{1}{N}.\sum_{k=0}^{N - 1}{X[k].{exp}^{j2\pi.\frac{k}{N}.n}}
 \end{equation}
 
 
