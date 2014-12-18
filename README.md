@@ -1,6 +1,8 @@
 #Backlog do TCC
 
-##Mudar o nome (TO DO)
+##Mudar o nome (DONE)
+  Alteração para o nome "Reconhecimento de Harmonias".
+  Alterações: capa, resumo, abstract e introdução
 ##Melhorar detalhamento do resumo (TO DO)
 ##Melhorar definições dos sons puros (TO DO)
 ##Normalização da FFT (1/N) - Colocar só DFT (TO DO)
