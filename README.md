@@ -23,4 +23,4 @@
 
 ##Demais correções apontados pelo professor Fernando ao longo do texto (TO DO)
 
-#Obs: o professor Cristiano ainda não entregou a versão comentada do TCC
+###Obs: o professor Cristiano ainda não entregou a versão comentada do TCC
