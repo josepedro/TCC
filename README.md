@@ -29,5 +29,13 @@
 
 ##Demais correções apontados pelo professor Fernando ao longo do texto (TO DO)
   ### Contexto (pag 23)
+  ### Metodologia (pag 27)
+  ### Fundamentos Teóricos (pag 37, 38, 39 e 41)
+  ### Desenvolvimento da Solução (pag 43, 44, 47 e 50)
+  ### Desenvolvimento da Solução (pag 43, 44, 47 e 50)
+  ### Resultados Parciais (pag 53, 55, 57, 59 e 63)
+  ### Considerações finais (pag 65)
+  ### Cronograma (pag 120)
+
 
 ###Obs: o professor Cristiano ainda não entregou a versão comentada do TCC

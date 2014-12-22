@@ -3,13 +3,13 @@
 
 Em vista do que foi exposto, conclui-se que o sistema é de viabilidade significativa no que tange a aplicação e função principal: reconhecimento de acordes num conjunto de amostras de sinal de áudio.
 
-No que tange os problemas de inversões que impactam os acordes aumentados, uma solução de curto prazo é sugerir o primeiro acorde ocorrido de maior energia no conjunto de sugestões. Outra solução que é de longo prazo é a implementação de uma camada para detecção de inversões. A partir da detecção de inversão será possível distinguir acordes aumentados e adicionar novos acordes. Nesse trabalho em específico foi implementado a solução de curto prazo porém para o trabalho que se segue (trabalho de conclusão de curso 2) haverá a implementação da camada de detecção de inversões.
+No que tange aos problemas de inversões que impactam os acordes aumentados, uma solução de curto prazo é sugerir o primeiro acorde ocorrido de maior energia no conjunto de sugestões. Outra solução, que é de longo prazo, é a implementação de uma camada para detecção de inversões. A partir da detecção de inversão será possível distinguir acordes aumentados e adicionar novos acordes. Nesse trabalho em específico foi implementada a solução de curto prazo porém para o trabalho que se segue (trabalho de conclusão de curso 2) haverá a implementação da camada de detecção de inversões.
 
 Em relação a consolidação do algorítmo é pertinente expor que o mesmo não está otimizado e nem analisado no ponto de vista de complexidade. No trabalho que se segue haverá uma análise mais profunda sobre esses aspectos.
 
-Não houve teste para a presente solução em outros instrumentos harmônicos como o violão. Subentende-se que poderá funcionar corretamente mas com algumas restrições devido ao ataque do instrumento.
+Não houve teste para a presente solução em outros instrumentos harmônicos como o violão. Subentende-se que poderá funcionar corretamente mas com algumas restrições devido ao ataque do instrumento. Para tal poderá ser cabível uma adaptação para cada tipo diferente de instrumento.
 
 \section{Evoluções Futuras}
 \label{sec:precondicoes}
 
-No que diz respeito a futuras evoluções, é passível de consideração o uso das transformadas wavelets para o aprimoramento da detecção de acordes localizados no tempo. É desejável um algorítmo para análise de audio na detecção de transições rítmicas ao longo do tempo, focando localizar aonde os acordes se encontram num determinado compasso musical. Também há a possibilidade de implementação do sistema num produto de software, mais especificamente numa plataforma móvel Android. Para tais atividades futuras foi feito um cronograma referenciado no apêndice \ref{sec:cronograma}.
+No que diz respeito a futuras evoluções, é passível de consideração o uso das transformadas $wavelets$ para o aprimoramento da detecção de acordes localizados no tempo. É desejável um algorítmo para análise de audio na detecção de transições rítmicas ao longo do tempo, focando localizar aonde os acordes se encontram num determinado compasso musical. Também há a possibilidade de implementação do sistema num produto de software, mais especificamente numa plataforma móvel Android. Para tais atividades futuras foi feito um cronograma referenciado no apêndice \ref{sec:cronograma}.

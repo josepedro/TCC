@@ -8,7 +8,7 @@ Esse apêndice diz respeito aos códigos feitos na plataforma Scilab.
 
 \section{Módulo Principal}
 \label{sec:moduloprincipal}
-\begin{lstlisting} 
+\begin{lstlisting}
 function DA2 = DA2(som)
 	exec get_mono_signal.sci;
 	exec get_fourier_transform.sci;
@@ -23,12 +23,12 @@ function DA2 = DA2(som)
 	//Load chords in constants variables
 	exec load_chords_constants.sci;
 
-	//Get one dimensional array of signal 
+	//Get one dimensional array of signal
 	som = get_mono_signal(som);
 
-	//Get array with slots that are frequencies 
+	//Get array with slots that are frequencies
 	respfreq = get_fourier_transform(som);
-	scf(1); 
+	scf(1);
 	plot(respfreq, '-o');
 	xtitle('Resposta em Frequencia', 'Frequencia (Hz)', 'Resposta');
 	mtlb_axis([1, 800, 0, 0.7]);
@@ -55,15 +55,15 @@ function DA2 = DA2(som)
 	bar(S2);
 	a=gca();
 	notas = ["CM" "Cm" "Caum" "Cdim" "C#M" "C#m" "C#aum" "C#dim" ...
-	"DM" "Dm" "Daum" "Ddim" ... 
-	"D#M" "D#m" "D#aum" "D#dim" ... 
-	"EM" "Em" "Eaum" "Edim" ... 
-	"FM" "Fm" "Faum" "Fdim" ... 
+	"DM" "Dm" "Daum" "Ddim" ...
+	"D#M" "D#m" "D#aum" "D#dim" ...
+	"EM" "Em" "Eaum" "Edim" ...
+	"FM" "Fm" "Faum" "Fdim" ...
 	"F#M" "F#m" "F#aum" "F#dim" ...
 	"GM" "Gm" "Gaum" "Gdim" ...
 	"G#M" "G#m" "G#aum" "G#dim" ...
-	"AM" "Am" "Aaum" "Adim" ... 
-	"A#M" "A#m" "A#aum" "A#dim" ... 
+	"AM" "Am" "Aaum" "Adim" ...
+	"A#M" "A#m" "A#aum" "A#dim" ...
 	"BM" "Bm" "Baum" "Bdim"]
 	notas_slot = [1:48]
 	newTicks= a.x_ticks;
@@ -80,7 +80,7 @@ endfunction
 
 \section{Módulo de Monoficação do Sinal de Áudio}
 \label{sec:modulomonoficacao}
-\begin{lstlisting} 
+\begin{lstlisting}
 function som = get_mono_signal(som)
 	//MONO
 	som = som(1:length(som));
@@ -90,32 +90,32 @@ endfunction
 
 \section{Módulo da Transformada de Fourier}
 \label{sec:modulotransformadafourier}
-\begin{lstlisting} 
+\begin{lstlisting}
 function respfreq = get_fourier_transform(som)
     //--------------------------
     //TRANSFORMADA DE FOURIER
     //tx amostragem
-    fs = 44100; 
+    fs = 44100;
      //vetor das frequencias disponiveis no som
     f = (0:length(som)-1)*fs/length(som);
     //vetor das frequencias propriamente ditas
-    freq = f(1:round(length(f)/2)); 
+    freq = f(1:round(length(f)/2));
     //transformada de fourier criando vetor respostas
     SOM = abs(fft(som));
-    //normalizacao do vetor das respostas 
-    SOM = SOM/max(SOM); 
+    //normalizacao do vetor das respostas
+    SOM = SOM/max(SOM);
     //vetor das respostas propriamente ditas
-    SOM = SOM(1:round(length(f)/2)); 
+    SOM = SOM(1:round(length(f)/2));
     //Transformando as respectivas frequencias em slots
-    //variavel auxiliar de contagem dos slots do novo 
+    //variavel auxiliar de contagem dos slots do novo
     //vetor resposta-frequencia
-    l = 1; 
-    //variavel auxiliar de contagem das respostas 
+    l = 1;
+    //variavel auxiliar de contagem das respostas
     //numa mesma faixa de frequencia
-    j = 0; 
+    j = 0;
     //variavel auxiliar de contagem dos slots do vetor resposta
-    i = 1; 
-    SOMA = 0; 
+    i = 1;
+    SOMA = 0;
     while (i<length(freq))//laco da acoplacao
     	//se as frequencias arrendondadas vizinhas forem iguais...
         if (round(freq(i)) == round(freq(i+1)))
@@ -124,15 +124,15 @@ function respfreq = get_fourier_transform(som)
             //contagem de frequencias parecidas achadas
             j = j + 1;
         else
-        	//incersao da media das frequencias parecidas no vetor 
+        	//incersao da media das frequencias parecidas no vetor
             respfreq(l) = SOMA/(j+1);
-            //zerar a contagem das frequencias parecidas 
+            //zerar a contagem das frequencias parecidas
             //para o proximo conjunto de sequencias
             j = 0;
             SOMA = SOM(i+1);//comecando um novo conjunto de sequencias
             l = l+1;//proximo slot do respfreq
         end
-        i = i+1;//proximo slot do vetor SOM   
+        i = i+1;//proximo slot do vetor SOM
     end
     //fim do laco e zerando os contadores usados
     l = 0; j = 0; i = 0;
@@ -142,7 +142,7 @@ endfunction
 
 \section{Módulo de Equalização do Sinal}
 \label{sec:moduloequalizacao}
-\begin{lstlisting} 
+\begin{lstlisting}
 function rfeq = get_equalization_signal(respfreq)
 	//EQUALIZACAO
 	x = gsort(respfreq);
@@ -155,7 +155,7 @@ endfunction
 
 \section{Módulo de Correlação de Notas}
 \label{sec:modulocorrelacaonotas}
-\begin{lstlisting} 
+\begin{lstlisting}
 function S1 = correlate_with_notes(rfeq)
 
 	exec correlation.sci;
@@ -164,7 +164,7 @@ function S1 = correlate_with_notes(rfeq)
 
 	while (i <= 12)
 	     correlacao = coeffcorr(rfeq,notas(i,:));
-	     S1(i) = correlacao;    
+	     S1(i) = correlacao;
 	    //S1(i) = exp(-(norm(rfeq - notas(i,:))*b));
 	    i = i + 1;
 	end
@@ -174,7 +174,7 @@ endfunction
 
 \section{Módulo de Correlação}
 \label{sec:modulocorrelacao}
-\begin{lstlisting} 
+\begin{lstlisting}
 function [c]=coeffcorr(X,Y)
 	// first check consistency of data, return NAN in case of problem
 	 [lX,cX]=size(X);
@@ -215,13 +215,13 @@ function [c]=coeffcorr(X,Y)
 
 \section{Módulo de Correlação de Acordes}
 \label{sec:modulocorrelacaoacordes}
-\begin{lstlisting} 
+\begin{lstlisting}
 function S2 = correlate_with_chords(S1)
 	exec correlation.sci;
 	i = 1; //contador para andar ao longo do vetor
 	while (i <= 48)
 	     correlacao = coeffcorr(S1,BD(:,i)');
-	     S2(i) = sqrt(correlacao^2);    
+	     S2(i) = sqrt(correlacao^2);
 	    i = i + 1;
 	end
 endfunction
@@ -229,7 +229,7 @@ endfunction
 
 \section{Módulo de Interpretação de Correlação dos Acordes}
 \label{sec:modulocointerpretacao}
-\begin{lstlisting} 
+\begin{lstlisting}
 function ACORDETOC = interpret_correlation(S2)
 
 acordetoc = find(S2==max(S2));
@@ -384,13 +384,13 @@ end
 if (acordetoc == 48)
     ACORDETOC = 'Bdim';
 end
- 
+
 endfunction
 \end{lstlisting}
 
 \section{Módulo de Alocação de Constantes para Notas}
 \label{sec:moduloconstantesnotas}
-\begin{lstlisting} 
+\begin{lstlisting}
 //--------------------------
 //NOTAS
 
@@ -1140,7 +1140,7 @@ notas(1 + 11,1981) = g1;
 
 \section{Módulo de Alocação de Constantes para Acordes}
 \label{sec:moduloconstantesacordes}
-\begin{lstlisting} 
+\begin{lstlisting}
 
 //--------------------------
 BD(12,48) = 0; // inicializando o banco de dados para acordes
@@ -1655,7 +1655,7 @@ BD(7,48) = afin2;
 
 \section{Módulo de Testes em Amostras}
 \label{sec:moduloequalizacao}
-\begin{lstlisting} 
+\begin{lstlisting}
 exec dc.sci;
 
 //Script to tests
@@ -2212,8 +2212,13 @@ mclose(file_results);
 
 \section{Cronograma para Próximas Atividades}
 \label{sec:cronograma}
-\begin{figure}[h]
-	\centering
-		\includegraphics[keepaspectratio=true,scale=0.9]{figuras/cronograma.eps}
-	\caption{Cronogroma para Trabalho de Conclusão de Curso 2}
-\end{figure}
+
+Segue cronograma de trabalho para as atividades do Trabalho de Conclusão de Curso 2:
+\begin{itemize}
+	\item 20/12/2014 até 26/12/2014 - efetivar correções da banca examinadora;
+	\item 27/12/2014 até 03/01/2015 - implementação da camada de detecção de inversões;
+	\item 04/01/2014 até 12/01/2015 - implementação da camada de detecção de inversões;
+	\item 13/01/2014 até 21/01/2015 - implementação da camada de transições rítmicas;
+	\item 22/01/2014 até 31/01/2015 - implementação da transformada de wavelets;
+	\item 01/02/2014 até 29/05/2015 - escrita do trabalho.
+\end{itemize}
