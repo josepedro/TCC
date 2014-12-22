@@ -3,7 +3,9 @@
 ##Mudar o nome (DONE)
   Alteração para o nome "Reconhecimento de Harmonias".
   Alterações: capa, resumo, abstract e introdução
-##Melhorar detalhamento do resumo (TO DO) - 3
+
+##Melhorar detalhamento do resumo (DONE)
+  Alterações: cap resumo e abstract
 
 ##Melhorar definições dos sons puros (DONE)
   Alterações: cap fundamentos teóricos (pag 32)
@@ -25,6 +27,6 @@
 ##Biblioteca de sinais em "C", justificativa do não uso (DONE)
   Alterações: metodologia - seção linguagem de programação (pag 29)
 
-##Demais correções apontados pelo professor Fernando ao longo do texto (TO DO) - 4
+##Demais correções apontados pelo professor Fernando ao longo do texto (TO DO)
 
 ###Obs: o professor Cristiano ainda não entregou a versão comentada do TCC
