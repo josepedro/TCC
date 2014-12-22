@@ -26,20 +26,26 @@ Em vista desse contexto, sistemas automáticos de transcrição de música \cite
 
 No que se trata diretamente sobre harmonias e acordes, existem poucos estudos publicados sobre um sistema de reconhecimento. Um dos poucos publicados é baseado num método utilizado em tecnologias 3G CDMA para dispositivos móveis \cite{picchords}. É bastante interessante a correlação que o estudo faz de notas tocadas com clientes CDMA's. Entretanto a técnica CDMA de cancelamento de interferência paralelo (PIC) possui limitações quando se aplica a notas musicais devido a natureza não ortogonal das mesmas (em clientes CDMA são ortogonais entre si, já para notas musicais há o problema dos seus respectivos harmonônicos, que não são ortogonais entre si).
 
-No ponto de vista também da aprendizagem musical há uma motivação para a criação de um reconhecedor de harmonias, dado que muitos iniciantes não sabem os acordes corretos para cada posição do instrumento, como também, os ouvidos são pouco treinados. Um sistema capaz de auxiliar na reconhecimento das harmonias seria de grande ajuda para o aprendiz abstrair os padrões musicais.
+No ponto de vista também da aprendizagem musical há uma motivação para a criação de um reconhecedor de harmonias, dado que muitos iniciantes não sabem os acordes corretos para cada posição do instrumento, como também, os ouvidos são pouco treinados. Um sistema capaz de auxiliar no reconhecimento das harmonias seria de grande ajuda para o aprendiz abstrair os padrões musicais.
 
 Em visto do que foi exposto, um reconhecimento de harmonias musicais facilitaria a atuação do músico por informar acordes e notas. Isso é muito bom pois substituiria parcialmente o uso das partituras, tablaturas e cifras além de funcionar como um ótimo guia para solistas e improvisadores (principalmente jazzistas).
+
+O reconhecimento de harmonias musicais no ponto de vista computacional é inerentemente complexo. Primeiramente deve-se achar uma forma de representação das amostras de áudio em termos de frequências, a ferramenta para esse tipo de atividade deverá fazer uma transformação da informação que está no domínio temporal para o domínio frequencial. Em seguida é preciso identificar notas musicais em meio ao espectro de frequências calculado, focando cobrir com acurácia relações de bandas de frequência com as notas em si. Tendo convertido o espectro de frequência em notas musicais é preciso definir a classificação de acordes dado um embasamento teórico-musical definido, mapeando as combinações possíveis de tríades com os respectivos acordes. E, por fim, é preciso consolidar uma solução para reconhecimento de acordes ao longo de uma música e, para tanto, deverá ser contemplado uma implementação que identifica transições rítmicas e reconhecimento de harmonias ao decorrer da música.  
 
 \section{Objetivos}
 \label{sec:objetivos}
 
 O presente trabalho tem como objetivo principal desenvolver uma solução computacional para reconhecimento de harmonias musicais.
 
-Como objetivos específicos têm-se:
+Como objetivos específicos têm-se implementação das soluções em:
 
  	\begin{itemize}
-        \item implementar a transformada de fourier para descrever os sinais de audio em termos de frequências;
-        \item implementar uma rede neural de inferência para sugestão de notas e acordes;
+        \item análise espectral da amostra de áudio;
+        \item classificação em notas musicais;
+        \item classificação em acordes musicais;
+        \item classificação em acordes invertidos;
+        \item transição rítmica;
+        \item reconhecimento dos padrões harmônicos ao longo do tempo.
     \end{itemize}
 
 \section{Organização do Trabalho}
