@@ -28,5 +28,6 @@
   Alterações: metodologia - seção linguagem de programação (pag 29)
 
 ##Demais correções apontados pelo professor Fernando ao longo do texto (TO DO)
+  ### Contexto (pag 23)
 
 ###Obs: o professor Cristiano ainda não entregou a versão comentada do TCC
