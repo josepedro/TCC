@@ -27,7 +27,8 @@ function [c]=coeffcorr(X,Y)
 	 // here begins the actual computation
 	 X=X-mean(X);
 	 Y=Y-mean(Y);
-	 c=X'*Y;
+	//disp(X.*Y)
+	 c=sum(X.*Y);
 	 if (c==0)
 	 return;
 	 else
