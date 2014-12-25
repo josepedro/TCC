@@ -37,11 +37,11 @@ respfreq = get_fourier_transform(som);
 //mtlb_axis([1, 1000, 0, 1.1]);
 
 //Get signal equalizated with maximum is 1
-rfeq = get_equalization_signal(respfreq);
+//rfeq = get_equalization_signal(respfreq);
 
 //Correlate frequencies with array of notes
 //scf(2);
-S1 = correlate_with_notes(rfeq);
+S1 = correlate_with_notes(respfreq);
 //bar(S1);
 //a=gca();
 //notas = ["do" "do#" "re" "re#" "mi" "fa" "fa#" "sol" "sol#" "la" "la#" "si"]
