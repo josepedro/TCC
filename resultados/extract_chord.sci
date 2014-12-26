@@ -18,7 +18,7 @@ function ACORDETOC = extract_chord(S1)
   end
 
   acordetoc = find(S2==max(S2));
-
+  
   //Condition for aum chords
   if (length(acordetoc) > 1)
     //Group 1 - Caum, Eaum, G#aum
