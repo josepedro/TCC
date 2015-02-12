@@ -1305,17 +1305,17 @@ som = som/max(som);
 %--------------------------
 %TRANSFORMADA DE FOURIER
 fs = 44100; %tx amostragem
-disp(length(som))
+
 f = (0:length(som)-1)*fs/length(som); %vetor das frequ�ncias dispon�veis no som
-disp(length(f))
+
 freq = f(1:round(length(f)/2)); %vetor das frequ�ncias propriamente ditas
-disp(length(freq))
+
 SOM = abs(fft(som)); %transformada de fourier criando vetor respostas
-disp(length(SOM))
+
 SOM = SOM/max(SOM); %normaliza��o do vetor das respostas
-disp(length(SOM))
+
 SOM = SOM(1:round(length(f)/2)); %vetor das respostas propriamente ditas
-disp(length(SOM))
+
 %Transformando as respectivas frequ�ncias em slots
 l = 1; %vari�vel auxiliar de contagem dos slots do novo vetor resposta-frequ�ncia
 j = 0; %vari�vel auxiliar de contagem das respostas numa mesma faixa de frequ�ncia
@@ -1335,7 +1335,6 @@ while (i<length(freq))%la�o da acopla��o
 end
 %fim do la�o e zerando os contadores usados
 l = 0; j = 0; i = 0;
-stem(respfreq)
 %--------------------------
 
 %--------------------------
@@ -1362,13 +1361,15 @@ b = 0.15; %sensibilidade da rede
 
 while (i <= 12)
     
-     correlacao = corrcoef(rfeq,notas(i,:));
-     S1(i) = correlacao(1,2);    
+     %correlacao = corrcoef(rfeq,notas(i,:));
+     %S1(i) = correlacao(1,2);    
+     S1(i) = sum(abs(rfeq.* notas(i,:)));
     %S1(i) = exp(-(norm(rfeq - notas(i,:))*b));
 
     i = i + 1;
 end
-
+%figure;
+%stem(S1);
 %--------------------------
 %RADIAL BASIS LAYER para BD acordes
 
