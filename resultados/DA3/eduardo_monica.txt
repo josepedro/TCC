@@ -142,3 +142,24 @@ chords_time =
     'D m'    'D aum'    'C# m'    'D dim'    'D M'    'D dim'
     'C m'    'D aum'    'E m'    'E M'    'F M'    'E M'
     'C# dim'    'E M'    'E m'    'E M'    'E M'
+
+
+
+
+
+    'D dim'    'E M'    'C# m'    'A m'    'D m'    'E m'    'E dim'    'E M'    'E M'    'F# dim'    'B dim'    'B m'    'A m'    'E M'    'C# m'    'F M'    'B m'
+    'D M'    'C# m'    'E M'    'E M'    'F# dim'    'D m'    'E m'    'E M'    'A m'    'E m'    'B m'    'A M'    'E m'    'B dim'    'B M'    'E m'    'B dim'
+    'A M'    'E M'    'F# dim'    'F# dim'    'Eb dim'    'E M'    'A m'    'B dim'    'B m'    'E m'    'A m'    'F dim'    'A M'    'C m'    'D m'    'E M'
+    'E dim'    'E m'    'A m'    'D m'    'A dim'    'D dim'    'B dim'    'F# dim'    'E m'    'B dim'    'A M'    'B m'    'E M'    'A m'    'A m'    'Bb dim'
+    'Bb dim'    'B M'    'F M'    'E dim'    'E m'    'E M'    'D m'    'D m'    'C M'    'E M'    'A m'    'E M'    'A m'    'B dim'    'C# dim'    'E M'    'C M'
+    'F# dim'    'D m'    'B dim'    'A m'    'E M'    'B M'    'E dim'    'B dim'    'B dim'    'A M'    'F dim'    'F# dim'    'Eb dim'    'E m'    'G# m'    'A m'
+    'G# m'    'C# dim'    'A m'    'E m'    'E M'    'A m'    'C# dim'    'A M'    'B dim'    'E m'    'E M'    'A m'    'B dim'    'C m'    'E M'    'E M'    'E M'
+    'A M'    'A dim'    'D M'    'B dim'    'E m'    'E M'    'D m'    'D M'    'E m'    'F m'    'B dim'    'E M'    'D m'    'G# dim'    'D M'    'E M'    'E dim'
+    'D M'    'B dim'    'A dim'    'A m'    'E m'    'B dim'    'D M'    'B m'    'F M'    'C# aum'    'E m'    'A m'    'Eb dim'    'E m'    'D dim'    'A m'    'G m'
+    'G M'    'C# dim'    'E M'    'G# dim'    'A m'    'D M'    'C# dim'    'F m'    'B dim'    'B dim'    'F M'    'G M'    'G# dim'    'E M'    'E M'    'E M'
+    'Eb M'    'B m'    'D m'    'B dim'    'E m'    'C aum'    'A m'    'D M'    'D m'    'C# m'    'B dim'    'E M'    'A M'    'G M'    'G m'    'E M'    'C M'
+    'F# m'    'D m'    'C M'    'A m'    'B dim'    'E m'    'F# dim'    'E m'    'A dim'    'A M'    'F# M'    'F# dim'    'A M'    'E m'    'G# M'    'E M'    'D M'
+    'G# dim'    'C M'    'E M'    'E M'    'E dim'    'Bb M'    'G M'    'E m'    'E m'    'E M'    'D m'    'G# dim'    'D M'    'D m'    'A m'    'E M'    'A m'
+    'G# dim'    'D m'    'B dim'    'C aum'    'C# m'    'C# aum'    'G# dim'    'A m'    'E M'    'B dim'    'E M'    'Eb dim'    'A m'    'B dim'    'B dim'    'E M'
+    'D M'    'E M'    'E M'    'A dim'    'E M'    'C m'    'D aum'    'E m'    'E M'    'D aum'    'A M'    'A M'    'D m'    'G# M'    'A m'    'D m'    'D m'
+    'A M'    'G m'    'A M'    'B dim'    'Bb M'    'Bb dim'    'E M'    'G m'    'D m'    'B dim'    'D m'    'C dim'    'E M'    'C dim'    'A m'    'B m'    'E m'

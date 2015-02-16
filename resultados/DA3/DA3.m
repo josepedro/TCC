@@ -1,8 +1,5 @@
 function [notes_time, chords_time, chord_pitch] = DA3(signal, fs)
 
-load_notes;
-load_chords;
-
 dictionary_chords = { 'C M', 'C m', 'C aum', 'C dim', ...
      'C# M', 'C# m', 'C# aum', 'C# dim', 'D M', 'D m', 'D aum', 'D dim', ...
      'Eb M', 'Eb m', 'Eb aum', 'Eb dim', 'E M', 'E m', 'E aum', 'E dim', ...
@@ -26,14 +23,14 @@ for time = 1:time_seconds_total
     respfreq = get_frequency_spectrum(signal_time, fs);
 
     % get energy of notes
-    notes_time = get_energy_notes(respfreq, notes, notes_time, time);
+    notes_time = get_energy_notes(respfreq, notes_time, time);
     
     % get energy of chords
-    energy_chords = get_energy_chords(notes_time, chords, time);
+    energy_chords = get_energy_chords(notes_time, time);
 
     % consulte dictionary chords to put a string relative a chord max energy
     chords_time{time} = dictionary_chords{find(energy_chords==max(energy_chords))};
 end
 
 % get chord in pitch
-chord_pitch = get_chord_pitch(notes_time, time_seconds_total, chords, dictionary_chords);
+chord_pitch = get_chord_pitch(notes_time, time_seconds_total, dictionary_chords);
