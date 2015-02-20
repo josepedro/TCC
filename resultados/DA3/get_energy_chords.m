@@ -10,5 +10,5 @@ function energy_chords = get_energy_chords(notes_time, time)
 
 	energy_chords(1:48) = 0;
     for chord = 1:48
-        energy_chords(chord) = sum(notes_energy_tone.*chords_tone_mask(:, chord)');
+        energy_chords(chord) = sum((notes_energy_tone.*chords_tone_mask(:, chord)').^2);
     end

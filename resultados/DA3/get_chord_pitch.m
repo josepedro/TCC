@@ -21,6 +21,9 @@ function chord_pitch = get_chord_pitch(notes_time, time_seconds_total, chords)
 				+ notes_energy_total(note + 4*12);
 	end
 
+	figure;
+	stem(notes_energy_tone);
+
 	% find chord tone
 	load_chords_tone;
 	chords_tone(48) = 0;

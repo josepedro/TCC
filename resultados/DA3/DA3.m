@@ -34,3 +34,8 @@ end
 
 % get chord in pitch
 chord_pitch = get_chord_pitch(notes_time, time_seconds_total, dictionary_chords);
+
+% testing with small window and big window
+%respfreq_total = get_frequency_spectrum(signal, fs);
+%figure;
+%stem(respfreq_total);

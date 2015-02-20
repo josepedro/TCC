@@ -1,16 +1,16 @@
 % get frequency spectrum
-function frequency_spectrum = get_frequency_spectrum(signal, sampler)
+function frequency_spectrum = get_frequency_spectrum(signal, sampling)
 
 	% make downsample to put frequency max in 1050 Hz
-    signal_time = downsample(signal, 21);
-    fs_time = sampler/21;
+    signal = downsample(signal, 21);
+    sampling = sampling/21;
 
     % doing fourier transform
-	module_fft = abs(fft(signal_time));
-    respfreq(1:fs_time) = 0;
-    window_mean = length(signal_time)/fs_time;
-    for frequency = 1:fs_time
-        respfreq(frequency) = sum(module_fft(1+((frequency-1)*window_mean):frequency*window_mean))/window_mean;
+    frequencies=(0:length(signal)-1)*sampling/length(signal);
+    module_fft = abs(fft(signal));
+    f_round = round(frequencies);
+    frequencies_energy(max(f_round)) = 0;
+    for slot = 2:length(f_round)
+        frequencies_energy(f_round(slot)) = module_fft(slot);
     end
-
-    frequency_spectrum = respfreq(1:fix(length(respfreq)/2));
+    frequency_spectrum = frequencies_energy(1:fix(end/2));
