@@ -9,6 +9,7 @@ dictionary_chords = { 'C M', 'C m', 'C aum', 'C dim', ...
      'B M', 'B m', 'B aum', 'B dim' };
 
 % get total seconds of time to mensure the length of music 
+signal = signal(:,1);
 time_seconds_total = fix((length(signal)/fs)); 
 % allocate matrix time per notes
 notes_time(time_seconds_total, 60) = 0;
@@ -35,7 +36,3 @@ end
 % get chord in pitch
 chord_pitch = get_chord_pitch(notes_time, time_seconds_total, dictionary_chords);
 
-% testing with small window and big window
-%respfreq_total = get_frequency_spectrum(signal, fs);
-%figure;
-%stem(respfreq_total);

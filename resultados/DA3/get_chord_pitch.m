@@ -21,14 +21,11 @@ function chord_pitch = get_chord_pitch(notes_time, time_seconds_total, chords)
 				+ notes_energy_total(note + 4*12);
 	end
 
-	figure;
-	stem(notes_energy_tone);
-
 	% find chord tone
 	load_chords_tone;
 	chords_tone(48) = 0;
 	for chord = 1:48
-		chords_tone(chord) = sum(notes_energy_tone.*chords_tone_mask(:, chord)');
+		chords_tone(chord) = sum((notes_energy_tone.*chords_tone_mask(:, chord)'.^2));
 	end
 
 	chord_pitch = dictionary_chords{find(chords_tone==max(chords_tone))};
