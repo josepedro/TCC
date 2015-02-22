@@ -1,4 +1,52 @@
-function [notes_time, chords_time, chord_pitch] = DA3(signal, fs)
+function [notes_time_44100, chords_time_44100, chord_pitch_44100] = DA3(signal, fs)
+    [notes_time_44100, chords_time_44100, chord_pitch_44100] = DA3_window_44100(signal, fs);
+    [notes_time_10000, chords_time_10000, chord_pitch_10000] = DA3_window_10000(signal, fs);
+    %chords_time_44100(1:10)
+    %chords_time_10000(1:40)
+
+end
+
+function [notes_time, chords_time, chord_pitch] = DA3_window_44100(signal, fs)
+    dictionary_chords = { 'C M', 'C m', 'C aum', 'C dim', ...
+     'C# M', 'C# m', 'C# aum', 'C# dim', 'D M', 'D m', 'D aum', 'D dim', ...
+     'Eb M', 'Eb m', 'Eb aum', 'Eb dim', 'E M', 'E m', 'E aum', 'E dim', ...
+     'F M', 'F m', 'F aum', 'F dim', 'F# M', 'F# m', 'F# aum', 'F# dim', ...
+     'G M', 'G m', 'G aum', 'G dim', 'G# M', 'G# m', 'G# aum', 'G# dim', ...
+     'A M', 'A m', 'A aum', 'A dim', 'Bb M', 'Bb m', 'Bb aum', 'Bb dim', ...
+     'B M', 'B m', 'B aum', 'B dim' };
+
+    % get total seconds of time to mensure the length of music 
+    signal = signal(:,1);
+    time_seconds_total = fix((length(signal)/fs)); 
+    % allocate matrix time per notes
+    notes_time(time_seconds_total, 60) = 0;
+    % allocate cell to put the chords throughout music 
+    chords_time = {};
+
+    for time = 1:time_seconds_total
+        % building a window to short fft
+        signal_time = build_window_short_fft(signal, time, fs);
+        
+        % get frequency spectrum
+        respfreq = get_frequency_spectrum(signal_time, fs);
+
+        % get energy of notes
+        notes_time = get_energy_notes(respfreq, notes_time, time);
+        
+        % get energy of chords
+        energy_chords = get_energy_chords(notes_time, time);
+
+        % consulte dictionary chords to put a string relative a chord max energy
+        chords_time{time} = dictionary_chords{find(energy_chords==max(energy_chords))};
+    end
+
+    % get chord in pitch
+    chord_pitch = get_chord_pitch(notes_time, time_seconds_total, dictionary_chords);
+end
+
+function [notes_time, chords_time, chord_pitch] = DA3_window_10000(signal, sampling)
+    % grant to be a array in one dimension
+signal = [signal(:,1)];
 
 dictionary_chords = { 'C M', 'C m', 'C aum', 'C dim', ...
      'C# M', 'C# m', 'C# aum', 'C# dim', 'D M', 'D m', 'D aum', 'D dim', ...
@@ -8,31 +56,34 @@ dictionary_chords = { 'C M', 'C m', 'C aum', 'C dim', ...
      'A M', 'A m', 'A aum', 'A dim', 'Bb M', 'Bb m', 'Bb aum', 'Bb dim', ...
      'B M', 'B m', 'B aum', 'B dim' };
 
-% get total seconds of time to mensure the length of music 
-signal = signal(:,1);
-time_seconds_total = fix((length(signal)/fs)); 
+% get total seconds of time to mensure the length of music
+window_time = 10000; 
+time_seconds_total = fix((length(signal)/window_time)); 
 % allocate matrix time per notes
-notes_time(time_seconds_total, 60) = 0;
+notes_time(time_seconds_total, 48) = 0;
 % allocate cell to put the chords throughout music 
 chords_time = {};
 
 for time = 1:time_seconds_total
     % building a window to short fft
-    signal_time = build_window_short_fft(signal, time, fs);
+    signal_time = build_window_short_fft_10000(signal, time, sampling, window_time);
     
     % get frequency spectrum
-    respfreq = get_frequency_spectrum(signal_time, fs);
+    frequency_spectrum = get_frequency_spectrum_10000(signal_time, sampling);
 
     % get energy of notes
-    notes_time = get_energy_notes(respfreq, notes_time, time);
-    
+    notes_time = get_energy_notes_10000(frequency_spectrum, notes_time, time);
+end
+
+% get chord in pitch
+chord_pitch = get_chord_pitch_10000(notes_time, time_seconds_total, dictionary_chords);
+
+% with tone of music we can build harmonic tree
+for time = 1:time_seconds_total
     % get energy of chords
-    energy_chords = get_energy_chords(notes_time, time);
+    energy_chords = get_energy_chords_10000(notes_time, time);
 
     % consulte dictionary chords to put a string relative a chord max energy
     chords_time{time} = dictionary_chords{find(energy_chords==max(energy_chords))};
 end
-
-% get chord in pitch
-chord_pitch = get_chord_pitch(notes_time, time_seconds_total, dictionary_chords);
-
+end
