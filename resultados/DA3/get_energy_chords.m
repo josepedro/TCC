@@ -1,6 +1,6 @@
 function energy_chords = get_energy_chords(notes_time, time)
 	load_chords_tone;
-	% discover tone music
+
 	notes_energy_tone(12) = 0;
 	for note = 1:12
 		notes_energy_tone(note) = notes_time(time, note) + notes_time(time, note + 12) ...

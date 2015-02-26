@@ -1,4 +1,4 @@
-function chord_pitch = get_chord_pitch_10000(notes_time, time_seconds_total, chords)
+function [chord_pitch, chord_pitch_number] = get_chord_pitch_10000(notes_time, time_seconds_total, chords)
 	
 	dictionary_chords = { 'C M', 'C m', 'C aum', 'C dim', ...
      'C# M', 'C# m', 'C# aum', 'C# dim', 'D M', 'D m', 'D aum', 'D dim', ...
@@ -27,4 +27,5 @@ function chord_pitch = get_chord_pitch_10000(notes_time, time_seconds_total, cho
 		chords_tone(chord) = sum(notes_energy_tone.*chords_tone_mask(:, chord)');
 	end
 
-	chord_pitch = dictionary_chords{find(chords_tone==max(chords_tone))};
+	chord_pitch_number = find(chords_tone==max(chords_tone));
+	chord_pitch = dictionary_chords{chord_pitch_number};
