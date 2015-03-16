@@ -1,6 +1,6 @@
 function [notes_time_44100, chords_time_44100, chord_pitch_44100] = DA3(signal, fs)
     [notes_time_44100, chords_time_44100, chord_pitch_44100, chord_pitch_number] = DA3_window_44100(signal, fs);
-    [notes_time_10000, chords_time_10000] = DA3_window_10000(signal, fs, chord_pitch_number);
+    %[notes_time_10000, chords_time_10000] = DA3_window_10000(signal, fs, chord_pitch_number);
     %chords_time_44100(1:10)
     %chords_time_10000(1:40)
 
@@ -25,13 +25,13 @@ function [notes_time, chords_time, chord_pitch, chord_pitch_number] = DA3_window
 
     for time = 1:time_seconds_total
         % building a window to short fft
-        signal_time = build_window_short_fft(signal, time, fs);
-        
+        set_of_windows_signals = build_window_short_fft(signal, time, fs);
+
         % get frequency spectrum
-        respfreq = get_frequency_spectrum(signal_time, fs);
+        set_of_spectrums = get_frequency_spectrum(set_of_windows_signals, fs);
 
         % get energy of notes
-        notes_time = get_energy_notes(respfreq, notes_time, time);
+        notes_time = get_energy_notes(set_of_spectrums{1}, notes_time, time);
     end
 
     % get chord in pitch
@@ -46,7 +46,7 @@ function [notes_time, chords_time, chord_pitch, chord_pitch_number] = DA3_window
         % check harmonic field
         if check_harmonic_field(chord_number, chord_pitch_number) == 0
             % get chord in harmonic field
-            chord_number = get_chord_energy_harmonic_field(chord_pitch_number, notes_time, time);
+            %chord_number = get_chord_energy_harmonic_field(chord_pitch_number, notes_time, time);
         end
 
         % consulte dictionary chords to put a string relative a chord max energy
