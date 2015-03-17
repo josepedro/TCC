@@ -18,8 +18,14 @@ function [notes_time, chords_time, chord_pitch, chord_pitch_number] = DA3_window
     % get total seconds of time to mensure the length of music 
     signal = signal(:,1);
     time_seconds_total = fix((length(signal)/fs)); 
-    % allocate matrix time per notes
-    notes_time(time_seconds_total, 60) = 0;
+    
+    % preparing struct to allocate notes in time
+    set_of_notes_time = {};
+    for set = 1:5
+        notes_time(time_seconds_total, 60) = 0;
+        set_of_notes_time{set} = notes_time;
+    end
+
     % allocate cell to put the chords throughout music 
     chords_time = {};
 
@@ -31,73 +37,37 @@ function [notes_time, chords_time, chord_pitch, chord_pitch_number] = DA3_window
         set_of_spectrums = get_frequency_spectrum(set_of_windows_signals, fs);
 
         % get energy of notes
-        notes_time = get_energy_notes(set_of_spectrums{1}, notes_time, time);
+        set_of_notes_time = get_energy_notes(set_of_spectrums, set_of_notes_time, time);
+    end
+
+
+    % binarize set of notes
+    for set = 1:5
+        notes_time = set_of_notes_time{set};
+        
+        for time = 1:time_seconds_total
+            for note = 1:60
+                if notes_time(time, note) < max(max(notes_time))/200
+                    notes_time(time, note) = 0;
+                else
+                    notes_time(time, note) = 1;
+                end
+            end
+        end
+
+        set_of_notes_time{set} = notes_time;
     end
 
     % get chord in pitch
-    [chord_pitch, chord_pitch_number] = get_chord_pitch(notes_time, time_seconds_total, dictionary_chords);
+    [chord_pitch, chord_pitch_number] = get_chord_pitch(set_of_notes_time{1}, time_seconds_total, dictionary_chords);
 
     % with tone of music we can build harmonic tree
     for time = 1:time_seconds_total
         % get energy of chords
-        energy_chords = get_energy_chords(notes_time, time);
+        energy_chords = get_energy_chords(set_of_notes_time{1}, time);
         chord_number = find(energy_chords==max(energy_chords));
-
-        % check harmonic field
-        if check_harmonic_field(chord_number, chord_pitch_number) == 0
-            % get chord in harmonic field
-            %chord_number = get_chord_energy_harmonic_field(chord_pitch_number, notes_time, time);
-        end
 
         % consulte dictionary chords to put a string relative a chord max energy
         chords_time{time} = dictionary_chords{chord_number};
     end
-end
-
-function [notes_time, chords_time, chord_pitch] = DA3_window_10000(signal, sampling, chord_pitch_number)
-    % grant to be a array in one dimension
-signal = [signal(:,1)];
-
-dictionary_chords = { 'C M', 'C m', 'C aum', 'C dim', ...
-     'C# M', 'C# m', 'C# aum', 'C# dim', 'D M', 'D m', 'D aum', 'D dim', ...
-     'Eb M', 'Eb m', 'Eb aum', 'Eb dim', 'E M', 'E m', 'E aum', 'E dim', ...
-     'F M', 'F m', 'F aum', 'F dim', 'F# M', 'F# m', 'F# aum', 'F# dim', ...
-     'G M', 'G m', 'G aum', 'G dim', 'G# M', 'G# m', 'G# aum', 'G# dim', ...
-     'A M', 'A m', 'A aum', 'A dim', 'Bb M', 'Bb m', 'Bb aum', 'Bb dim', ...
-     'B M', 'B m', 'B aum', 'B dim' };
-
-% get total seconds of time to mensure the length of music
-window_time = 10000; 
-time_seconds_total = fix((length(signal)/window_time)); 
-% allocate matrix time per notes
-notes_time(time_seconds_total, 48) = 0;
-% allocate cell to put the chords throughout music 
-chords_time = {};
-
-for time = 1:time_seconds_total
-    % building a window to short fft
-    signal_time = build_window_short_fft_10000(signal, time, sampling, window_time);
-    
-    % get frequency spectrum
-    frequency_spectrum = get_frequency_spectrum_10000(signal_time, sampling);
-
-    % get energy of notes
-    notes_time = get_energy_notes_10000(frequency_spectrum, notes_time, time);
-end
-
-% with tone of music we can build harmonic tree
-for time = 1:time_seconds_total
-    % get energy of chords
-    energy_chords = get_energy_chords_10000(notes_time, time);
-    chord_number = find(energy_chords==max(energy_chords));
-
-    % check harmonic field
-    if check_harmonic_field(chord_number, chord_pitch_number) == 0
-        % get chord in harmonic field
-        chord_number = get_chord_energy_harmonic_field_10000(chord_pitch_number, notes_time, time);
-    end
-
-    % consulte dictionary chords to put a string relative a chord max energy
-    chords_time{time} = dictionary_chords{chord_number};
-end
 end
