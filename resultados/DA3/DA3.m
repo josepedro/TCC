@@ -47,7 +47,7 @@ function [notes_time, chords_time, chord_pitch, chord_pitch_number] = DA3_window
         
         for time = 1:time_seconds_total
             for note = 1:60
-                if notes_time(time, note) < max(max(notes_time))/200
+                if notes_time(time, note) < max(max(notes_time))/180
                     notes_time(time, note) = 0;
                 else
                     notes_time(time, note) = 1;
@@ -61,13 +61,16 @@ function [notes_time, chords_time, chord_pitch, chord_pitch_number] = DA3_window
     % get chord in pitch
     [chord_pitch, chord_pitch_number] = get_chord_pitch(set_of_notes_time{1}, time_seconds_total, dictionary_chords);
 
-    % with tone of music we can build harmonic tree
-    for time = 1:time_seconds_total
-        % get energy of chords
-        energy_chords = get_energy_chords(set_of_notes_time{1}, time);
-        chord_number = find(energy_chords==max(energy_chords));
 
-        % consulte dictionary chords to put a string relative a chord max energy
-        chords_time{time} = dictionary_chords{chord_number};
+    set_of_chords_time = get_set_of_chords_time(set_of_notes_time);
+
+    for set = 1:5
+        chords_time = set_of_chords_time{set};
+        for time = 1:time_seconds_total
+            disp(dictionary_chords(chords_time(time)));
+        end
+        disp('new set');
     end
+
+    
 end
