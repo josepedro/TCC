@@ -1,9 +1,5 @@
 function [notes_time_44100, chords_time_44100, chord_pitch_44100] = DA3(signal, fs)
     [notes_time_44100, chords_time_44100, chord_pitch_44100, chord_pitch_number] = DA3_window_44100(signal, fs);
-    %[notes_time_10000, chords_time_10000] = DA3_window_10000(signal, fs, chord_pitch_number);
-    %chords_time_44100(1:10)
-    %chords_time_10000(1:40)
-
 end
 
 function [notes_time, chords_time, chord_pitch, chord_pitch_number] = DA3_window_44100(signal, fs)
@@ -61,16 +57,12 @@ function [notes_time, chords_time, chord_pitch, chord_pitch_number] = DA3_window
     % get chord in pitch
     [chord_pitch, chord_pitch_number] = get_chord_pitch(set_of_notes_time{1}, time_seconds_total, dictionary_chords);
 
-
     set_of_chords_time = get_set_of_chords_time(set_of_notes_time);
 
-    for set = 1:5
-        chords_time = set_of_chords_time{set};
-        for time = 1:time_seconds_total
-            disp(dictionary_chords(chords_time(time)));
-        end
-        disp('new set');
+    chords_number = analyse_set_of_chords(set_of_chords_time);
+
+    for time = 1:time_seconds_total
+        chords_time{time} = dictionary_chords{chords_number(time)};
     end
 
-    
 end
