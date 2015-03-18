@@ -36,7 +36,6 @@ function [notes_time, chords_time, chord_pitch, chord_pitch_number] = DA3_window
         set_of_notes_time = get_energy_notes(set_of_spectrums, set_of_notes_time, time);
     end
 
-
     % binarize set of notes
     for set = 1:5
         notes_time = set_of_notes_time{set};
@@ -53,6 +52,8 @@ function [notes_time, chords_time, chord_pitch, chord_pitch_number] = DA3_window
 
         set_of_notes_time{set} = notes_time;
     end
+
+    bass_time = get_bass(set_of_notes_time);
 
     % get chord in pitch
     [chord_pitch, chord_pitch_number] = get_chord_pitch(set_of_notes_time{1}, time_seconds_total, dictionary_chords);
