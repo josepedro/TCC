@@ -22,4 +22,8 @@ function bass_time = get_bass(set_of_notes_time)
 		bass_time(time) = maxs(1);
 	end
 
+	for bass = 1:length(bass_time)
+		bass_time(bass) = mod(bass_time(bass) - 1, 12) + 1;
+	end
+
 end

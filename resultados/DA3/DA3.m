@@ -2,7 +2,7 @@ function [notes_time_44100, chords_time_44100, chord_pitch_44100] = DA3(signal, 
     [notes_time_44100, chords_time_44100, chord_pitch_44100, chord_pitch_number] = DA3_window_44100(signal, fs);
 end
 
-function [notes_time, chords_time, chord_pitch, chord_pitch_number] = DA3_window_44100(signal, fs)
+function [notes_time, chords_with_bass, chord_pitch, chord_pitch_number] = DA3_window_44100(signal, fs)
     dictionary_chords = { 'C M', 'C m', 'C aum', 'C dim', ...
      'C# M', 'C# m', 'C# aum', 'C# dim', 'D M', 'D m', 'D aum', 'D dim', ...
      'Eb M', 'Eb m', 'Eb aum', 'Eb dim', 'E M', 'E m', 'E aum', 'E dim', ...
@@ -62,8 +62,10 @@ function [notes_time, chords_time, chord_pitch, chord_pitch_number] = DA3_window
 
     chords_number = analyse_set_of_chords(set_of_chords_time);
 
-    for time = 1:time_seconds_total
-        chords_time{time} = dictionary_chords{chords_number(time)};
-    end
+    chords_with_bass = get_chords_bass(chords_number, bass_time);
+
+    %for time = 1:time_seconds_total
+     %   chords_time{time} = dictionary_chords{chords_number(time)};
+    %end
 
 end
