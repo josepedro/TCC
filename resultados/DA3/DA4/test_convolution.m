@@ -8,7 +8,7 @@ freqs = [32.703 34.648 36.708 38.891 41.203 43.654 46.249 48.999 51.913 55 58.27
 
 signal = wavread('~/git/TCC/resultados/acordes_teste/CM1.wav');
 signal = signal(:,1);
-signal = signal(2*44100:2*44100+4410);
+%signal = signal(2*44100:2*44100+4410);
 signal = downsample(signal, 21);
 
 sampleFreq = 44100/21;
@@ -20,6 +20,7 @@ filters_notes = {};
 energy_notes(length(freqs)) = 0;
 
 for note = 1:length(freqs)
+	sound(conv(sin(2*pi*freqs(note)*times), sampleFreq));
 	energy_notes(note) = sum((conv(sin(2*pi*freqs(note)*times),signal).^2));
 end
 
