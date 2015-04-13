@@ -1,0 +1,27 @@
+\select@language {brazil}
+\contentsline {figure}{\numberline {1}{\ignorespaces Modelo de Ciclo Adaptado}}{29}{figure.2.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Fun\IeC {\c c}\IeC {\~a}o da Equa\IeC {\c c}\IeC {\~a}o 2.3}}{48}{figure.3.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces Fun\IeC {\c c}\IeC {\~a}o da Equa\IeC {\c c}\IeC {\~a}o 2.4}}{49}{figure.3.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces Distribui\IeC {\c c}\IeC {\~a}o das frequ\IeC {\^e}ncias nas notas musicais em Hz}}{51}{figure.3.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces Modelo de um neur\IeC {\^o}nio}}{56}{figure.3.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces Modelo arquitetural da PNN}}{57}{figure.3.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces Diagrama de Fluxo de Dados}}{59}{figure.4.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Vetor de 22.050 posi\IeC {\c c}\IeC {\~o}es de Resposta em Frequ\IeC {\^e}ncia}}{62}{figure.4.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces Esquema de Neur\IeC {\^o}nio para Notas}}{63}{figure.4.9}
+\contentsline {figure}{\numberline {10}{\ignorespaces Equa\IeC {\c c}\IeC {\~a}o de Correla\IeC {\c c}\IeC {\~a}o}}{63}{figure.4.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces Esquema de Neur\IeC {\^o}nio para Acordes}}{65}{figure.4.11}
+\contentsline {figure}{\numberline {12}{\ignorespaces Esquema da Arquitetura Final da Rede}}{66}{figure.4.12}
+\contentsline {figure}{\numberline {13}{\ignorespaces Teclado ilustrativo para execu\IeC {\c c}\IeC {\~a}o dos acordes}}{69}{figure.5.13}
+\contentsline {figure}{\numberline {14}{\ignorespaces Processo ilustrativo da execu\IeC {\c c}\IeC {\~a}o dos experimentos}}{69}{figure.5.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces Gr\IeC {\'a}fico da resposta em frequ\IeC {\^e}ncia para a grava\IeC {\c c}\IeC {\~a}o do acorde $CM$}}{70}{figure.5.15}
+\contentsline {figure}{\numberline {16}{\ignorespaces Gr\IeC {\'a}fico de sugest\IeC {\~a}o de notas para a grava\IeC {\c c}\IeC {\~a}o do acorde $CM$}}{70}{figure.5.16}
+\contentsline {figure}{\numberline {17}{\ignorespaces Gr\IeC {\'a}ficos de sugest\IeC {\~a}o de acordes a grava\IeC {\c c}\IeC {\~a}o do acorde $CM$}}{71}{figure.5.17}
+\contentsline {figure}{\numberline {18}{\ignorespaces Gr\IeC {\'a}fico da resposta em frequ\IeC {\^e}ncia para a grava\IeC {\c c}\IeC {\~a}o do acorde $Dm$}}{72}{figure.5.18}
+\contentsline {figure}{\numberline {19}{\ignorespaces Gr\IeC {\'a}fico de sugest\IeC {\~a}o de notas para a grava\IeC {\c c}\IeC {\~a}o do acorde $Dm$}}{72}{figure.5.19}
+\contentsline {figure}{\numberline {20}{\ignorespaces Gr\IeC {\'a}ficos de sugest\IeC {\~a}o de acordes a grava\IeC {\c c}\IeC {\~a}o do acorde $Dm$}}{73}{figure.5.20}
+\contentsline {figure}{\numberline {21}{\ignorespaces Gr\IeC {\'a}fico da resposta em frequ\IeC {\^e}ncia para a grava\IeC {\c c}\IeC {\~a}o do acorde $Ddim$}}{74}{figure.5.21}
+\contentsline {figure}{\numberline {22}{\ignorespaces Gr\IeC {\'a}fico de sugest\IeC {\~a}o de notas para a grava\IeC {\c c}\IeC {\~a}o do acorde $Ddim$}}{74}{figure.5.22}
+\contentsline {figure}{\numberline {23}{\ignorespaces Gr\IeC {\'a}ficos de sugest\IeC {\~a}o de acordes a grava\IeC {\c c}\IeC {\~a}o do acorde $Ddim$}}{75}{figure.5.23}
+\contentsline {figure}{\numberline {24}{\ignorespaces Gr\IeC {\'a}fico da resposta em frequ\IeC {\^e}ncia para a grava\IeC {\c c}\IeC {\~a}o do acorde $Daum$}}{76}{figure.5.24}
+\contentsline {figure}{\numberline {25}{\ignorespaces Gr\IeC {\'a}fico de sugest\IeC {\~a}o de notas para a grava\IeC {\c c}\IeC {\~a}o do acorde $Daum$}}{76}{figure.5.25}
+\contentsline {figure}{\numberline {26}{\ignorespaces Gr\IeC {\'a}ficos de sugest\IeC {\~a}o de acordes a grava\IeC {\c c}\IeC {\~a}o do acorde $Daum$}}{77}{figure.5.26}
