@@ -5,58 +5,49 @@
 \contentsline {section}{\numberline {1.2}Problem\IeC {\'a}tica}{23}{section.1.2}
 \contentsline {section}{\numberline {1.3}Objetivos}{25}{section.1.3}
 \contentsline {section}{\numberline {1.4}Organiza\IeC {\c c}\IeC {\~a}o do Trabalho}{25}{section.1.4}
-\contentsline {chapter}{\chapternumberline {2}Metodologia}{27}{chapter.2}
-\contentsline {section}{\numberline {2.1}Metodologia de Desenvolvimento}{27}{section.2.1}
-\contentsline {section}{\numberline {2.2}Linguagem de Programa\IeC {\c c}\IeC {\~a}o}{28}{section.2.2}
-\contentsline {section}{\numberline {2.3}Linha de Ciclos de Desenvolvimento}{29}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Estrutura do Ciclo}{29}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}TCC 1 - Ciclo 1}{30}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}TCC 1 - Ciclo 2}{30}{subsection.2.3.3}
-\contentsline {subsection}{\numberline {2.3.4}TCC 1 - Ciclo 3}{31}{subsection.2.3.4}
-\contentsline {subsection}{\numberline {2.3.5}TCC 1 - Ciclo 4}{33}{subsection.2.3.5}
-\contentsline {subsection}{\numberline {2.3.6}TCC 2 - Ciclo 5}{34}{subsection.2.3.6}
-\contentsline {subsection}{\numberline {2.3.7}TCC 2 - Ciclo 6}{34}{subsection.2.3.7}
-\contentsline {subsection}{\numberline {2.3.8}TCC 2 - Ciclo 7}{36}{subsection.2.3.8}
-\contentsline {subsection}{\numberline {2.3.9}TCC 2 - Ciclo 8}{37}{subsection.2.3.9}
-\contentsline {subsection}{\numberline {2.3.10}TCC 2 - Ciclo 9}{38}{subsection.2.3.10}
-\contentsline {subsection}{\numberline {2.3.11}TCC 2 - Ciclo 10}{39}{subsection.2.3.11}
-\contentsline {subsection}{\numberline {2.3.12}TCC 2 - Ciclo 11}{41}{subsection.2.3.12}
-\contentsline {subsection}{\numberline {2.3.13}TCC 2 - Ciclo 12}{42}{subsection.2.3.13}
-\contentsline {chapter}{\chapternumberline {3}Fundamentos Te\IeC {\'o}ricos}{47}{chapter.3}
-\contentsline {section}{\numberline {3.1}Conceitos F\IeC {\'\i }sicos do Som}{47}{section.3.1}
-\contentsline {section}{\numberline {3.2}Conceitos Musicais}{49}{section.3.2}
-\contentsline {section}{\numberline {3.3}Conceitos de Processamento de Sinais}{53}{section.3.3}
-\contentsline {section}{\numberline {3.4}Conceitos de Redes Neurais Artificiais}{54}{section.3.4}
-\contentsline {chapter}{\chapternumberline {4}Desenvolvimento da Solu\IeC {\c c}\IeC {\~a}o}{59}{chapter.4}
-\contentsline {section}{\numberline {4.1}Inicializa\IeC {\c c}\IeC {\~a}o do Sistema}{59}{section.4.1}
-\contentsline {section}{\numberline {4.2}Convers\IeC {\~a}o$stereo$-Mono}{60}{section.4.2}
-\contentsline {section}{\numberline {4.3}Transformada de Fourier}{60}{section.4.3}
-\contentsline {section}{\numberline {4.4}Correla\IeC {\c c}\IeC {\~a}o com Notas Musicais}{63}{section.4.4}
-\contentsline {section}{\numberline {4.5}Correla\IeC {\c c}\IeC {\~a}o com Acordes Musicais}{64}{section.4.5}
-\contentsline {section}{\numberline {4.6}Extra\IeC {\c c}\IeC {\~a}o do Acorde}{66}{section.4.6}
-\contentsline {chapter}{\chapternumberline {5}Resultados Parciais}{67}{chapter.5}
-\contentsline {section}{\numberline {5.1}Pr\IeC {\'e}-condi\IeC {\c c}\IeC {\~o}es dos Experimentos}{68}{section.5.1}
-\contentsline {section}{\numberline {5.2}Experimento 1 - Acorde $CM$}{70}{section.5.2}
-\contentsline {section}{\numberline {5.3}Experimento 2 - Acorde $Dm$}{72}{section.5.3}
-\contentsline {section}{\numberline {5.4}Experimento 3 - Acorde $Ddim$}{74}{section.5.4}
-\contentsline {section}{\numberline {5.5}Experimento 4 - Acorde $Daum$}{76}{section.5.5}
-\contentsline {section}{\numberline {5.6}Tabela de resultados dos acordes tocados}{78}{section.5.6}
-\contentsline {chapter}{\chapternumberline {6}Considera\IeC {\c c}\IeC {\~o}es Finais}{81}{chapter.6}
-\contentsline {section}{\numberline {6.1}Evolu\IeC {\c c}\IeC {\~o}es Futuras}{81}{section.6.1}
+\contentsline {chapter}{\chapternumberline {2}Fundamentos Te\IeC {\'o}ricos}{27}{chapter.2}
+\contentsline {section}{\numberline {2.1}Conceitos F\IeC {\'\i }sicos do Som}{27}{section.2.1}
+\contentsline {section}{\numberline {2.2}Conceitos Musicais}{29}{section.2.2}
+\contentsline {section}{\numberline {2.3}Conceitos de Processamento de Sinais}{33}{section.2.3}
+\contentsline {section}{\numberline {2.4}Conceitos de Redes Neurais Artificiais}{34}{section.2.4}
+\contentsline {chapter}{\chapternumberline {3}Desenvolvimento da Solu\IeC {\c c}\IeC {\~a}o}{39}{chapter.3}
+\contentsline {section}{\numberline {3.1}Metodologia}{39}{section.3.1}
+\contentsline {section}{\numberline {3.2}T\IeC {\'e}cnicas Utilizadas para Desenvolvimento do Sistema-Solu\IeC {\c c}\IeC {\~a}o}{42}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Procedimento 1: Separar Janelas de 1 Segundo em 5 Partes}{43}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Procedimento 2: Aplicar Janelas de Blackman}{43}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Procedimento 3: Calcular o Espectro de Frequ\IeC {\^e}ncias}{45}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Procedimento 4: Adquirir Energias das Notas}{46}{subsection.3.2.4}
+\contentsline {section}{\numberline {3.3}Procedimento 5: Binarizar Energia das Notas}{47}{section.3.3}
+\contentsline {section}{\numberline {3.4}Procedimento 6: Extrair Baixos}{47}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Procedimento 7: Extrair Tonalidade}{48}{subsection.3.4.1}
+\contentsline {section}{\numberline {3.5}Procedimento 8: Extrair Acordes Fundamentais}{49}{section.3.5}
+\contentsline {section}{\numberline {3.6}Procedimento }{51}{section.3.6}
+\contentsline {section}{\numberline {3.7}Correla\IeC {\c c}\IeC {\~a}o com Notas Musicais}{53}{section.3.7}
+\contentsline {section}{\numberline {3.8}Correla\IeC {\c c}\IeC {\~a}o com Acordes Musicais}{54}{section.3.8}
+\contentsline {section}{\numberline {3.9}Extra\IeC {\c c}\IeC {\~a}o do Acorde}{56}{section.3.9}
+\contentsline {chapter}{\chapternumberline {4}Resultados Parciais}{57}{chapter.4}
+\contentsline {section}{\numberline {4.1}Pr\IeC {\'e}-condi\IeC {\c c}\IeC {\~o}es dos Experimentos}{58}{section.4.1}
+\contentsline {section}{\numberline {4.2}Experimento 1 - Acorde $CM$}{60}{section.4.2}
+\contentsline {section}{\numberline {4.3}Experimento 2 - Acorde $Dm$}{62}{section.4.3}
+\contentsline {section}{\numberline {4.4}Experimento 3 - Acorde $Ddim$}{64}{section.4.4}
+\contentsline {section}{\numberline {4.5}Experimento 4 - Acorde $Daum$}{66}{section.4.5}
+\contentsline {section}{\numberline {4.6}Tabela de resultados dos acordes tocados}{68}{section.4.6}
+\contentsline {chapter}{\chapternumberline {5}Considera\IeC {\c c}\IeC {\~o}es Finais}{71}{chapter.5}
+\contentsline {section}{\numberline {5.1}Evolu\IeC {\c c}\IeC {\~o}es Futuras}{71}{section.5.1}
 \vspace {\cftbeforepartskip }
-\contentsline {chapter}{Refer\^encias}{83}{section*.13}
+\contentsline {chapter}{Refer\^encias}{73}{section*.13}
 \renewcommand *{\cftappendixname }{AP\^ENDICE \space }
-\contentsline {part}{Ap\^endices}{85}{section*.14}
-\contentsline {appendix}{\chapternumberline {A}Primeiro Ap\IeC {\^e}ndice}{87}{appendix.A}
-\contentsline {section}{\numberline {A.1}M\IeC {\'o}dulo Principal}{87}{section.A.1}
-\contentsline {section}{\numberline {A.2}M\IeC {\'o}dulo de Monofica\IeC {\c c}\IeC {\~a}o do Sinal de \IeC {\'A}udio}{88}{section.A.2}
-\contentsline {section}{\numberline {A.3}M\IeC {\'o}dulo da Transformada de Fourier}{88}{section.A.3}
-\contentsline {section}{\numberline {A.4}M\IeC {\'o}dulo de Equaliza\IeC {\c c}\IeC {\~a}o do Sinal}{90}{section.A.4}
-\contentsline {section}{\numberline {A.5}M\IeC {\'o}dulo de Correla\IeC {\c c}\IeC {\~a}o de Notas}{90}{section.A.5}
-\contentsline {section}{\numberline {A.6}M\IeC {\'o}dulo de Correla\IeC {\c c}\IeC {\~a}o}{90}{section.A.6}
-\contentsline {section}{\numberline {A.7}M\IeC {\'o}dulo de Correla\IeC {\c c}\IeC {\~a}o de Acordes}{91}{section.A.7}
-\contentsline {section}{\numberline {A.8}M\IeC {\'o}dulo de Interpreta\IeC {\c c}\IeC {\~a}o de Correla\IeC {\c c}\IeC {\~a}o dos Acordes}{92}{section.A.8}
-\contentsline {section}{\numberline {A.9}M\IeC {\'o}dulo de Aloca\IeC {\c c}\IeC {\~a}o de Constantes para Notas}{95}{section.A.9}
-\contentsline {section}{\numberline {A.10}M\IeC {\'o}dulo de Aloca\IeC {\c c}\IeC {\~a}o de Constantes para Acordes}{111}{section.A.10}
-\contentsline {section}{\numberline {A.11}M\IeC {\'o}dulo de Testes em Amostras}{122}{section.A.11}
-\contentsline {section}{\numberline {A.12}Cronograma para Pr\IeC {\'o}ximas Atividades}{134}{section.A.12}
+\contentsline {part}{Ap\^endices}{75}{section*.14}
+\contentsline {appendix}{\chapternumberline {A}Primeiro Ap\IeC {\^e}ndice}{77}{appendix.A}
+\contentsline {section}{\numberline {A.1}M\IeC {\'o}dulo Principal}{77}{section.A.1}
+\contentsline {section}{\numberline {A.2}M\IeC {\'o}dulo de Monofica\IeC {\c c}\IeC {\~a}o do Sinal de \IeC {\'A}udio}{78}{section.A.2}
+\contentsline {section}{\numberline {A.3}M\IeC {\'o}dulo da Transformada de Fourier}{78}{section.A.3}
+\contentsline {section}{\numberline {A.4}M\IeC {\'o}dulo de Equaliza\IeC {\c c}\IeC {\~a}o do Sinal}{80}{section.A.4}
+\contentsline {section}{\numberline {A.5}M\IeC {\'o}dulo de Correla\IeC {\c c}\IeC {\~a}o de Notas}{80}{section.A.5}
+\contentsline {section}{\numberline {A.6}M\IeC {\'o}dulo de Correla\IeC {\c c}\IeC {\~a}o}{80}{section.A.6}
+\contentsline {section}{\numberline {A.7}M\IeC {\'o}dulo de Correla\IeC {\c c}\IeC {\~a}o de Acordes}{81}{section.A.7}
+\contentsline {section}{\numberline {A.8}M\IeC {\'o}dulo de Interpreta\IeC {\c c}\IeC {\~a}o de Correla\IeC {\c c}\IeC {\~a}o dos Acordes}{82}{section.A.8}
+\contentsline {section}{\numberline {A.9}M\IeC {\'o}dulo de Aloca\IeC {\c c}\IeC {\~a}o de Constantes para Notas}{85}{section.A.9}
+\contentsline {section}{\numberline {A.10}M\IeC {\'o}dulo de Aloca\IeC {\c c}\IeC {\~a}o de Constantes para Acordes}{101}{section.A.10}
+\contentsline {section}{\numberline {A.11}M\IeC {\'o}dulo de Testes em Amostras}{112}{section.A.11}
+\contentsline {section}{\numberline {A.12}Cronograma para Pr\IeC {\'o}ximas Atividades}{124}{section.A.12}

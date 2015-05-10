@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2015.2.2)  13 APR 2015 00:47
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2015.2.2)  10 MAY 2015 15:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1362,7 +1362,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ])
 (./fixos/indiceAutomatico.tex (./tcc.toc [21]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 49.
+(Font)              <14.4> on input line 40.
 ) [22])
 (./editaveis/introducao.tex [23
 
@@ -1387,656 +1387,56 @@ LaTeX Font Info:    Try loading font information for TS1+lmr on input line 42.
 
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)) (./editaveis/metodologia.tex
-[25] [26
+)) (./editaveis/fundamentosteoricos.tex [25] [26
 
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+] [27]
+File: figuras/cos440.eps Graphic file (type eps)
+ <figuras/cos440.eps> [28]
+File: figuras/Amcos.eps Graphic file (type eps)
+ <figuras/Amcos.eps> [29]
 
- [27]
-Overfull \hbox (36.51273pt too wide) in paragraph at lines 25--26
-\T1/lmr/m/n/12 mo-delo $\OML/lmm/m/it/12 Goal$\T1/lmr/m/n/12 -$\OML/lmm/m/it/12
- Question$\T1/lmr/m/n/12 -$\OML/lmm/m/it/12 Metric$ \T1/lmr/m/n/12 (GQM) para a
- es-tru-tu-ra-ção dos ci-clos ([][][][][][],
- []
+LaTeX Warning: Command \' invalid in math mode on input line 74.
 
-[28]
-File: figuras/ciclo_desenvolvimento.eps Graphic file (type eps)
- <figuras/ciclo_desenvolvimento.eps>
-Overfull \hbox (35.83376pt too wide) in paragraph at lines 40--41
- [][] 
- []
 
-[29]
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 58.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-LaTeX Font Info:    Try loading font information for TS1+pcr on input line 63.
+LaTeX Warning: Command \' invalid in math mode on input line 74.
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pcr.fd
-File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
-)
-Overfull \hbox (12.93924pt too wide) in paragraph at lines 67--68
-[]\T1/lmr/bx/n/12 Retrospectiva: \T1/lmr/m/n/12 A Trans-for-mada de Fou-rier, e
-m es-pe-cí-fico a $\OML/lmm/m/it/12 FastFourierTransform$\T1/lmr/m/n/12 ,
- []
+
+LaTeX Warning: Command \' invalid in math mode on input line 74.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 74.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 74.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 74.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 74.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 74.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 74.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 74.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 74.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 74.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 74.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 74.
 
 [30]
-LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 86.
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <10> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 110.
- [31]
-LaTeX Font Info:    Font shape `TS1/pcr/m/it' in size <10> not available
-(Font)              Font shape `TS1/pcr/m/sl' tried instead on input line 141.
- [32] [33]
-Overfull \hbox (23.45073pt too wide) in paragraph at lines 209--211
-[][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (41.45091pt too wide) in paragraph at lines 214--215
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][] 
- []
-
-[34]
-Overfull \hbox (317.45372pt too wide) in paragraph at lines 232--234
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][] 
- []
-
-
-Overfull \hbox (185.45238pt too wide) in paragraph at lines 236--237
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][] 
- []
-
-
-Overfull \hbox (281.45335pt too wide) in paragraph at lines 251--252
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][] 
- []
-
-
-Overfull \hbox (281.45335pt too wide) in paragraph at lines 259--260
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][] 
- []
-
-[35]
-Overfull \hbox (47.45097pt too wide) in paragraph at lines 283--284
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- 
- []
-
-
-Overfull \hbox (47.45097pt too wide) in paragraph at lines 284--285
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (47.45097pt too wide) in paragraph at lines 285--286
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- 
- []
-
-
-Overfull \hbox (47.45097pt too wide) in paragraph at lines 286--287
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- 
- []
-
-
-Overfull \hbox (47.45097pt too wide) in paragraph at lines 287--288
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (257.45311pt too wide) in paragraph at lines 311--312
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[36]
-Overfull \hbox (29.45079pt too wide) in paragraph at lines 327--328
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (89.4514pt too wide) in paragraph at lines 330--332
-[][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (29.45079pt too wide) in paragraph at lines 344--345
-[][][][][][][][][][][][][][][][][][][][] 
- []
-
-[37]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 355.
-
-
-Package Listings Warning: Text dropped after begin of listing on input line 355
-.
-
-
-Overfull \hbox (131.45183pt too wide) in paragraph at lines 373--374
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (53.45103pt too wide) in paragraph at lines 374--375
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (83.45134pt too wide) in paragraph at lines 382--383
-[][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[38]
-Overfull \hbox (35.45085pt too wide) in paragraph at lines 425--426
-[][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[39]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [40]
-Overfull \hbox (65.45116pt too wide) in paragraph at lines 519--520
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (77.45128pt too wide) in paragraph at lines 520--521
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[41]
-Overfull \hbox (5.45055pt too wide) in paragraph at lines 548--550
-[][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (113.45164pt too wide) in paragraph at lines 550--551
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (59.4511pt too wide) in paragraph at lines 551--552
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (179.45232pt too wide) in paragraph at lines 552--553
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (209.45262pt too wide) in paragraph at lines 553--554
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (59.4511pt too wide) in paragraph at lines 554--555
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-[42]
-Overfull \hbox (131.45183pt too wide) in paragraph at lines 555--556
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (233.45287pt too wide) in paragraph at lines 556--557
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][]
- []
-
-
-Overfull \hbox (269.45323pt too wide) in paragraph at lines 557--558
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (5.45055pt too wide) in paragraph at lines 558--559
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- 
- []
-
-
-Overfull \hbox (53.45103pt too wide) in paragraph at lines 559--560
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (185.45238pt too wide) in paragraph at lines 560--561
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (203.45256pt too wide) in paragraph at lines 561--562
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (59.4511pt too wide) in paragraph at lines 562--563
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (137.45189pt too wide) in paragraph at lines 563--564
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (233.45287pt too wide) in paragraph at lines 564--565
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (275.4533pt too wide) in paragraph at lines 565--566
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (5.45055pt too wide) in paragraph at lines 566--567
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- 
- []
-
-
-Overfull \hbox (53.45103pt too wide) in paragraph at lines 567--568
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (179.45232pt too wide) in paragraph at lines 568--569
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (203.45256pt too wide) in paragraph at lines 569--570
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (59.4511pt too wide) in paragraph at lines 571--572
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (179.45232pt too wide) in paragraph at lines 572--573
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (203.45256pt too wide) in paragraph at lines 573--574
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (65.45116pt too wide) in paragraph at lines 574--575
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (131.45183pt too wide) in paragraph at lines 575--576
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (239.45293pt too wide) in paragraph at lines 576--577
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][]
- []
-
-
-Overfull \hbox (269.45323pt too wide) in paragraph at lines 577--578
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (59.4511pt too wide) in paragraph at lines 579--580
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [43]
-Overfull \hbox (179.45232pt too wide) in paragraph at lines 580--581
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (209.45262pt too wide) in paragraph at lines 581--582
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (59.4511pt too wide) in paragraph at lines 582--583
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (131.45183pt too wide) in paragraph at lines 583--584
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (233.45287pt too wide) in paragraph at lines 584--585
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][]
- []
-
-
-Overfull \hbox (269.45323pt too wide) in paragraph at lines 585--586
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (5.45055pt too wide) in paragraph at lines 586--587
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- 
- []
-
-
-Overfull \hbox (53.45103pt too wide) in paragraph at lines 587--588
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (179.45232pt too wide) in paragraph at lines 588--589
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (203.45256pt too wide) in paragraph at lines 589--590
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (53.45103pt too wide) in paragraph at lines 590--591
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (131.45183pt too wide) in paragraph at lines 591--592
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (239.45293pt too wide) in paragraph at lines 592--593
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (275.4533pt too wide) in paragraph at lines 593--594
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (11.4506pt too wide) in paragraph at lines 594--595
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- 
- []
-
-
-Overfull \hbox (59.4511pt too wide) in paragraph at lines 595--596
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (179.45232pt too wide) in paragraph at lines 596--597
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Overfull \hbox (197.4525pt too wide) in paragraph at lines 597--598
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [44]
-Overfull \hbox (65.45116pt too wide) in paragraph at lines 616--617
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (29.45079pt too wide) in paragraph at lines 619--620
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
- 
- []
-
-) (./editaveis/fundamentosteoricos.tex [45] [46
-
-] [47]
-File: figuras/cos440.eps Graphic file (type eps)
- <figuras/cos440.eps>
-[48]
-File: figuras/Amcos.eps Graphic file (type eps)
- <figuras/Amcos.eps> [49]
-
-LaTeX Warning: Command \' invalid in math mode on input line 74.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 74.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 74.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 74.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 74.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 74.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 74.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 74.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 74.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 74.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 74.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 74.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 74.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 74.
-
-[50]
 File: figuras/NOTASpt.eps Graphic file (type eps)
  <figuras/NOTASpt.eps>
 
@@ -2063,7 +1463,7 @@ LaTeX Warning: Command \' invalid in math mode on input line 102.
 
 LaTeX Warning: Command \' invalid in math mode on input line 103.
 
-[51]
+[31]
 
 LaTeX Warning: Command \' invalid in math mode on input line 108.
 
@@ -2109,72 +1509,104 @@ LaTeX Warning: Command \' invalid in math mode on input line 135.
 
 LaTeX Warning: Command \' invalid in math mode on input line 135.
 
-[52]
+[32]
 Overfull \hbox (8.30846pt too wide) in paragraph at lines 161--162
 \T1/lmr/m/n/12 im-por-tân-cia por ser es-sen-cial nos fenô-me-nos na-tu-rais ([
 ][][][][][],
  []
 
-[53] [54] [55]
+[33] [34] [35]
 File: figuras/neuron.eps Graphic file (type eps)
- <figuras/neuron.eps> [56]
+ <figuras/neuron.eps> [36]
 File: figuras/PNN.eps Graphic file (type eps)
  <figuras/PNN.eps>)
-(./editaveis/solucaocompleta.tex [57] [58
+(./editaveis/solucaocompleta.tex [37] [38
 
 ]
-File: figuras/dfd.eps Graphic file (type eps)
- <figuras/dfd.eps>
-Overfull \hbox (44.88643pt too wide) in paragraph at lines 8--9
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [39]
+Overfull \hbox (36.51273pt too wide) in paragraph at lines 24--25
+\T1/lmr/m/n/12 mo-delo $\OML/lmm/m/it/12 Goal$\T1/lmr/m/n/12 -$\OML/lmm/m/it/12
+ Question$\T1/lmr/m/n/12 -$\OML/lmm/m/it/12 Metric$ \T1/lmr/m/n/12 (GQM) para a
+ es-tru-tu-ra-ção dos ci-clos ([][][][][][],
+ []
+
+[40] [41]
+File: figuras/dfd_2.eps Graphic file (type eps)
+ <figuras/dfd_2.eps>
+Overfull \hbox (75.33563pt too wide) in paragraph at lines 127--128
  [][] 
  []
 
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <17.28> on input line 17.
+[42]
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 137.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <10> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 138.
+LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10> not available
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 144.
+ [43]
+Overfull \hbox (6.07616pt too wide) in paragraph at lines 157--158
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 17.
+LaTeX Font Info:    Try loading font information for TS1+pcr on input line 161.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pcr.fd
+File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [44]
+[45] [46] [47] [48]
+Underfull \vbox (badness 3058) has occurred while \output is active []
+
+ [49]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [50]
+File: figuras/fft-resultado.eps Graphic file (type eps)
+
+<figuras/fft-resultado.eps>
+Overfull \hbox (43.20793pt too wide) in paragraph at lines 462--463
+ [][] 
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 17.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [59]
-[60] [61]
-File: figuras/fft-resultado.eps Graphic file (type eps)
- <figuras/fft-resultado.eps>
-Overfull \hbox (43.20793pt too wide) in paragraph at lines 79--80
- [][] 
- []
+ [51]
+[52]
 
-[62]
-
-LaTeX Warning: Command \' invalid in math mode on input line 89.
+LaTeX Warning: Command \' invalid in math mode on input line 472.
 
 File: figuras/neuron_notes.eps Graphic file (type eps)
 <figuras/neuron_notes.eps>
-Overfull \hbox (6.33765pt too wide) in paragraph at lines 93--94
+Overfull \hbox (6.33765pt too wide) in paragraph at lines 476--477
  [][] 
  []
 
 File: figuras/correlation-formula.eps Graphic file (type eps)
-<figuras/correlation-formula.eps> [63]
+<figuras/correlation-formula.eps> [53]
 File: figuras/neuron_chord.eps Graphic file (type eps)
- <figuras/neuron_chord.eps> [64]
+ <figuras/neuron_chord.eps> [54]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [65]
+ [55]
 File: figuras/rede_total.eps Graphic file (type eps)
 
 <figuras/rede_total.eps>
-Overfull \hbox (42.30457pt too wide) in paragraph at lines 165--166
+Overfull \hbox (42.30457pt too wide) in paragraph at lines 548--549
  [][] 
  []
 
-) (./editaveis/resultadosparciais.tex [66] [67
+) (./editaveis/resultadosparciais.tex [56] [57
 
 ]
 Overfull \hbox (1.4485pt too wide) in paragraph at lines 36--37
@@ -2182,11 +1614,14 @@ Overfull \hbox (1.4485pt too wide) in paragraph at lines 36--37
 tro: acorde = DA2(audio); 
  []
 
-[68]
+[58]
 File: figuras/teclado-tcc1.eps Graphic file (type eps)
  <figuras/teclado-tcc1.eps>
 File: figuras/processo_experimento.eps Graphic file (type eps)
- <figuras/processo_experimento.eps> [69]
+ <figuras/processo_experimento.eps> [59]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <17.28> on input line 59.
+
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 59.
@@ -2226,7 +1661,7 @@ Overfull \hbox (6.62148pt too wide) in paragraph at lines 80--82
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[70]
+[60]
 
 LaTeX Warning: Command \' invalid in math mode on input line 85.
 
@@ -2239,7 +1674,7 @@ LaTeX Warning: Command \' invalid in math mode on input line 87.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [71]
+ [61]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 90.
@@ -2285,7 +1720,7 @@ Overfull \hbox (47.66354pt too wide) in paragraph at lines 111--113
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[72]
+[62]
 
 LaTeX Warning: Command \' invalid in math mode on input line 117.
 
@@ -2313,7 +1748,7 @@ LaTeX Warning: Command \' invalid in math mode on input line 119.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [73]
+ [63]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 123.
@@ -2356,7 +1791,7 @@ Overfull \hbox (47.66354pt too wide) in paragraph at lines 144--146
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[74]
+[64]
 
 LaTeX Warning: Command \' invalid in math mode on input line 150.
 
@@ -2372,7 +1807,7 @@ LaTeX Warning: Command \' invalid in math mode on input line 152.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [75]
+ [65]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 156.
@@ -2418,7 +1853,7 @@ Overfull \hbox (47.66354pt too wide) in paragraph at lines 177--179
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[76]
+[66]
 
 LaTeX Warning: Command \' invalid in math mode on input line 183.
 
@@ -2440,35 +1875,63 @@ LaTeX Warning: Command \' invalid in math mode on input line 185.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [77]
+ [67]
 
 LaTeX Warning: Float too large for page by 32.36568pt on input line 305.
 
 
 LaTeX Warning: Float too large for page by 32.36568pt on input line 415.
 
-) (./editaveis/conclusoesparciais.tex [78] [79] [80]) (./tcc.bbl (./tcc.brf)
+) (./editaveis/conclusoesparciais.tex [68] [69] [70]) (./tcc.bbl (./tcc.brf)
 \tf@brf=\write5
 \openout5 = `tcc.brf'.
 
 
-[81
+[71
 
-] [82
+] [72
 
 ]
 bibitemlist
-[83]) (./editaveis/apendices.tex [84] [85
+[73]) (./editaveis/apendices.tex [74] [75
 
 
-] [86] [87
+] [76] [77
 
-] [88]
+] [78]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [79]
+[80]
+Underfull \vbox (badness 7047) has occurred while \output is active []
+
+ [81]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [82]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [83]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [84]
+[85]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [86]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [87]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [88]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [89]
-[90]
-Underfull \vbox (badness 7047) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [90]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [91]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2480,7 +1943,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [94]
-[95]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [95]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [96]
@@ -2496,9 +1961,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [100]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [101]
+[101]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [102]
@@ -2526,10 +1989,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [110]
-[111]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [112]
+ [111]
+[112]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [113]
@@ -2557,44 +2020,16 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [121]
-[122]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [123]
+ [122]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [124]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [125]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [126]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [127]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [128]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [129]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [130]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [131]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [132]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [133])
+ [123])
 No file tcc.ind.
 
 AED: lastpage setting LastPage
-[134]
+[124]
 \tf@lof=\write6
 \openout6 = `tcc.lof'.
 
@@ -2613,7 +2048,7 @@ Package atveryend Info: Executing hook `AfterLastShipout' on input line 51.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 51.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 51.
 Package rerunfilecheck Info: File `tcc.brf' has not changed.
-(rerunfilecheck)             Checksum: 67B09EE92DD99219AFE79A678A764DF1;1539.
+(rerunfilecheck)             Checksum: 9ADEDD7CFB1894761003CD7F21EA6B3B;1539.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -2621,12 +2056,12 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 51.
  ) 
 Here is how much of TeX's memory you used:
- 14763 strings out of 493486
- 210919 string characters out of 3143550
- 437791 words of memory out of 3000000
- 17725 multiletter control sequences out of 15000+200000
- 108673 words of font info for 73 fonts, out of 3000000 for 9000
+ 14707 strings out of 493486
+ 210200 string characters out of 3143550
+ 370522 words of memory out of 3000000
+ 17674 multiletter control sequences out of 15000+200000
+ 108361 words of font info for 72 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  45i,13n,74p,2003b,2012s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on tcc.dvi (136 pages, 1269312 bytes).
+Output written on tcc.dvi (126 pages, 1071880 bytes).
