@@ -447,130 +447,584 @@ function chords = analyse_set_of_chords(set_of_chords)
 	total_seconds = length(set_of_chords_A);
 	chords(1:total_seconds) = 0;
 	for time = 1:total_seconds
-		chords_to_analyse = [set_of_chords_A(time) set_of_chords_B(time) ...
-		 set_of_chords_C(time) set_of_chords_D(time) set_of_chords_E(time)];
+		chords_to_analyse = [set_of_chords_A(time) ...
+		 set_of_chords_B(time) ...
+		 set_of_chords_C(time) set_of_chords_D(time) ...
+		  set_of_chords_E(time)];
 		chords(time) = mode(chords_to_analyse);
 	end
 end
 \end{lstlisting}
 
-No início desse processo há o carregamento da base de dados de acordes em relação as notas musicais. Após o conjunto de notas são somadas em relação às respectivas oitavas gerando vetor de somente 12 posições. Esse mesmo vetor é submetido então a um processo de correlação aos acordes derivados da base de dados. Ao final cada acorde da base de dados terá sua energia correspondente e, ao extrair o máximo das energias, é adquirido os acordes fundamentais ao longo do tempo.
+No início desse processo há a atribuição de variáveis a cada uma das 5 partes. Após o conjunto das partes em acordes é submetido a função \textbf{mode} para extrair o acorde mais recorrente dentro de uma dada faixa de tempo do áudio.
 
 
-Depois desse processo há 2 vetores que compõem a representação do módulo espectral, ambos com tamanho igual a metade da quantidade de amostras do sinal original: vetor de frequências e vetor do módulo da transformada de fourier. É desejável para o andamento do processo um vetor de módulo frequencial com o tamanho de 22.050 posições. Esse tamanho é necessário para representar a energia da função de base (senóide) somente acessando a posição do vetor, por exemplo: para saber qual a energia da onda senoidal de 440 Hz é só acessar a posição 440 desse mesmo vetor. Para tal construiu-se o seguinte código:
+\subsection{Procedimento 10: Extrair Acordes com Inversões}
+
+Da última etapa do sistema, a extração de acordes com inversões tem como finalidade formar acordes invertidos a partir da entrada dos acordes fundamentais e os baixos. Segue as especificações desse procedimento:
 \begin{lstlisting}
-	i = 1;
-	j = 0;
-	l = 1;
-	SOMA = 0;
-	while (i<length(freq))
-    	if (round(freq(i)) == round(freq(i+1)))
-        	SOMA = SOM(i+1) + SOMA;
-        	j = j + 1;
-   	 	else
-        	respfreq(l) = SOMA/(j+1);
-        	j = 0;
-        	SOMA = SOM(i+1);
-        	l = l+1;
-    	end
-    	i = i+1;
-	end
+function chords_with_bass = get_chords_bass(chords_number, bass_time)
+
+ load_dictionary_chords;
+
+ % build chords with bass to translate to dictionary
+ chords_with_bass_number = {};
+ chord_iterator = 1;
+ for chord = 1:48
+ 	for bass = 1:12
+ 		chords_with_bass_number{chord_iterator} = [chord, bass];
+ 		chord_iterator = chord_iterator + 1;
+ 	end
+ end
+
+ %---------------------------------------------------------
+ chords_with_bass = {};
+ for time = 1:length(chords_number)
+ 	 for chord = 1:length(chords_with_bass_number)
+ 	 	peer_chord = chords_with_bass_number{chord};
+ 	 	if peer_chord(1) == chords_number(time) && ... 
+ 	 		peer_chord(2) == bass_time(time)
+ 	 		chords_with_bass{time} = dictionary_chords{chord};
+ 	 	end
+ 	 end
+ end
+
+end
 \end{lstlisting}
 
-A variável \textbf{i} representa um iterador para todas as posições do vetor das frequências. A variável \textbf{j} representa uma faixa de frequências, que arredondando as mesmas, são equivalentes. A variável \textbf{l} representa a quantidade total de faixas de frequências, que arredondando as mesmas, são equivalentes de tal forma que \textbf{l}x\textbf{j} = \textbf{i}. A variável \textbf{SOMA} possui a responsabilidade de popular a energia dessas frequências congruentes em cada posição do novo vetor. Esse laço de repetição vai passar pela totalidade das frequências e em cada posição verificará as frequências equivalentes via arredondamento. A medida que se vai encontrando determinadas frequências congruentes, uma posição do valor de energia da transformada de fourier é somada. Quando a próxima frequência não é mais congruente com a anterior, o vetor \textbf{respfreq} recebe a média ponderada dessas energias.
+No início desse processo há o carregamento de um vetor de acordes, cada um com uma nomeclatura de acorde. Após é construído pares de acordes e baixos para mapear os acordes tocados dentro do vetor de acordes nominais. Ao final do processo as células de acordes e baixos identificados são referenciados dentro do vetor de acordes nominais com inversões, através das células de pares de acordes e baixos.
 
-O resultado desse processamento é ilustrado a seguir:
 
-\begin{figure}[h]
-	\centering
-		\includegraphics[keepaspectratio=true,scale=0.45]{figuras/fft-resultado}
-	\caption{Vetor de 22.050 posições de Resposta em Frequência}
+
+\section {Linha de Ciclos de Desenvolvimento}
+ 
+Nesta presente parte do trabalho será descrito os ciclos de desenvolvimento para a construção do sistema-solução. Os detalhes e o código completo podem ser encontrados no repositório $github$ \footnote{https://github.com/josepedro/TCC}.
+
+\subsection{Estrutura do Ciclo}
+
+\begin{figure}[h] 
+  \centering
+    \includegraphics[keepaspectratio=true, scale=0.85]{figuras/ciclo_desenvolvimento}
+    \caption{Modelo de Ciclo Adaptado}
 \end{figure}
 
-O espectro de frequências está mais concentrado no lado esquerdo de todos os valores de frequências possíveis e audíveis ao ouvido humano. Esse fato é explicado devido ao uso de notas musicais serem usadas normalmente de 60 Hz a 3000 Hz.
-
-\newpage
-\section{Correlação com Notas Musicais}
-\label{sec:correlacaonotas}
-
-Na função de correlacionar o espectro de frequência com as notas musicais há a presença de uma estrutura de uma rede neural. Para essa rede foram criados 12 neurônios, 1 para cada nota musical. Segue um exemplo de esquema de um neurônio para a nota $Dó$, para as outras notas segue a mesma estrutura de neurônio:
-
-\begin{figure}[h]
-	\centering
-		\includegraphics[keepaspectratio=true,scale=0.41]{figuras/neuron_notes}
-	\caption{Esquema de Neurônio para Notas}
-\end{figure}
-
-Como é mostrado na figura, os neurônios para notas musicais possuem 22050 entradas respectivas a cada frequência. Para cada nota musical há certos pesos diferentes para certas frequências. Os pesos foram obtidos com aprendizagem não-supervisionada, ou seja, não houve nenhum algorítmo de treinamento para a rede. Os pesos foram obtidos por resultados empíricos e são referenciados na seção A.9 dos Apêndices. Os mesmos são gerados no processo de carregar notas.
-
-Para a função de transferência, foi usada a equação de correlação tal qual $x$ é o neurônio constituinte de pesos e $y$ o espectro de frequência do sinal \cite{correlacao}:
-
-\begin{figure}[h]
-	\centering
-		\includegraphics[keepaspectratio=true,scale=0.7]{figuras/correlation-formula}
-	\caption{Equação de Correlação}
-\end{figure}
-
-Quanto a função de ativação, ela se manteve $f(x)$ $=$ $x$ por motivos de simplificação da aplicação
-. Portanto ela é zero, nula ou inexistente.
-
-Para a implementação dessa rede de 12 neurônios segue o código:
+Fases do ciclo de desenvolvimento:
+\begin{itemize}
+\item \textbf{Pergunta:} No início de cada ciclo é feito uma pergunta a ser respondida que se adere aos objetivos do trabalho.
+\item \textbf{Hipótese:} A partir dessa pergunta é feita hipóteses que possam responder;
+\item \textbf{Implementação:} As hipóteses são pensadas, construidas e implementadas num script;
+\item \textbf{Testes Conceituais:} Cada hipótese implementada é testada conforme a teoria usada;
+\item \textbf{Retrospectiva:} Dado os resultados dos testes conceituais e código refatorado, é feitto uma avaliação do que foi produzido e decisões técnicas são tomadas.
+\end{itemize}
+  
+\subsection{Ciclo 1}
+\begin{itemize}
+\item \textbf{Pergunta:} Para saber da harmonia da música é preciso saber as notas dela. Se cada nota é uma frequência de vibração sonora, como analisar o sinal no ponto de vista de frequências? É possível?
+\item \textbf{Hipótese:} A Transformada de Fourier pode construir o espectro de frequências do sinal.
+\item \textbf{Implementação:} 
 \begin{lstlisting}
-function S1 = correlate_with_notes(rfeq)
-	exec correlation.sci;
-	i = 1;
-	while (i <= 12)
-	    correlacao = coeffcorr(rfeq,notas(i,:));
-	    S1(i) = correlacao;
-	    i = i + 1;
-	end
-endfunction
+som = som(1:length(som));
+som = som/max(som);
+
+t = fft(som);
+SINAL=sqrt(t.*conj(t));
+SINAL=SINAL/max(SINAL);
 \end{lstlisting}
+\item \textbf{Testes Conceituais:} Testes foram feitos para ver se os picos de frequência correspondem ao sinal de entrada. O resultado foi positivo e os picos representam a energia das frequências;
+\item \textbf{Retrospectiva:} A Transformada de Fourier, em específico a $Fast Fourier Transform$, realmente produz resultados satisfatórios em determinar o espectro de energia da frequências. Mas as informações não estão configuradas para localizar as notas musicais.
+\end{itemize}
 
-A função de correleção é nativa do Scilab mas para propósitos didáticos ela está referenciada nos apêndices seção A.6. Nessa estrutura de laço foi calculado cada pontecial de ativação de cada neurônio em relação ao espectro de frequência e guardados na variável \textbf{S1}. Tal vetor pode ser chamado de notas sugeridas.
-
-\section{Correlação com Acordes Musicais}
-\label{sec:correlacaoacordes}
-
-Na função de correlacionar as notas musicais sugeridas com acordes há a presença de uma outra estrutura de rede neural. Para essa rede foram criados 48 neurônios, 1 para cada possibilidade de acorde em tríade. Um exemplo de esquema de um neurônio é para o acorde $CM$.
-
-Os neurônios para acordes musicais possuem 12 entradas respectivas a cada nota musical. Para cada acorde musical há certos pesos diferentes para certas notas. Os pesos foram obtidos com aprendizagem não-supervisionada, ou seja, não houve nenhum algorítmo de treinamento para a rede. Os pesos foram obtidos por resultados empíricos e são referenciados na seção A.10 dos Apêndices. Os mesmos são gerados no processo de carregar acordes. Quanto a função de ativação, ela se manteve $f(x)$ $=$ $x$ por motivos de simplificação da aplicação. Portanto ela é zero, nula ou inexistente.
-
-Para a função de transferência, foi usada a mesma equação de correlação para notas musicais. Segue figura ilustrativa do neurônio para o exemplo do acorde de $CM$:
-
-\begin{figure}[t]
-	\centering
-		\includegraphics[keepaspectratio=true,scale=0.25]{figuras/neuron_chord}
-	\caption{Esquema de Neurônio para Acordes}
-\end{figure}
-
-
-\newpage
-Segue código para a rede neural de sugestão de acordes. Assim como a rede neural de notas, a cada iteração há o cálculo da correlação das notas sugeridas com as notas presentes nos acordes já registrados. Os procedimentos podem ser verificados abaixo:
-
+\subsection{Ciclo 2}
+\begin{itemize}
+\item \textbf{Pergunta:} Como configurar essas informações para localizar as notas musicais?
+\item \textbf{Hipótese:} Dado que cada nota musical é um conjunto de frequências, realocar as energias frequenciais da transformada de fourier afim de que cada posição do vetor seje 1 unidedade de frequência (Hz) pode mapear a energia de cada nota.
+\item \textbf{Implementação:} 
 \begin{lstlisting}
-function S2 = correlate_with_chords(S1)
-	exec correlation.sci;
-	i = 1;
-	while (i <= 48)
-	     correlacao = coeffcorr(S1,BD(:,i)');
-	     S2(i) = sqrt(correlacao^2);
-	    i = i + 1;
-	end
-endfunction
+fs = 44100;
+f = (0:length(som)-1)*fs/length(som);
+freq = f(1:round(length(f)/2));
+SOM = abs(fft(som));
+SOM = SOM/max(SOM);
+SOM = SOM(1:round(length(f)/2));
+l = 1;
+j = 0;
+i = 1;
+SOMA = 0; 
+while (i<length(freq))
+    if (round(freq(i)) == round(freq(i+1)))
+        SOMA = SOM(i+1) + SOMA;
+        j = j + 1;
+    else
+        respfreq(l) = SOMA/(j+1);
+        j = 0;
+        SOMA = SOM(i+1);
+        l = l+1;
+    end
+    i = i+1;
+end
+l = 0; j = 0; i = 0;
 \end{lstlisting}
+\item \textbf{Testes Conceituais:} De fato as notas musicais foram localizadas com mais facilidade em determinados grupos de frequências. Tal ordenamento de frequências resultou num vetor de 22050 posições, independentemente do tamanho da amostra.
+\item \textbf{Retrospectiva:} A estratégia de realocar as energias decimais das frequências numa unidade de frequência se adere corretamente ao objetivo de encontrar as notas musicais. Entretanto as frequências não estão associadas as notas musicais.
+\end{itemize}
 
-\section{Extração do Acorde}
-\label{sec:extracaoacorde}
+\subsection{Ciclo 3}
+\begin{itemize}
+\item \textbf{Pergunta:} Dado um conjunto de frequências, como associar essas as notas musicais?
+\item \textbf{Hipótese:} Visto que associar as frequências as notas musicas é uma tarefa muito complexa para uma solução determinística, uma rede neural de aprendizado não supervisionado do tipo $Probabilistic Neural Network$ (PNN) pode classificar um conjunto de frequências em sua respectiva nota musical.
+\item \textbf{Implementação:} 
+\begin{lstlisting}
+%BASE DE DADOS DE NOTAS MUSICAIS DA REDE NEURAL
+%NOTAS
 
-Para a extração do acorde surgiu a necessidade de implantação da ultima camada da rede. Essa camada é chamada de classificador com máximo, ou seja, ela seleciona o valor máximo entre os impulsos do neurônios. A implementação do classificador de máximos está referenciado na seção A.8 do apêndice.
+notas(12,22050) = 0; %matriz das notas
 
-A nível de arquitetura final da rede neural, segue a ilustração:
+%Do grave
+notas(1,61) = 0.1;
+notas(1,62) = 0.2;
+notas(1,63) = 0.4;
+notas(1,64) = 0.6;
+notas(1,65) = 0.8;
+notas(1,66) = 1;
+notas(1,67) = 0.8;
+notas(1,68) = 0.6;
+notas(1,69) = 0.4;
+notas(1,70) = 0.2;
+notas(1,71) = 0.1;
 
-\begin{figure}[h]
-	\centering
-		\includegraphics[keepaspectratio=true,scale=0.45]{figuras/rede_total}
-	\caption{Esquema da Arquitetura Final da Rede}
-\end{figure}
+.
+.
+.
 
-Em tese ela foi embasada na rede neural PNN (Probabilistic Neural Network), porém existem algumas diferenças que foram fundamentais a serem implementadas por conta do contexto. A primeira delas é que a função de transferência de todos os neurônios implementados é uma equação de correleção, pois essa função de transferência se mostrou mais sensível que o a distância euclidiana proposta no modelo padrão, visto que a correlação se embaseia na multiplicação de valores de cada vetor a ser comparado e a distância euclidiana se embaseia numa subtração (para valores pequenos a diferença é muito pequena, ao contrário da multiplicação). Ou seja, a diferença é que as 2 primeiras camadas são padrões em vez da segunda camada ser de soma dos impulsos dos neurônio da camada anterior.
+i = 1; %contador para andar ao longo do vetor
+b = 0.15; %sensibilidade da rede
+
+
+while (i <= 12)
+    
+     %S1(i) = exp(-(norm(rfeq - notas(i,:))*b));
+     %correlacao = corrcoef(rfeq,notas(i,:));
+     %S1(i) = correlacao(1,2);    
+     S1(i) = sum(abs(rfeq.* notas(i,:)));
+
+    i = i + 1;
+end
+
+\end{lstlisting}
+\item \textbf{Testes Conceituais:} Foram testadas 3 funções de transferência do neurônio. A primeira função de transferência - a exponencial da subtração dos valores - não foi muito eficaz pois para notas adjacentes as mesmas eram confundidas pela rede. Esse fato se dá pelo retorno de baixa magnitude da subtração de valores. A segunda função de transferência - a correlação dos valores - foi bastante eficaz para caracterizar notas. Porém a operação de subtração da média faz com que a energia final seja baixa, além de requisitar mais operações. A terceira função de transferência - a multiplicação dos valores - foi bastante eficaz para caracterizar notas e é rápida pois é uma forma simples da segunda função de transferência.
+\item \textbf{Retrospectiva:} A rede neural PNN foi bastante eficaz em classificar as frequências em termos de notas musicais. Porém as notas musicais não estão associadas a acordes musicais.
+\end{itemize}
+
+\subsection{Ciclo 4}
+\begin{itemize}
+\item \textbf{Pergunta:} Como adicionar as próximas camadas da rede para determinação dos acordes?
+\item \textbf{Hipótese:} Para poder mapear as notas é preciso adicionar mais 2 camadas. Uma camada para classificação de acordes, dado um conjunto de notas musicais e a outra para classificação de um acorde dado os conjuntos possíveis de acordes.
+\item \textbf{Implementação:} 
+\begin{lstlisting}
+% BASE DE DADOS PARA ACORDES
+
+%--------------------------
+BD(12,48) = 0;
+%--------------------------
+
+afin1 = 0; afin2 = 0;
+
+%C
+%CM
+BD(12,1) = afin1;
+BD(1,1) = 1; %baixo
+BD(2,1) = afin2;
+BD(4,1) = afin1;
+BD(5,1) = 1; %terca
+BD(6,1) = afin2;
+BD(7,1) = afin1;
+BD(8,1) = 1; %quinta
+BD(9,1) = afin2;
+
+.
+.
+.
+%(430 LINHAS DE ACORDES)
+
+%RADIAL BASIS LAYER para BD notas
+
+while (i <= 48)
+    S2(i) = sum(abs(S1.* BD(i,:)));
+    i = i + 1;
+end
+
+\end{lstlisting}
+\item \textbf{Testes Conceituais:} Foram testadas todas as possibilidades de acordes e os que não foram evetivamente reconhecido foram as inversões e os acordes aumentados.
+\item \textbf{Retrospectiva:} De certo o acerto não foi total pois falta implementar uma camada que reconheça inversões.
+\end{itemize}
+
+\subsection{Ciclo 5}
+\begin{itemize}
+\item \textbf{Pergunta:} Como reconhecer acordes no tempo de tal forma a saber onde eles ocorrem?
+\item \textbf{Hipótese:} Uma solução de reconhecimento de energias ao longo do tempo pode ser eficaz para a determinação do rítmo. Em tese é calcular a energia do sinal e aplicar um filtro passa-baixas para identificação dos picos de energia.
+\item \textbf{Implementação:} 
+\begin{lstlisting}
+    %filtering the pulses of minor energy
+    signal_filtered = filter_signal(bpm_music);
+    signal_pulses = signal_filtered;
+
+    % Building array with means movies
+    signal_pulses = decrease_resolution(signal_filtered, ...
+     file.fs, 1000);
+
+    % Beginnnig the correlation
+    array_correlation = correlate_moments(signal_pulses);
+
+    array_peaks = filter_peak(signal_pulses);
+
+    peaks = findpeaks(array_peaks);
+
+    number_of_peaks = length(peaks) + 1;
+
+\end{lstlisting}
+\item \textbf{Testes Conceituais:} Para um caso específico a solução funcionou, porém os outros casos ela não se aderiu.    
+\item \textbf{Retrospectiva:} De certo modo detectar onde acorde ocorre no sinal não agrega valor para o escopo desse trabalho pois os níveis de energia são muito variáveis e não há um padrão como para a detecção.
+\end{itemize} 
+
+\subsection{Ciclo 6}
+\begin{itemize}
+\item \textbf{Pergunta:} Como ler o sinal todo e ter a visilibilidade dele em tempo e frequência?
+\item \textbf{Hipótese:} Para se ter uma resolução completa do sinal em tempo em frequência é preciso de ter uma transformada que agregue esses dois aspectos. Poder testar isso com a transformada wavelets.   
+\item \textbf{Implementação:} 
+\begin{lstlisting}
+function [signal, imin, imax, iterations, energy] = ...
+tree_iterator(signal, mini, maxi, imin, imax, iterations, energy)
+
+if iterations == 0
+	if mini >= 1 && maxi <= 22050
+	  [signal, imin, imax, iterations, energy] = ...
+	  tree_iterator(signal, mini, maxi, 1, 22050, 1, 0);
+	else
+	  imin = 1;
+	  imax = 22050;
+	  return;
+end
+elseif iterations > 0
+	imean = (imax - imin)/2 + imin;
+	%Low
+	if mini >= imin && maxi <= imean
+	  [h0, h1] = wfilters('bior6.8');
+	  [signal, y1] = decomposition_1level_qmf(h0, h1, signal);
+	  energy = sum(abs(signal)) + energy;
+	  iterations = iterations + 1;
+	  imax = imean;
+	  [signal, imin, imax, iterations, energy] = ...
+	  tree_iterator(signal, mini, maxi, imin, ...
+	  imax, iterations, energy);
+	%High 
+	elseif mini >= imean && maxi <= imax
+	  [h0, h1] = wfilters('bior6.8');
+	  [y0, signal] = decomposition_1level_qmf(h0, h1, signal);
+	  energy = sum(abs(signal)) + energy;
+	  iterations = iterations + 1;
+	  imin = imean;
+	  [signal, imin, imax, iterations, energy] = ...
+	  tree_iterator(signal, mini, maxi, ...
+	  imin, imax, iterations, energy);
+	else
+	  return;
+	end
+end
+
+\end{lstlisting}
+\item \textbf{Testes Conceituais:} A solução falhou num teste muito simples. Ao submeter um sinal puro numa frequencia determinada e constante o banco de filtros wavelets distorcia o sinal, deslocando a fase do sinal para frequencias adjacentes da original.
+\item \textbf{Retrospectiva:} Dado a barreira técnica de deslocamento de fase do sinal, ainda não foi encontrado uma solução de resolução tempo-frequência.
+\end{itemize}
+
+\subsection{Ciclo 7}
+\begin{itemize}
+\item \textbf{Pergunta:} Como ler o sinal todo e ter a visilibilidade dele em tempo e frequência?
+\item \textbf{Hipótese:} Para se ter uma resolução completa do sinal em tempo em frequência é preciso de ter uma transformada que agregue esses dois aspectos. Poder testar isso com a $Short Fourier Transform$ (Transformada de Fourier Janelada).   
+\item \textbf{Implementação:} 
+\begin{lstlisting}
+function [notes_time, chords_time, chord_pitch] = DA3(signal, fs)
+
+load_notes;
+load_chords;
+.
+.
+.
+% begin to analyse music
+time_seconds_total = fix((length(signal)/fs));
+notes_time(time_seconds_total, 60) = 0;
+chords_time = {};
+for time = 1:time_seconds_total
+    signal_time = signal(1+((time-1)*fs):time*fs);
+    window = blackman(length(signal_time));
+    signal_time = window'.*signal_time;
+    signal_time = downsample(signal_time, 21);
+    fs_time = fs/21;
+    module_fft = abs(fft(signal_time));
+    respfreq(1:fs_time) = 0;
+    window_mean = length(signal_time)/fs_time;
+    for frequency = 1:fs_time
+        respfreq(frequency) = sum(module_fft( ...
+        1+((frequency-1)*window_mean):frequency* ...
+        window_mean))/window_mean;
+    end
+    respfreq = respfreq(1:fix(length(respfreq)/2));
+    for note = 1:60
+        notes_time(time, note) = sum(respfreq.* ...
+        notes(note,:));    
+    end
+    energy_chords(1:48) = 0;
+    for chord = 1:48
+        energy_chords(chord) = sum(notes_time(time, :) ...
+        .*chords(chord,:));
+    end
+    chords_time{time} = dictionary_chords{ ...
+    find(energy_chords==max(energy_chords))};
+end
+notes_energy_total = notes_time(1,:);
+for time = 2:time_seconds_total
+    notes_energy_total = notes_energy_total + notes_time(time,:);
+end
+energy_chords(1:48) = 0;
+for chord = 1:48
+    energy_chords(chord) = sum(notes_energy_total.*chords(chord,:));
+end
+chord_pitch = dictionary_chords{find(energy_chords== ...
+max(energy_chords))};
+\end{lstlisting}
+\item \textbf{Testes Conceituais:} A solução da transformada de fourier janelada foi testada com acordes de violão e piano ao longo do tempo e o resultado foi satisfatório exceto para acordes de transição.
+\item \textbf{Retrospectiva:} A solução da transformada de fourier janelada se encaixou bem no conjunto.  
+\end{itemize}
+
+\subsection{Ciclo 8}
+\begin{itemize}
+\item \textbf{Pergunta:} Como extrair o tom da música?
+\item \textbf{Hipótese:} Para extrair o tom da música é preciso somar a energia das notas totais ao longo da música.
+\item \textbf{Implementação:} 
+\begin{lstlisting}
+function [chord_pitch, chord_pitch_number] = ...
+get_chord_pitch(notes_time, time_seconds_total, chords)
+  
+  dictionary_chords = ...
+.
+.
+.
+  notes_energy_total(60) = 0;
+  for note = 1:60
+    notes_energy_total(note) = sum([notes_time(:,note)]);
+  end
+
+  % discover tone music
+  notes_energy_tone(12) = 0;
+  for note = 1:12
+    notes_energy_tone(note) = notes_energy_total(note) ...
+     + notes_energy_total(note + 12) ...
+      + notes_energy_total(note + 2*12) + ...
+      notes_energy_total(note + 3*12) ...
+        + notes_energy_total(note + 4*12);
+  end
+
+  % find chord tone
+  load_chords_tone;
+  chords_tone(48) = 0;
+  for chord = 1:48
+    chords_tone(chord) = sum((notes_energy_tone.* ...
+    chords_tone_mask(:, chord)'.^2));
+  end
+
+  chord_pitch_number = find(chords_tone==max(chords_tone));
+  chord_pitch = dictionary_chords{chord_pitch_number};
+\end{lstlisting}
+\item \textbf{Testes Conceituais:} A solução foi testada com sequencia de acordes do violão e as vezes o tom não é o certo.
+\item \textbf{Retrospectiva:} A quantidade de energia está atrapalhando a extração do tom. O tom é definido como a frequência de aparecimento das notas ao longo da música.
+\end{itemize}
+
+\subsection{Ciclo 9}
+\begin{itemize}
+\item \textbf{Pergunta:} Como trabalhar com a frequencia de aparecimento das notas?
+\item \textbf{Hipótese:} Se binarizar com 1 e 0 o mapa de notas no tempo a soma das notas será unitária, equivalente a frequência.
+\item \textbf{Implementação:} 
+\begin{lstlisting}
+% binarize set of notes
+    for set = 1:5
+        notes_time = set_of_notes_time{set};
+        
+        for time = 1:time_seconds_total
+            for note = 1:60
+                if notes_time(time, note) < max(max(notes_time))/180
+                    notes_time(time, note) = 0;
+                else
+                    notes_time(time, note) = 1;
+                end
+            end
+        end
+
+        set_of_notes_time{set} = notes_time;
+    end
+\end{lstlisting}
+\item \textbf{Testes Conceituais:} A solução foi testada e verificada com picos somente de 1 e vales somente de 0. 
+\item \textbf{Retrospectiva:} Com essa binarização o tom da música foi efetivamente corrigido.
+\end{itemize}
+
+\subsection{Ciclo 10}
+\begin{itemize}
+\item \textbf{Pergunta:} Em relação aos acordes transitórios, como corrigir?
+\item \textbf{Hipótese:} Se ao deslocar a janela de tamanho de 1 segundo em passos de 0.2 segundos e calcular o espectro de frequência de cada passo pode-se fazer a média do acorde de cada tempo e poder cancelar os acordes transitórios.
+\item \textbf{Implementação:}
+\begin{lstlisting}
+function set_of_windows_signals = ...
+build_window_short_fft(signal, time, fs)
+  signal = [signal(:)];
+
+    % part A
+    time_start_A = round(1+((time-1)*fs));
+    time_end_A = round(time*fs);
+    signal_time_A = signal(time_start_A:time_end_A);
+    window = blackman(length(signal_time_A));
+    signal_time_A = window.*signal_time_A;
+
+    % part B (displacement = + 0.2 seconds)
+    time_start_B = round(1+((time-1)*fs+0.2*fs));
+    time_end_B = round((time+0.2)*fs);
+    if time_start_B < length(signal) && time_end_B <= length(signal)
+        signal_time_B = signal(time_start_B:time_end_B);
+        window = blackman(length(signal_time_B));
+        signal_time_B = window.*signal_time_B;
+    else
+        signal_time_B(length(signal)) = 0;
+    end
+
+    % part C (displacement = + 0.4 seconds)
+    time_start_C = round(1+((time-1)*fs+0.4*fs));
+    time_end_C = round((time+0.4)*fs);
+    if time_start_C < length(signal) && time_end_C <= length(signal)
+        signal_time_C = signal(time_start_C:time_end_C);
+        window = blackman(length(signal_time_C));
+        signal_time_C = window.*signal_time_C;
+    else
+        signal_time_C(length(signal)) = 0;
+    end
+
+    % part D (displacement = + 0.6 seconds)
+    time_start_D = round(1+((time-1)*fs+0.6*fs));
+    time_end_D = round((time+0.6)*fs);
+    if time_start_D < length(signal) && time_end_D <= length(signal)
+        signal_time_D = signal(time_start_D:time_end_D);
+        window = blackman(length(signal_time_D));
+        signal_time_D = window.*signal_time_D;
+    else
+        signal_time_D(length(signal)) = 0;
+    end
+
+    % part E (displacement = + 0.8 seconds)
+    time_start_E = round(1+((time-1)*fs+0.8*fs));
+    time_end_E = round((time+0.8)*fs);
+    if time_start_E < length(signal) && time_end_E <= length(signal)
+        signal_time_E = signal(time_start_E:time_end_E);
+        window = blackman(length(signal_time_E));
+        signal_time_E = window.*signal_time_E;
+    else
+        signal_time_E(length(signal)) = 0;
+    end
+
+    set_of_windows_signals = {};
+    if length(signal_time_A) == length(signal_time_B) && ...
+        length(signal_time_A) == length(signal_time_C) && ...
+         length(signal_time_A) == length(signal_time_D) &&  ...
+          length(signal_time_A) == length(signal_time_E)
+        set_of_windows_signals{1} = signal_time_A;
+        set_of_windows_signals{2} = signal_time_B;
+        set_of_windows_signals{3} = signal_time_C;
+        set_of_windows_signals{4} = signal_time_D;
+        set_of_windows_signals{5} = signal_time_E;
+    else
+        set_of_windows_signals{1} = signal_time_A;
+        set_of_windows_signals{2} = signal_time_A;
+        set_of_windows_signals{3} = signal_time_A;
+        set_of_windows_signals{4} = signal_time_A;
+        set_of_windows_signals{5} = signal_time_A;
+    end
+\end{lstlisting}
+\item \textbf{Testes Conceituais:} Os testes foram feitos em series de acordes tocados no violão e de fato os acordes transitórios desapareceram.
+\item \textbf{Retrospectiva:} Com essa correção os acordes maiores, menores e diminutos estão sendo reconhecidos corretamente.
+\end{itemize}
+
+\subsection{Ciclo 11}
+\begin{itemize}
+\item \textbf{Pergunta:} Como extrair a nota mais grave (baixo) de cada período do tempo?
+\item \textbf{Hipótese:} Com o mapa de ntoas binarizado é possível extrair o baixo pegando a primeira posição com valor 1 de cada tempo.
+\item \textbf{Implementação:}
+\begin{lstlisting}
+function bass_time = get_bass(set_of_notes_time)
+
+  notes_time_A = set_of_notes_time{1};
+  notes_time_B = set_of_notes_time{2};
+  notes_time_C = set_of_notes_time{3};
+  notes_time_D = set_of_notes_time{4};
+  notes_time_E = set_of_notes_time{5};
+
+  total_seconds = length(notes_time_A(:,1));
+  notes_time(total_seconds, 60) = 0;
+  for time = 1:total_seconds
+    for note = 1:60
+      notes_to_analyse = [notes_time_A(time, note) ...
+       notes_time_B(time, note) ...
+     notes_time_C(time, note) ...
+     notes_time_D(time, note) notes_time_E(time, note)];
+      notes_time(time, note) = mode(notes_to_analyse);
+    end
+  end
+
+    bass_time(1:total_seconds) = 0;
+  for time = 1:total_seconds
+    maxs = find(notes_time(time,:)==max(notes_time(time,:)));
+    bass_time(time) = maxs(1);
+  end
+
+  for bass = 1:length(bass_time)
+    bass_time(bass) = mod(bass_time(bass) - 1, 12) + 1;
+  end
+
+end
+\end{lstlisting}
+\item \textbf{Testes Conceituais:} Os testes foram feitos com acordes e de fato ele reconhece as notas mais graves.
+\item \textbf{Retrospectiva:} Dado os baixos definidos, os acordes com inversões e aumentados não estão incluídos.
+\end{itemize}
+
+
+\subsection{Ciclo 12}
+\begin{itemize}
+\item \textbf{Pergunta:} Como extrair a nota mais grave (baixo) de cada período do tempo e incluir os acordes aumentados e invertidos?
+\item \textbf{Hipótese:} Com o mapa de ntoas binarizado é possível extrair o baixo pegando a primeira posição com valor 1 de cada tempo.
+\item \textbf{Implementação:}
+\begin{lstlisting}
+function chords_with_bass = ...
+get_chords_bass(chords_number, bass_time)
+dictionary_chords = ...
+.
+.
+.
+ % build chords with bass to translate to dictionary
+ chords_with_bass_number = {};
+ chord_iterator = 1;
+ for chord = 1:48
+  for bass = 1:12
+    chords_with_bass_number{chord_iterator} = [chord, bass];
+    chord_iterator = chord_iterator + 1;
+  end
+ end
+ chords_with_bass = {};
+ for time = 1:length(chords_number)
+   for chord = 1:length(chords_with_bass_number)
+    peer_chord = chords_with_bass_number{chord};
+    if peer_chord(1) == chords_number(time) && ...
+    peer_chord(2) == bass_time(time)
+      chords_with_bass{time} = dictionary_chords{chord};
+    end
+   end
+ end
+end
+\end{lstlisting}
+\item \textbf{Testes Conceituais:} Todas as possibilidades de acordes foram reconhecidos com sucesso.
+\item \textbf{Retrospectiva:} Os objetivos do trabalho foram alcançados com sucesso.
+\end{itemize}
+

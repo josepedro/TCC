@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2015.2.2)  10 MAY 2015 17:13
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2015.2.2)  10 MAY 2015 20:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1362,7 +1362,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ])
 (./fixos/indiceAutomatico.tex (./tcc.toc [21]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 40.
+(Font)              <14.4> on input line 52.
 ) [22])
 (./editaveis/introducao.tex [23
 
@@ -1561,39 +1561,22 @@ File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [44]
-[45] [46] [47] [48] [49] [50]
-File: figuras/fft-resultado.eps Graphic file (type eps)
- <figuras/fft-resultado.eps>
-Overfull \hbox (43.20793pt too wide) in paragraph at lines 462--463
- [][] 
+[45] [46] [47] [48] [49] [50] [51]
+File: figuras/ciclo_desenvolvimento.eps Graphic file (type eps)
+ <figuras/ciclo_desenvolvimento.eps> [52]
+Overfull \hbox (12.93924pt too wide) in paragraph at lines 534--535
+[]\T1/lmr/bx/n/12 Retrospectiva: \T1/lmr/m/n/12 A Trans-for-mada de Fou-rier, e
+m es-pe-cí-fico a $\OML/lmm/m/it/12 FastFourierTransform$\T1/lmr/m/n/12 ,
  []
 
+[53] [54]
+LaTeX Font Info:    Font shape `TS1/pcr/m/it' in size <10> not available
+(Font)              Font shape `TS1/pcr/m/sl' tried instead on input line 605.
+ [55] [56] [57] [58] [59] [60] [61] [62]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[51]
-
-LaTeX Warning: Command \' invalid in math mode on input line 472.
-
-File: figuras/neuron_notes.eps Graphic file (type eps)
-<figuras/neuron_notes.eps>
-Overfull \hbox (6.33765pt too wide) in paragraph at lines 476--477
- [][] 
- []
-
-[52]
-File: figuras/correlation-formula.eps Graphic file (type eps)
- <figuras/correlation-formula.eps> [53]
-File: figuras/neuron_chord.eps Graphic file (type eps)
- <figuras/neuron_chord.eps> [54]
-File: figuras/rede_total.eps Graphic file (type eps)
-
-<figuras/rede_total.eps>
-Overfull \hbox (42.30457pt too wide) in paragraph at lines 548--549
- [][] 
- []
-
-) (./editaveis/resultadosparciais.tex [55] [56] [57
+ [63]
+[64] [65]) (./editaveis/resultadosparciais.tex [66] [67
 
 ]
 Overfull \hbox (1.4485pt too wide) in paragraph at lines 36--37
@@ -1601,11 +1584,11 @@ Overfull \hbox (1.4485pt too wide) in paragraph at lines 36--37
 tro: acorde = DA2(audio); 
  []
 
-[58]
+[68]
 File: figuras/teclado-tcc1.eps Graphic file (type eps)
  <figuras/teclado-tcc1.eps>
 File: figuras/processo_experimento.eps Graphic file (type eps)
- <figuras/processo_experimento.eps> [59]
+ <figuras/processo_experimento.eps> [69]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <17.28> on input line 59.
 
@@ -1648,7 +1631,7 @@ Overfull \hbox (6.62148pt too wide) in paragraph at lines 80--82
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[60]
+[70]
 
 LaTeX Warning: Command \' invalid in math mode on input line 85.
 
@@ -1661,7 +1644,7 @@ LaTeX Warning: Command \' invalid in math mode on input line 87.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [61]
+ [71]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 90.
@@ -1707,7 +1690,7 @@ Overfull \hbox (47.66354pt too wide) in paragraph at lines 111--113
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[62]
+[72]
 
 LaTeX Warning: Command \' invalid in math mode on input line 117.
 
@@ -1735,7 +1718,7 @@ LaTeX Warning: Command \' invalid in math mode on input line 119.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [63]
+ [73]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 123.
@@ -1778,7 +1761,7 @@ Overfull \hbox (47.66354pt too wide) in paragraph at lines 144--146
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[64]
+[74]
 
 LaTeX Warning: Command \' invalid in math mode on input line 150.
 
@@ -1794,7 +1777,7 @@ LaTeX Warning: Command \' invalid in math mode on input line 152.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [65]
+ [75]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 156.
@@ -1840,7 +1823,7 @@ Overfull \hbox (47.66354pt too wide) in paragraph at lines 177--179
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[66]
+[76]
 
 LaTeX Warning: Command \' invalid in math mode on input line 183.
 
@@ -1862,63 +1845,35 @@ LaTeX Warning: Command \' invalid in math mode on input line 185.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [67]
+ [77]
 
 LaTeX Warning: Float too large for page by 32.36568pt on input line 305.
 
 
 LaTeX Warning: Float too large for page by 32.36568pt on input line 415.
 
-) (./editaveis/conclusoesparciais.tex [68] [69] [70]) (./tcc.bbl (./tcc.brf)
+) (./editaveis/conclusoesparciais.tex [78] [79] [80]) (./tcc.bbl (./tcc.brf)
 \tf@brf=\write5
 \openout5 = `tcc.brf'.
 
 
-[71
+[81
 
-] [72
+] [82
 
 ]
 bibitemlist
-[73]) (./editaveis/apendices.tex [74] [75
+[83]) (./editaveis/apendices.tex [84] [85
 
 
-] [76] [77
+] [86] [87
 
-] [78]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [79]
-[80]
-Underfull \vbox (badness 7047) has occurred while \output is active []
-
- [81]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [82]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [83]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [84]
-[85]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [86]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [87]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [88]
+] [88]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [89]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [90]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[90]
+Underfull \vbox (badness 7047) has occurred while \output is active []
 
  [91]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1930,9 +1885,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [94]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [95]
+[95]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [96]
@@ -1948,7 +1901,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [100]
-[101]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [101]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [102]
@@ -1976,10 +1931,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [110]
+[111]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [111]
-[112]
+ [112]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [113]
@@ -2007,16 +1962,44 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [121]
+[122]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [122]
+ [123]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [123])
+ [124]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [125]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [126]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [127]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [128]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [129]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [130]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [131]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [132]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [133])
 No file tcc.ind.
 
 AED: lastpage setting LastPage
-[124]
+[134]
 \tf@lof=\write6
 \openout6 = `tcc.lof'.
 
@@ -2035,7 +2018,7 @@ Package atveryend Info: Executing hook `AfterLastShipout' on input line 51.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 51.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 51.
 Package rerunfilecheck Info: File `tcc.brf' has not changed.
-(rerunfilecheck)             Checksum: AEDADF346FF8D97565AE305C36241B5E;1539.
+(rerunfilecheck)             Checksum: BF49E5A9CE81FBE21A0D18BA801804CD;1493.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -2043,12 +2026,12 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 51.
  ) 
 Here is how much of TeX's memory you used:
- 14707 strings out of 493486
- 210200 string characters out of 3143550
- 370520 words of memory out of 3000000
- 17674 multiletter control sequences out of 15000+200000
- 108361 words of font info for 72 fonts, out of 3000000 for 9000
+ 14759 strings out of 493486
+ 210820 string characters out of 3143550
+ 368853 words of memory out of 3000000
+ 17729 multiletter control sequences out of 15000+200000
+ 108673 words of font info for 73 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  45i,13n,74p,2003b,2012s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on tcc.dvi (126 pages, 1071984 bytes).
+Output written on tcc.dvi (136 pages, 1220148 bytes).

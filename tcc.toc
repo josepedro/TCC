@@ -21,33 +21,45 @@
 \contentsline {subsection}{\numberline {3.2.6}Procedimento 6: Extrair Baixos}{47}{subsection.3.2.6}
 \contentsline {subsection}{\numberline {3.2.7}Procedimento 7: Extrair Tonalidade}{48}{subsection.3.2.7}
 \contentsline {subsection}{\numberline {3.2.8}Procedimento 8: Extrair Acordes Fundamentais}{49}{subsection.3.2.8}
-\contentsline {subsection}{\numberline {3.2.9}Procedimento 9: }{50}{subsection.3.2.9}
-\contentsline {section}{\numberline {3.3}Correla\IeC {\c c}\IeC {\~a}o com Notas Musicais}{52}{section.3.3}
-\contentsline {section}{\numberline {3.4}Correla\IeC {\c c}\IeC {\~a}o com Acordes Musicais}{53}{section.3.4}
-\contentsline {section}{\numberline {3.5}Extra\IeC {\c c}\IeC {\~a}o do Acorde}{55}{section.3.5}
-\contentsline {chapter}{\chapternumberline {4}Resultados Parciais}{57}{chapter.4}
-\contentsline {section}{\numberline {4.1}Pr\IeC {\'e}-condi\IeC {\c c}\IeC {\~o}es dos Experimentos}{58}{section.4.1}
-\contentsline {section}{\numberline {4.2}Experimento 1 - Acorde $CM$}{60}{section.4.2}
-\contentsline {section}{\numberline {4.3}Experimento 2 - Acorde $Dm$}{62}{section.4.3}
-\contentsline {section}{\numberline {4.4}Experimento 3 - Acorde $Ddim$}{64}{section.4.4}
-\contentsline {section}{\numberline {4.5}Experimento 4 - Acorde $Daum$}{66}{section.4.5}
-\contentsline {section}{\numberline {4.6}Tabela de resultados dos acordes tocados}{68}{section.4.6}
-\contentsline {chapter}{\chapternumberline {5}Considera\IeC {\c c}\IeC {\~o}es Finais}{71}{chapter.5}
-\contentsline {section}{\numberline {5.1}Evolu\IeC {\c c}\IeC {\~o}es Futuras}{71}{section.5.1}
+\contentsline {subsection}{\numberline {3.2.9}Procedimento 9: Extrair Acorde Recorrente das Partes}{50}{subsection.3.2.9}
+\contentsline {subsection}{\numberline {3.2.10}Procedimento 10: Extrair Acordes com Invers\IeC {\~o}es}{51}{subsection.3.2.10}
+\contentsline {section}{\numberline {3.3}Linha de Ciclos de Desenvolvimento}{52}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Estrutura do Ciclo}{52}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Ciclo 1}{53}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Ciclo 2}{54}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}Ciclo 3}{54}{subsection.3.3.4}
+\contentsline {subsection}{\numberline {3.3.5}Ciclo 4}{56}{subsection.3.3.5}
+\contentsline {subsection}{\numberline {3.3.6}Ciclo 5}{57}{subsection.3.3.6}
+\contentsline {subsection}{\numberline {3.3.7}Ciclo 6}{58}{subsection.3.3.7}
+\contentsline {subsection}{\numberline {3.3.8}Ciclo 7}{59}{subsection.3.3.8}
+\contentsline {subsection}{\numberline {3.3.9}Ciclo 8}{60}{subsection.3.3.9}
+\contentsline {subsection}{\numberline {3.3.10}Ciclo 9}{61}{subsection.3.3.10}
+\contentsline {subsection}{\numberline {3.3.11}Ciclo 10}{62}{subsection.3.3.11}
+\contentsline {subsection}{\numberline {3.3.12}Ciclo 11}{64}{subsection.3.3.12}
+\contentsline {subsection}{\numberline {3.3.13}Ciclo 12}{65}{subsection.3.3.13}
+\contentsline {chapter}{\chapternumberline {4}Resultados Parciais}{67}{chapter.4}
+\contentsline {section}{\numberline {4.1}Pr\IeC {\'e}-condi\IeC {\c c}\IeC {\~o}es dos Experimentos}{68}{section.4.1}
+\contentsline {section}{\numberline {4.2}Experimento 1 - Acorde $CM$}{70}{section.4.2}
+\contentsline {section}{\numberline {4.3}Experimento 2 - Acorde $Dm$}{72}{section.4.3}
+\contentsline {section}{\numberline {4.4}Experimento 3 - Acorde $Ddim$}{74}{section.4.4}
+\contentsline {section}{\numberline {4.5}Experimento 4 - Acorde $Daum$}{76}{section.4.5}
+\contentsline {section}{\numberline {4.6}Tabela de resultados dos acordes tocados}{78}{section.4.6}
+\contentsline {chapter}{\chapternumberline {5}Considera\IeC {\c c}\IeC {\~o}es Finais}{81}{chapter.5}
+\contentsline {section}{\numberline {5.1}Evolu\IeC {\c c}\IeC {\~o}es Futuras}{81}{section.5.1}
 \vspace {\cftbeforepartskip }
-\contentsline {chapter}{Refer\^encias}{73}{section*.13}
+\contentsline {chapter}{Refer\^encias}{83}{section*.13}
 \renewcommand *{\cftappendixname }{AP\^ENDICE \space }
-\contentsline {part}{Ap\^endices}{75}{section*.14}
-\contentsline {appendix}{\chapternumberline {A}Primeiro Ap\IeC {\^e}ndice}{77}{appendix.A}
-\contentsline {section}{\numberline {A.1}M\IeC {\'o}dulo Principal}{77}{section.A.1}
-\contentsline {section}{\numberline {A.2}M\IeC {\'o}dulo de Monofica\IeC {\c c}\IeC {\~a}o do Sinal de \IeC {\'A}udio}{78}{section.A.2}
-\contentsline {section}{\numberline {A.3}M\IeC {\'o}dulo da Transformada de Fourier}{78}{section.A.3}
-\contentsline {section}{\numberline {A.4}M\IeC {\'o}dulo de Equaliza\IeC {\c c}\IeC {\~a}o do Sinal}{80}{section.A.4}
-\contentsline {section}{\numberline {A.5}M\IeC {\'o}dulo de Correla\IeC {\c c}\IeC {\~a}o de Notas}{80}{section.A.5}
-\contentsline {section}{\numberline {A.6}M\IeC {\'o}dulo de Correla\IeC {\c c}\IeC {\~a}o}{80}{section.A.6}
-\contentsline {section}{\numberline {A.7}M\IeC {\'o}dulo de Correla\IeC {\c c}\IeC {\~a}o de Acordes}{81}{section.A.7}
-\contentsline {section}{\numberline {A.8}M\IeC {\'o}dulo de Interpreta\IeC {\c c}\IeC {\~a}o de Correla\IeC {\c c}\IeC {\~a}o dos Acordes}{82}{section.A.8}
-\contentsline {section}{\numberline {A.9}M\IeC {\'o}dulo de Aloca\IeC {\c c}\IeC {\~a}o de Constantes para Notas}{85}{section.A.9}
-\contentsline {section}{\numberline {A.10}M\IeC {\'o}dulo de Aloca\IeC {\c c}\IeC {\~a}o de Constantes para Acordes}{101}{section.A.10}
-\contentsline {section}{\numberline {A.11}M\IeC {\'o}dulo de Testes em Amostras}{112}{section.A.11}
-\contentsline {section}{\numberline {A.12}Cronograma para Pr\IeC {\'o}ximas Atividades}{124}{section.A.12}
+\contentsline {part}{Ap\^endices}{85}{section*.14}
+\contentsline {appendix}{\chapternumberline {A}Primeiro Ap\IeC {\^e}ndice}{87}{appendix.A}
+\contentsline {section}{\numberline {A.1}M\IeC {\'o}dulo Principal}{87}{section.A.1}
+\contentsline {section}{\numberline {A.2}M\IeC {\'o}dulo de Monofica\IeC {\c c}\IeC {\~a}o do Sinal de \IeC {\'A}udio}{88}{section.A.2}
+\contentsline {section}{\numberline {A.3}M\IeC {\'o}dulo da Transformada de Fourier}{88}{section.A.3}
+\contentsline {section}{\numberline {A.4}M\IeC {\'o}dulo de Equaliza\IeC {\c c}\IeC {\~a}o do Sinal}{90}{section.A.4}
+\contentsline {section}{\numberline {A.5}M\IeC {\'o}dulo de Correla\IeC {\c c}\IeC {\~a}o de Notas}{90}{section.A.5}
+\contentsline {section}{\numberline {A.6}M\IeC {\'o}dulo de Correla\IeC {\c c}\IeC {\~a}o}{90}{section.A.6}
+\contentsline {section}{\numberline {A.7}M\IeC {\'o}dulo de Correla\IeC {\c c}\IeC {\~a}o de Acordes}{91}{section.A.7}
+\contentsline {section}{\numberline {A.8}M\IeC {\'o}dulo de Interpreta\IeC {\c c}\IeC {\~a}o de Correla\IeC {\c c}\IeC {\~a}o dos Acordes}{92}{section.A.8}
+\contentsline {section}{\numberline {A.9}M\IeC {\'o}dulo de Aloca\IeC {\c c}\IeC {\~a}o de Constantes para Notas}{95}{section.A.9}
+\contentsline {section}{\numberline {A.10}M\IeC {\'o}dulo de Aloca\IeC {\c c}\IeC {\~a}o de Constantes para Acordes}{111}{section.A.10}
+\contentsline {section}{\numberline {A.11}M\IeC {\'o}dulo de Testes em Amostras}{122}{section.A.11}
+\contentsline {section}{\numberline {A.12}Cronograma para Pr\IeC {\'o}ximas Atividades}{134}{section.A.12}
