@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2015.2.2)  10 MAY 2015 15:52
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2015.2.2)  10 MAY 2015 17:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1561,16 +1561,9 @@ File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [44]
-[45] [46] [47] [48]
-Underfull \vbox (badness 3058) has occurred while \output is active []
-
- [49]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [50]
+[45] [46] [47] [48] [49] [50]
 File: figuras/fft-resultado.eps Graphic file (type eps)
-
-<figuras/fft-resultado.eps>
+ <figuras/fft-resultado.eps>
 Overfull \hbox (43.20793pt too wide) in paragraph at lines 462--463
  [][] 
  []
@@ -1578,11 +1571,7 @@ Overfull \hbox (43.20793pt too wide) in paragraph at lines 462--463
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [51]
-[52]
+[51]
 
 LaTeX Warning: Command \' invalid in math mode on input line 472.
 
@@ -1592,13 +1581,11 @@ Overfull \hbox (6.33765pt too wide) in paragraph at lines 476--477
  [][] 
  []
 
+[52]
 File: figuras/correlation-formula.eps Graphic file (type eps)
-<figuras/correlation-formula.eps> [53]
+ <figuras/correlation-formula.eps> [53]
 File: figuras/neuron_chord.eps Graphic file (type eps)
  <figuras/neuron_chord.eps> [54]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [55]
 File: figuras/rede_total.eps Graphic file (type eps)
 
 <figuras/rede_total.eps>
@@ -1606,7 +1593,7 @@ Overfull \hbox (42.30457pt too wide) in paragraph at lines 548--549
  [][] 
  []
 
-) (./editaveis/resultadosparciais.tex [56] [57
+) (./editaveis/resultadosparciais.tex [55] [56] [57
 
 ]
 Overfull \hbox (1.4485pt too wide) in paragraph at lines 36--37
@@ -2048,7 +2035,7 @@ Package atveryend Info: Executing hook `AfterLastShipout' on input line 51.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 51.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 51.
 Package rerunfilecheck Info: File `tcc.brf' has not changed.
-(rerunfilecheck)             Checksum: 9ADEDD7CFB1894761003CD7F21EA6B3B;1539.
+(rerunfilecheck)             Checksum: AEDADF346FF8D97565AE305C36241B5E;1539.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -2058,10 +2045,10 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 51.
 Here is how much of TeX's memory you used:
  14707 strings out of 493486
  210200 string characters out of 3143550
- 370522 words of memory out of 3000000
+ 370520 words of memory out of 3000000
  17674 multiletter control sequences out of 15000+200000
  108361 words of font info for 72 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  45i,13n,74p,2003b,2012s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on tcc.dvi (126 pages, 1071880 bytes).
+Output written on tcc.dvi (126 pages, 1071984 bytes).

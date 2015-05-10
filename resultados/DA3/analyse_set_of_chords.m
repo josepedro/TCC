@@ -13,5 +13,4 @@ function chords = analyse_set_of_chords(set_of_chords)
 		 set_of_chords_C(time) set_of_chords_D(time) set_of_chords_E(time)];
 		chords(time) = mode(chords_to_analyse);
 	end
-	chords;
 end

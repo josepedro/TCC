@@ -17,14 +17,14 @@
 \contentsline {subsection}{\numberline {3.2.2}Procedimento 2: Aplicar Janelas de Blackman}{43}{subsection.3.2.2}
 \contentsline {subsection}{\numberline {3.2.3}Procedimento 3: Calcular o Espectro de Frequ\IeC {\^e}ncias}{45}{subsection.3.2.3}
 \contentsline {subsection}{\numberline {3.2.4}Procedimento 4: Adquirir Energias das Notas}{46}{subsection.3.2.4}
-\contentsline {section}{\numberline {3.3}Procedimento 5: Binarizar Energia das Notas}{47}{section.3.3}
-\contentsline {section}{\numberline {3.4}Procedimento 6: Extrair Baixos}{47}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Procedimento 7: Extrair Tonalidade}{48}{subsection.3.4.1}
-\contentsline {section}{\numberline {3.5}Procedimento 8: Extrair Acordes Fundamentais}{49}{section.3.5}
-\contentsline {section}{\numberline {3.6}Procedimento }{51}{section.3.6}
-\contentsline {section}{\numberline {3.7}Correla\IeC {\c c}\IeC {\~a}o com Notas Musicais}{53}{section.3.7}
-\contentsline {section}{\numberline {3.8}Correla\IeC {\c c}\IeC {\~a}o com Acordes Musicais}{54}{section.3.8}
-\contentsline {section}{\numberline {3.9}Extra\IeC {\c c}\IeC {\~a}o do Acorde}{56}{section.3.9}
+\contentsline {subsection}{\numberline {3.2.5}Procedimento 5: Binarizar Energia das Notas}{47}{subsection.3.2.5}
+\contentsline {subsection}{\numberline {3.2.6}Procedimento 6: Extrair Baixos}{47}{subsection.3.2.6}
+\contentsline {subsection}{\numberline {3.2.7}Procedimento 7: Extrair Tonalidade}{48}{subsection.3.2.7}
+\contentsline {subsection}{\numberline {3.2.8}Procedimento 8: Extrair Acordes Fundamentais}{49}{subsection.3.2.8}
+\contentsline {subsection}{\numberline {3.2.9}Procedimento 9: }{50}{subsection.3.2.9}
+\contentsline {section}{\numberline {3.3}Correla\IeC {\c c}\IeC {\~a}o com Notas Musicais}{52}{section.3.3}
+\contentsline {section}{\numberline {3.4}Correla\IeC {\c c}\IeC {\~a}o com Acordes Musicais}{53}{section.3.4}
+\contentsline {section}{\numberline {3.5}Extra\IeC {\c c}\IeC {\~a}o do Acorde}{55}{section.3.5}
 \contentsline {chapter}{\chapternumberline {4}Resultados Parciais}{57}{chapter.4}
 \contentsline {section}{\numberline {4.1}Pr\IeC {\'e}-condi\IeC {\c c}\IeC {\~o}es dos Experimentos}{58}{section.4.1}
 \contentsline {section}{\numberline {4.2}Experimento 1 - Acorde $CM$}{60}{section.4.2}
