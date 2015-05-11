@@ -35,20 +35,22 @@ No que tange às pré-condições foram levados em conta:
 \end{itemize}
 
 \newpage
-As tríades de acordes foram executadas com base na nota central $C4$ que possui o valor de aproximadamente 261,6 Hz. Segue uma foto ilustrativa das regiões e limites usados \cite{teclado}:
+As tríades de acordes foram executadas com base na nota central $C4$ que possui o valor de aproximadamente 261,6 Hz. A figura \ref{fig:teclado} ilustra as regiões e limites usados \cite{teclado}:
 
 \begin{figure}[h]
 	\centering
 		\includegraphics[keepaspectratio=true,scale=0.4]{figuras/teclado-tcc1.eps}
 	\caption{Teclado ilustrativo para execução dos acordes}
+  \label{fig:teclado}
 \end{figure}
 
-O processo de execução do experimento foi dividido em 4 etapas. A primeira relativa a gravação do acorde tocado no teclado via microfone convencional interno do $notebook$. A segunda é a exportação do som no formato de arquivo .wav pelo software audacity. A terceira etapa é a introdução do arquivo na entrada do sistema de detecção de acordes. A última atividade é a classificação do arquivo digital num acorde. Segue esquema ilustrativo do processo:
+O processo de execução do experimento foi dividido em 4 etapas. A primeira relativa a gravação do acorde tocado no teclado via microfone convencional interno do $notebook$. A segunda é a exportação do som no formato de arquivo .wav pelo software audacity. A terceira etapa é a introdução do arquivo na entrada do sistema de detecção de acordes. A última atividade é a classificação do arquivo digital num acorde. A figura \ref{fig:processo} ilustra o processo esquematizado.
 
 \begin{figure}[h]
 	\centering
 		\includegraphics[keepaspectratio=true,scale=0.35]{figuras/processo_experimento.eps}
 	\caption{Processo ilustrativo da execução dos experimentos}
+  \label{fig:processo}
 \end{figure}
 
 \newpage
@@ -63,12 +65,14 @@ Segue os gráficos resultantes:
 	\centering
 		\includegraphics[keepaspectratio=true,scale=0.49]{figuras/CM/fft_cm.eps}
 	\caption{Gráfico da resposta em frequência para a gravação do acorde $CM$}
+  \label{fig:espectro_CM}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
 		\includegraphics[keepaspectratio=true,scale=0.49]{figuras/CM/notas_cm.eps}
 	\caption{Gráfico de sugestão de notas para a gravação do acorde $CM$}
+  \label{fig:notas_CM}
 \end{figure}
 
 \begin{figure}[h]
@@ -76,13 +80,15 @@ Segue os gráficos resultantes:
 		\includegraphics[keepaspectratio=true,scale=0.45]{figuras/CM/acordes_1_cm.eps}
 		\includegraphics[keepaspectratio=true,scale=0.45]{figuras/CM/acordes_2_cm.eps}
 	\caption{Gráficos de sugestão de acordes a gravação do acorde $CM$}
+  \label{fig:acordes_CM}
 \end{figure}
 \newpage
-Do resultado da primeira camada de processamento é gerado o gráfico da Figura 16. Esse gráfico diz respeito a natureza da composição do sinal em senoides em termos de transformada de fourier. O primeiro pico, no valor de 294 Hz, é relativo a nota $Dó$. O segundo pico, no valor de 371 Hz, é relativo a nota $Mi$. O terceiro pico, no valor de 441 Hz, é relativo a nota $Sol$. Os picos seguintes são relativos aos harmônicos dessas três notas.
+Do resultado da primeira camada de processamento é gerado o gráfico da figura \ref{fig:espectro_CM}. Esse gráfico diz respeito a natureza da composição do sinal em senoides em termos de transformada de fourier. O primeiro pico, no valor de 294 Hz, é relativo a nota $Dó$. O segundo pico, no valor de 371 Hz, é relativo a nota $Mi$. O terceiro pico, no valor de 441 Hz, é relativo a nota $Sol$. Os picos seguintes são relativos aos harmônicos dessas três notas.
 
-Do resultado da segunda camada de processamento é gerado gráfico da Figura 17. É possível perceber nele que as notas $Dó$, $Mi$ e $Sol$ são as que mais possuem energia ou, no ponto de vista de sugestão, as mais sugeridas. De certa forma um dos fatores que contribuiram das notas $Dó$ e $Sol$ ser de maiores energias foi devido a presença dos harmônicos.
+Do resultado da segunda camada de processamento é gerado gráfico da figura \ref{fig:notas_CM}. É possível perceber nele que as notas $Dó$, $Mi$ e $Sol$ são as que mais possuem energia ou, no ponto de vista de sugestão, as mais sugeridas. De certa forma um dos fatores que contribuiram das notas $Dó$ e $Sol$ ser de maiores energias foi devido a presença dos harmônicos.
 
-Do resultado da terceira camada de processamento são gerados os gráficos da Figura 18. Essa camada é relativa ao resultados das sugestões de acordes musicais. É perceptível ver a presença da alta sugestão do acorde $CM$.
+Do resultado da terceira camada de processamento são gerados os gráficos da figura \ref{fig:acordes_CM}. Essa camada é relativa ao resultados das sugestões de acordes musicais. É perceptível ver a presença da alta sugestão do acorde $CM$.
+
 \subsection{Experimento 2 - Acorde $Dm$}
 \label{sec:experimento2}
 
@@ -94,12 +100,14 @@ Segue os gráficos resultantes:
 	\centering
 		\includegraphics[keepaspectratio=true,scale=0.49]{figuras/Dm/fft_Dm.eps}
 	\caption{Gráfico da resposta em frequência para a gravação do acorde $Dm$}
+  \label{fig:espectro_Dm}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
 		\includegraphics[keepaspectratio=true,scale=0.49]{figuras/Dm/notas_Dm.eps}
 	\caption{Gráfico de sugestão de notas para a gravação do acorde $Dm$}
+  \label{fig:notas_Dm}
 \end{figure}
 
 \begin{figure}[h]
@@ -107,14 +115,15 @@ Segue os gráficos resultantes:
 		\includegraphics[keepaspectratio=true,scale=0.49]{figuras/Dm/acordes_1_Dm.eps}
 		\includegraphics[keepaspectratio=true,scale=0.49]{figuras/Dm/acordes_2_Dm.eps}
 	\caption{Gráficos de sugestão de acordes a gravação do acorde $Dm$}
+  \label{fig:acordes_Dm}
 \end{figure}
 \newpage
 
-Do resultado da primeira camada de processamento é gerado o gráfico da Figura 19. Esse gráfico diz respeito a natureza da composição do sinal em senoides em termos de transformada de fourier. O primeiro pico, no valor de 294 Hz, é relativo a nota $Ré$. O segundo pico, no valor de 350 Hz, é relativo a nota $Fá$. O terceiro pico, no valor de 441 Hz, é relativo a nota $Lá$. Os picos seguintes são relativos aos harmônicos dessas três notas.
+Do resultado da primeira camada de processamento é gerado o gráfico da figura \ref{fig:espectro_Dm}. Esse gráfico diz respeito a natureza da composição do sinal em senoides em termos de transformada de fourier. O primeiro pico, no valor de 294 Hz, é relativo a nota $Ré$. O segundo pico, no valor de 350 Hz, é relativo a nota $Fá$. O terceiro pico, no valor de 441 Hz, é relativo a nota $Lá$. Os picos seguintes são relativos aos harmônicos dessas três notas.
 
-Do resultado da segunda camada de processamento é gerado gráfico da Figura 20. É possível perceber nele que as notas $Ré$, $Fá$ e $Lá$ são as que mais possuem energia ou, no ponto de vista de sugestão, as mais sugeridas. De certa forma um dos fatores que contribuiram das notas $Ré$ e $Lá$ ser de maiores energias foi devido a presença dos harmônicos.
+Do resultado da segunda camada de processamento é gerado gráfico da figura \ref{fig:notas_Dm}. É possível perceber nele que as notas $Ré$, $Fá$ e $Lá$ são as que mais possuem energia ou, no ponto de vista de sugestão, as mais sugeridas. De certa forma um dos fatores que contribuiram das notas $Ré$ e $Lá$ ser de maiores energias foi devido a presença dos harmônicos.
 
-Do resultado da terceira camada de processamento são gerados os gráficos da Figura 21. Essa camada é relativa ao resultados das sugestões de acordes musicais. É perceptível ver a presença da alta sugestão do acorde $Dm$.
+Do resultado da terceira camada de processamento são gerados os gráficos da figura \ref{fig:acordes_Dm}. Essa camada é relativa ao resultados das sugestões de acordes musicais. É perceptível ver a presença da alta sugestão do acorde $Dm$.
 
 \subsection{Experimento 3 - Acorde $Ddim$}
 \label{sec:experimento3}
@@ -127,12 +136,14 @@ Segue os gráficos resultantes:
 	\centering
 		\includegraphics[keepaspectratio=true,scale=0.49]{figuras/Dm/fft_Ddim.eps}
 	\caption{Gráfico da resposta em frequência para a gravação do acorde $Ddim$}
+  \label{fig:espectro_Ddim}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
 		\includegraphics[keepaspectratio=true,scale=0.45]{figuras/Dm/notas_Ddim.eps}
 	\caption{Gráfico de sugestão de notas para a gravação do acorde $Ddim$}
+  \label{fig:notas_Ddim}
 \end{figure}
 
 \begin{figure}[h]
@@ -140,14 +151,15 @@ Segue os gráficos resultantes:
 		\includegraphics[keepaspectratio=true,scale=0.49]{figuras/Dm/acordes_1_Ddim.eps}
 		\includegraphics[keepaspectratio=true,scale=0.49]{figuras/Dm/acordes_2_Ddim.eps}
 	\caption{Gráficos de sugestão de acordes a gravação do acorde $Ddim$}
+  \label{fig:acordes_Ddim}
 \end{figure}
 \newpage
 
-Do resultado da primeira camada de processamento é gerado o gráfico da Figura 22. Esse gráfico diz respeito a natureza da composição do sinal em senoides em termos de transformada de fourier. O primeiro pico, no valor de 294 Hz, é relativo a nota $Ré$. O segundo pico, no valor de 350 Hz, é relativo a nota $Fá$. O terceiro pico, no valor de 417 Hz, é relativo a nota $Sol\#$. Os picos seguintes são relativos aos harmônicos dessas três notas.
+Do resultado da primeira camada de processamento é gerado o gráfico da figura \ref{fig:espectro_Ddim}. Esse gráfico diz respeito a natureza da composição do sinal em senoides em termos de transformada de fourier. O primeiro pico, no valor de 294 Hz, é relativo a nota $Ré$. O segundo pico, no valor de 350 Hz, é relativo a nota $Fá$. O terceiro pico, no valor de 417 Hz, é relativo a nota $Sol\#$. Os picos seguintes são relativos aos harmônicos dessas três notas.
 
-Do resultado da segunda camada de processamento é gerado gráfico da Figura 23. É possível perceber nele que as notas $Ré$, $Fá$ e $Sol\#$ são as que mais possuem energia ou, no ponto de vista de sugestão, as mais sugeridas.
+Do resultado da segunda camada de processamento é gerado gráfico da figura \ref{fig:notas_Ddim}. É possível perceber nele que as notas $Ré$, $Fá$ e $Sol\#$ são as que mais possuem energia ou, no ponto de vista de sugestão, as mais sugeridas.
 
-Do resultado da terceira camada de processamento são gerados os gráficos da Figura 24. Essa camada é relativa ao resultados das sugestões de acordes musicais. É perceptível ver a presença da alta sugestão do acorde $Ddim$.
+Do resultado da terceira camada de processamento são gerados os gráficos da figura \ref{fig:acordes_Ddim}. Essa camada é relativa ao resultados das sugestões de acordes musicais. É perceptível ver a presença da alta sugestão do acorde $Ddim$.
 
 \subsection{Experimento 4 - Acorde $Daum$}
 \label{sec:experimento4}
@@ -160,12 +172,14 @@ Segue os gráficos resultantes:
 	\centering
 		\includegraphics[keepaspectratio=true,scale=0.49]{figuras/Dm/fft_Daum.eps}
 	\caption{Gráfico da resposta em frequência para a gravação do acorde $Daum$}
+  \label{fig:espectro_Daum}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
 		\includegraphics[keepaspectratio=true,scale=0.49]{figuras/Dm/notas_Daum.eps}
 	\caption{Gráfico de sugestão de notas para a gravação do acorde $Daum$}
+  \label{fig:notas_Daum}
 \end{figure}
 
 \begin{figure}[h]
@@ -173,22 +187,17 @@ Segue os gráficos resultantes:
 		\includegraphics[keepaspectratio=true,scale=0.49]{figuras/Dm/acordes_1_Daum.eps}
 		\includegraphics[keepaspectratio=true,scale=0.49]{figuras/Dm/acordes_2_Daum.eps}
 	\caption{Gráficos de sugestão de acordes a gravação do acorde $Daum$}
+  \label{fig:acordes_Daum}
 \end{figure}
 \newpage
 
-Do resultado da primeira camada de processamento é gerado o gráfico da Figura 25. Esse gráfico diz respeito a natureza da composição do sinal em senoides em termos de transformada de fourier. O primeiro pico, no valor de 294 Hz, é relativo a nota $Ré$. O segundo pico, no valor de 371 Hz, é relativo a nota $Fá\#$. O terceiro pico, no valor de 467 Hz, é relativo a nota $Lá\#$. Os picos seguintes são relativos aos harmônicos dessas três notas.
+Do resultado da primeira camada de processamento é gerado o gráfico da figura \ref{fig:espectro_Daum}. Esse gráfico diz respeito a natureza da composição do sinal em senoides em termos de transformada de fourier. O primeiro pico, no valor de 294 Hz, é relativo a nota $Ré$. O segundo pico, no valor de 371 Hz, é relativo a nota $Fá\#$. O terceiro pico, no valor de 467 Hz, é relativo a nota $Lá\#$. Os picos seguintes são relativos aos harmônicos dessas três notas.
 
-Do resultado da segunda camada de processamento é gerado gráfico da Figura 26. É possível perceber nele que as notas $Ré$, $Fá\#$ e $Lá\#$ são as que mais possuem energia ou, no ponto de vista de sugestão, as mais sugeridas.
+Do resultado da segunda camada de processamento é gerado gráfico da figura \ref{fig:notas_Daum}. É possível perceber nele que as notas $Ré$, $Fá\#$ e $Lá\#$ são as que mais possuem energia ou, no ponto de vista de sugestão, as mais sugeridas.
 
-Do resultado da terceira camada de processamento são gerados os gráficos da Figura 27. Essa camada é relativa aos resultados das sugestões de acordes musicais. É perceptível a alta sugestão dos acordes Daum, $F\#aum$ e $A\#aum$ com a mesma quantidade de energia. Isso é devido às notas comporem os mesmos acordes, diferenciando um do outro somente pela nota mais grave da tríade. Como o sistema não possui um módulo de detecção de baixos, esses 3 acordes são congruentes.
+Do resultado da terceira camada de processamento são gerados os gráficos da figura \ref{fig:acordes_Daum}. Essa camada é relativa aos resultados das sugestões de acordes musicais. É perceptível a alta sugestão dos acordes $Daum$, $F\#aum$ e $A\#aum$ com a mesma quantidade de energia. Isso é devido às notas comporem os mesmos acordes, diferenciando um do outro somente pela nota mais grave da tríade. Visto que o sistema possui o módulo de extração de baixos, a solução indicou que o acorde tocado foi $Daum$, visto que, como é mostrado no gráfico do espectro de frequências, a nota $Ré$ é a nota mais grave da tríade.
 
-
-
-\subsection{Tabela de resultados dos acordes tocados}
-\label{sec:tabelaacordestocados}
-Segue a tabela de resultados do sistema dado um acorde tocado. Esses resultados foram gerados pelo script referenciado em anexo (Anexo, A11). Os acordes em negrito são aqueles que o sistema errou devido a falta de um módulo de software que diferenciasse as notas em termos de baixos e inversões, interpretando-as como tríades no modo fundamental. E esse fato é tão relevante que o sistema desconsidera as inversões.
-
-Tais informações e mais outras estão referencidas na tabela a seguir:
+Segue na tabela \ref{tab:label_test} os resultados do sistema dado todas as combinações dos conjuntos de acordes de tríades possíveis. Esses resultados foram gerados pelo script disponível no repositório desse trabalho \footnote{https://github.com/josepedro/TCC}.
 
 \begin{table}[ht!]
   %Vertical lines as column separators
