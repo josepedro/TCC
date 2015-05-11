@@ -1,28 +1,26 @@
 \chapter{Resultados}
 \label{chap:resultados}
 
-Em vista dos procedimentos teóricos aliados a uma solução computacional, obteve-se resultados sequênciais de processamento de áudio. Tais resultados são:
+Em vista dos procedimentos teóricos aliados a uma solução computacional, obteve-se os seguintes resultados:
 \begin{itemize}
-    \item resultado da resposta em frequência;
-    \item resultado da sugestão de notas;
-    \item resultado da sugestão de acordes;
-    \item resultado da detecção de transições rítmicas;
-    \item resultado da implementação da transformada wavelets;
-    \item resultado da transcrição de notas;
-    \item resultado da tonalidade do áudio;
-    \item resultado da transcrição automática de acordes ao longo do tempo.
+    \item resposta em frequência;
+    \item sugestão de notas;
+    \item sugestão de acordes;
+    \item detecção de transições rítmicas;
+    \item implementação da transformada wavelets;
+    \item transcrição de notas ao longo do tempo;
+    \item extração da tonalidade do áudio;
+    \item transcrição automática de acordes ao longo do tempo.
 \end{itemize}
 
-A primeira camada (Anexo 1, A3) de processamento da solução computacional proposta é a relativa a transformada de fourier. O resultado dessa camada é um vetor de 22.050 posições. Cada posição referente a frequência e sua resposta o valor da mesma.
+% Comentar cada item e o fundamento teórico por trás de cada um
 
-A segunda camada (Anexo 1, A5) é a da rede neural para sugestão de notas. Ela tem como insumo de entrada a transformada de fourier. O resultado dessa camada é um vetor de 12 posições. Cada posição é representada por uma nota musical.
+\section{Resposta em Frequência e Sugestões de Notas e Acordes}
 
-A terceira camada (Anexo 1, A6) é a da rede neural para sugestão de acordes. Ela tem como insumo de entrada as sugestões de notas da rede neural anterior. O resultado dessa camada é um vetor de 48 posições. Cada posição é representada por um tipo de acorde diferente entre as possibilidades de acorde maior, menor, aumento e diminuto para cada nota musical.
-
-Para a demonstração de tais resultados foram feitos experimentos com todas as possibilidades de detecção de acordes proporcionados pelo sistema. Todavia serão detalhados e comentados somente 4 pois para os outros equivalem as mesmas considerações. O resumo dos resultados dos outros experimentos estará presente na tabela que se segue logo após. Esses experimentos foram feitos levando em consideração pré-condições e pós-condições.
+Para a demonstração de tais resultados foram feitos experimentos com todas as possibilidades de reconhecimento de acordes proporcionados pelo sistema. Todavia serão detalhados e comentados somente 4 pois para os outros equivalem as mesmas considerações. O resumo dos resultados dos outros acordes estará presente na tabela que se segue logo após. Esses experimentos foram feitos levando em consideração pré-condições e pós-condições.
 \newpage
 
-\section{Pré-condições dos Experimentos}
+\subsection{Pré-condições dos Experimentos}
 \label{sec:precondicoes}
 
 No que tange às pré-condições foram levados em conta:
@@ -34,12 +32,6 @@ No que tange às pré-condições foram levados em conta:
     \item o ruído de fundo estava com uma grandeza por volta de 45 db;
     \item a taxa de amostragem do sinal foi configurada em 44100 Hz;
     \item gravação do áudio no formato de arquivo .wav em codificação 16 pcm.
-    \item inicialização do software Scilab;
-    \item execução do comando para importar a função principal do sistema (Anexo, A1): exec dc.sci;
-    \item abertura do arquivo de áudio: audio = wavread('arquivo.wav');
-    \item execução do algorítmo tendo o áudio gravado como parâmetro: acorde = DA2(audio);
-    \item o resultado do acorde tocado estará guardado na variável acorde;
-    \item para a geração de resultados automáticos com todas as amostras representantes de todas as possibilidades de acordes, faz-se necessário da execução do seguinte comando (Anexo, A11): exec acordes{\_}test.sci.
 \end{itemize}
 
 \newpage
@@ -60,7 +52,7 @@ O processo de execução do experimento foi dividido em 4 etapas. A primeira rel
 \end{figure}
 
 \newpage
-\section{Experimento 1 - Acorde $CM$}
+\subsection{Experimento 1 - Acorde $CM$}
 \label{sec:experimento1}
 
 Nesse experimento foi tocado a tríade $Dó$ (baixo e tônica), $Mi$ e $Sol$ equivalente ao acorde $CM$. A tríade foi tocada ao mesmo tempo e com a mesma força para todas as notas.
@@ -91,7 +83,7 @@ Do resultado da primeira camada de processamento é gerado o gráfico da Figura 
 Do resultado da segunda camada de processamento é gerado gráfico da Figura 17. É possível perceber nele que as notas $Dó$, $Mi$ e $Sol$ são as que mais possuem energia ou, no ponto de vista de sugestão, as mais sugeridas. De certa forma um dos fatores que contribuiram das notas $Dó$ e $Sol$ ser de maiores energias foi devido a presença dos harmônicos.
 
 Do resultado da terceira camada de processamento são gerados os gráficos da Figura 18. Essa camada é relativa ao resultados das sugestões de acordes musicais. É perceptível ver a presença da alta sugestão do acorde $CM$.
-\section{Experimento 2 - Acorde $Dm$}
+\subsection{Experimento 2 - Acorde $Dm$}
 \label{sec:experimento2}
 
 Nesse experimento foi tocado a tríade $Ré$ (baixo e tônica), $Fá$ e $Lá$ equivalente ao acorde $Dm$. A tríade foi tocada ao mesmo tempo e com a mesma força para todas as notas.
@@ -124,7 +116,7 @@ Do resultado da segunda camada de processamento é gerado gráfico da Figura 20.
 
 Do resultado da terceira camada de processamento são gerados os gráficos da Figura 21. Essa camada é relativa ao resultados das sugestões de acordes musicais. É perceptível ver a presença da alta sugestão do acorde $Dm$.
 
-\section{Experimento 3 - Acorde $Ddim$}
+\subsection{Experimento 3 - Acorde $Ddim$}
 \label{sec:experimento3}
 
 Nesse experimento foi tocado a tríade $Ré$ (baixo e tônica), $Fá$ e $Sol\#$ equivalente ao acorde Ddim. A tríade foi tocada ao mesmo tempo e com a mesma força para todas as notas.
@@ -157,7 +149,7 @@ Do resultado da segunda camada de processamento é gerado gráfico da Figura 23.
 
 Do resultado da terceira camada de processamento são gerados os gráficos da Figura 24. Essa camada é relativa ao resultados das sugestões de acordes musicais. É perceptível ver a presença da alta sugestão do acorde $Ddim$.
 
-\section{Experimento 4 - Acorde $Daum$}
+\subsection{Experimento 4 - Acorde $Daum$}
 \label{sec:experimento4}
 
 Nesse experimento foi tocado a tríade $Ré$ (baixo e tônica), $Fá\#$ e $Lá\#$ equivalente ao acorde $Daum$. A tríade foi tocada ao mesmo tempo e com a mesma força para todas as notas.
@@ -186,127 +178,17 @@ Segue os gráficos resultantes:
 
 Do resultado da primeira camada de processamento é gerado o gráfico da Figura 25. Esse gráfico diz respeito a natureza da composição do sinal em senoides em termos de transformada de fourier. O primeiro pico, no valor de 294 Hz, é relativo a nota $Ré$. O segundo pico, no valor de 371 Hz, é relativo a nota $Fá\#$. O terceiro pico, no valor de 467 Hz, é relativo a nota $Lá\#$. Os picos seguintes são relativos aos harmônicos dessas três notas.
 
-Do resultado da segunda camada de processamento é gerado gráfico da Figura 26. É possível perceber nele que as notas $Ré$, $Fá\#$ e $Lá\#$ são as que mais possuem energia ou, no ponto de vista de sugestão, as mais sugeridas. De certa forma, essas mesmas notas compõe os acordes $F\#aum$ e $A\#aum$ causando um erro de redundância de informação no sistema.
+Do resultado da segunda camada de processamento é gerado gráfico da Figura 26. É possível perceber nele que as notas $Ré$, $Fá\#$ e $Lá\#$ são as que mais possuem energia ou, no ponto de vista de sugestão, as mais sugeridas.
 
-Do resultado da terceira camada de processamento são gerados os gráficos da Figura 27. Essa camada é relativa ao resultados das sugestões de acordes musicais. É perceptível a alta sugestão dos acordes Daum, $F\#aum$ e $A\#aum$ com a mesma quantidade de energia. Isso é devido às notas comporem os mesmos acordes, diferenciando um do outro somente pela nota mais grave da tríade. Como o sistema não possui um módulo de detecção de baixos, esses 3 acordes são congruentes.
+Do resultado da terceira camada de processamento são gerados os gráficos da Figura 27. Essa camada é relativa aos resultados das sugestões de acordes musicais. É perceptível a alta sugestão dos acordes Daum, $F\#aum$ e $A\#aum$ com a mesma quantidade de energia. Isso é devido às notas comporem os mesmos acordes, diferenciando um do outro somente pela nota mais grave da tríade. Como o sistema não possui um módulo de detecção de baixos, esses 3 acordes são congruentes.
 
 
 
-\section{Tabela de resultados dos acordes tocados}
+\subsection{Tabela de resultados dos acordes tocados}
 \label{sec:tabelaacordestocados}
 Segue a tabela de resultados do sistema dado um acorde tocado. Esses resultados foram gerados pelo script referenciado em anexo (Anexo, A11). Os acordes em negrito são aqueles que o sistema errou devido a falta de um módulo de software que diferenciasse as notas em termos de baixos e inversões, interpretando-as como tríades no modo fundamental. E esse fato é tão relevante que o sistema desconsidera as inversões.
 
 Tais informações e mais outras estão referencidas na tabela a seguir:
-
-\begin{table}[ht!]
-%Vertical lines as column separators
- \centering
-  \resizebox{0.9\textwidth}{!}{
-\begin{tabular}{ | c | c | c | c |}
-  \hline
-  - & \textbf{Acorde Fundamental} & \textbf{Quinta Invertida} & \textbf{Terça Invertida}\\
-  \hline
-  \textbf{CM} & CM & CM & CM \\
-  \hline
-  \textbf{Cm} & Cm & Cm & Cm \\
-  \hline
-  \textbf{Caum} & Caum & Caum & Caum \\
-  \hline
-  \textbf{Cdim} & Cdim & Cdim & Cdim \\
-  \hline
-  \textbf{C\#M} & C\#M & C\#M & C\#M \\
-  \hline
-  \textbf{C\#m} & C\#m & C\#m & C\#m \\
-  \hline
-  \textbf{C\#aum} & C\#aum & C\#aum & C\#aum \\
-  \hline
-  \textbf{C\#dim} & C\#dim & C\#dim & C\#dim \\
-  \hline
-  \textbf{DM} & DM & DM & DM \\
-  \hline
-  \textbf{Dm} & Dm & Dm & Dm \\
-  \hline
-  \textbf{Daum} & Daum & Daum & Daum \\
-  \hline
-  \textbf{Ddim} & Ddim & Ddim & Ddim \\
-  \hline
-  \textbf{D\#M} & D\#M & D\#M & D\#M \\
-  \hline
-  \textbf{D\#m} & D\#m & D\#m & D\#m \\
-  \hline
-  \textbf{D\#aum} & D\#aum & D\#aum & D\#aum \\
-  \hline
-  \textbf{D\#dim} & D\#dim & D\#dim & D\#dim \\
-  \hline
-  \textbf{EM} & EM & EM & EM \\
-  \hline
-  \textbf{Em} & Em & Em & Em \\
-  \hline
-  \textbf{Eaum} & \textbf{Caum} & Caum & \textbf{Caum} \\
-  \hline
-  \textbf{Edim} & Edim & Edim & Edim \\
-  \hline
-  \textbf{FM} & FM & FM & FM \\
-  \hline
-  \textbf{Fm} & Fm & Fm & Fm \\
-  \hline
-  \textbf{Faum} & \textbf{C\#aum} & C\#aum & \textbf{C\#aum} \\
-  \hline
-  \textbf{Fdim} & Fdim & Fdim & Fdim \\
-  \hline
-  \textbf{F\#M} & F\#M & F\#M & F\#M \\
-  \hline
-  \textbf{F\#m} & F\#m & F\#m & F\#m \\
-  \hline
-  \textbf{F\#aum} & F\#aum & \textbf{F\#aum} & \textbf{F\#aum} \\
-  \hline
-  \textbf{F\#dim} & F\#dim & F\#dim & F\#dim \\
-  \hline
-  \textbf{GM} & GM & GM & GM \\
-  \hline
-  \textbf{Gm} & Gm & Gm & Gm \\
-  \hline
-  \textbf{Gaum} & \textbf{D\#aum} & D\#aum & \textbf{D\#aum} \\
-  \hline
-  \textbf{Gdim} & Gdim & Gdim & Gdim \\
-  \hline
-  \textbf{G\#M} & G\#M & G\#M & G\#M \\
-  \hline
-  \textbf{G\#m} & G\#m & G\#m & G\#m \\
-  \hline
-  \textbf{G\#aum} & \textbf{Caum} & \textbf{Caum} & Caum \\
-  \hline
-  \textbf{G\#dim} & G\#dim & G\#dim & G\#dim \\
-  \hline
-  \textbf{AM} & AM & AM & AM \\
-  \hline
-  \textbf{Am} & Am & Am & Am \\
-  \hline
-  \textbf{Aaum} & \textbf{C\#aum} & \textbf{C\#aum} & C\#aum \\
-  \hline
-  \textbf{Adim} & Adim & Adim & Adim \\
-  \hline
-  \textbf{A\#M} & A\#M & A\#M & A\#M \\
-  \hline
-  \textbf{A\#m} & A\#m & A\#m & A\#m \\
-  \hline
-  \textbf{A\#aum} & \textbf{F\#aum} & F\#aum & \textbf{F\#aum} \\
-  \hline
-  \textbf{A\#dim} & A\#dim & A\#dim & A\#dim \\
-  \hline
-  \textbf{BM} & BM & BM & BM \\
-  \hline
-  \textbf{Bm} & Bm & Bm & Bm \\
-  \hline
-  \textbf{Baum} & \textbf{D\#aum} & \textbf{D\#aum} & D\#aum \\
-  \hline
-  \textbf{Bdim} & Bdim & Bdim & Bdim \\
-  \hline
-\end{tabular}
-}
-\caption{Tabela de resultados dado os acordes tocados}
-\label{tab:label_test}
-\end{table}
 
 \begin{table}[ht!]
   %Vertical lines as column separators
@@ -417,3 +299,13 @@ Tais informações e mais outras estão referencidas na tabela a seguir:
   \caption{Tabela de resultados dado os acordes tocados com inversões}
   \label{tab:label_test}
 \end{table}
+
+\section{Detecção de Transições Rítmicas}
+
+\section{Implementação da Transformada Wavelets}
+
+\section{Transcrição de Notas ao Longo do Tempo}
+
+\section{Extração da Tonalidade do Áudio}
+
+\section{Transcrição Automática de Acordes ao Longo do Tempo}
