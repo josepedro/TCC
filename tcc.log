@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2015.2.2)  10 MAY 2015 20:21
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2015.2.2)  10 MAY 2015 23:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1579,7 +1579,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [64] [65]) (./editaveis/resultadosparciais.tex [66] [67
 
 ]
-Overfull \hbox (1.4485pt too wide) in paragraph at lines 36--37
+Overfull \hbox (1.4485pt too wide) in paragraph at lines 41--42
 []\T1/lmr/m/n/12 execução do al-go-rítmo tendo o áu-dio gra-vado como pa-râ-me-
 tro: acorde = DA2(audio); 
  []
@@ -1590,28 +1590,28 @@ File: figuras/teclado-tcc1.eps Graphic file (type eps)
 File: figuras/processo_experimento.eps Graphic file (type eps)
  <figuras/processo_experimento.eps> [69]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <17.28> on input line 59.
+(Font)              <17.28> on input line 64.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 59.
+(hyperref)                removing `math shift' on input line 64.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 59.
+(hyperref)                removing `math shift' on input line 64.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 62.
+LaTeX Warning: Command \' invalid in math mode on input line 67.
 
 File: figuras/CM/fft_cm.eps Graphic file (type eps)
 <figuras/CM/fft_cm.eps>
-Overfull \hbox (47.66354pt too wide) in paragraph at lines 68--69
+Overfull \hbox (47.66354pt too wide) in paragraph at lines 73--74
  [][] 
  []
 
 File: figuras/CM/notas_cm.eps Graphic file (type eps)
 <figuras/CM/notas_cm.eps>
-Overfull \hbox (47.66354pt too wide) in paragraph at lines 74--75
+Overfull \hbox (47.66354pt too wide) in paragraph at lines 79--80
  [][] 
  []
 
@@ -1619,12 +1619,12 @@ File: figuras/CM/acordes_1_cm.eps Graphic file (type eps)
 <figuras/CM/acordes_1_cm.eps>
 File: figuras/CM/acordes_2_cm.eps Graphic file (type eps)
  <figuras/CM/acordes_2_cm.eps>
-Overfull \hbox (6.62148pt too wide) in paragraph at lines 80--82
+Overfull \hbox (6.62148pt too wide) in paragraph at lines 85--87
  [][] 
  []
 
 
-Overfull \hbox (6.62148pt too wide) in paragraph at lines 80--82
+Overfull \hbox (6.62148pt too wide) in paragraph at lines 85--87
  [] 
  []
 
@@ -1633,13 +1633,13 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [70]
 
-LaTeX Warning: Command \' invalid in math mode on input line 85.
+LaTeX Warning: Command \' invalid in math mode on input line 90.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 87.
+LaTeX Warning: Command \' invalid in math mode on input line 92.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 87.
+LaTeX Warning: Command \' invalid in math mode on input line 92.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1647,30 +1647,30 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [71]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 90.
+(hyperref)                removing `math shift' on input line 95.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 90.
+(hyperref)                removing `math shift' on input line 95.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 93.
+LaTeX Warning: Command \' invalid in math mode on input line 98.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 93.
+LaTeX Warning: Command \' invalid in math mode on input line 98.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 93.
+LaTeX Warning: Command \' invalid in math mode on input line 98.
 
 File: figuras/Dm/fft_Dm.eps Graphic file (type eps)
 <figuras/Dm/fft_Dm.eps>
-Overfull \hbox (47.66354pt too wide) in paragraph at lines 99--100
+Overfull \hbox (47.66354pt too wide) in paragraph at lines 104--105
  [][] 
  []
 
 File: figuras/Dm/notas_Dm.eps Graphic file (type eps)
 <figuras/Dm/notas_Dm.eps>
-Overfull \hbox (47.66354pt too wide) in paragraph at lines 105--106
+Overfull \hbox (47.66354pt too wide) in paragraph at lines 110--111
  [][] 
  []
 
@@ -1678,12 +1678,12 @@ File: figuras/Dm/acordes_1_Dm.eps Graphic file (type eps)
 <figuras/Dm/acordes_1_Dm.eps>
 File: figuras/Dm/acordes_2_Dm.eps Graphic file (type eps)
  <figuras/Dm/acordes_2_Dm.eps>
-Overfull \hbox (47.66354pt too wide) in paragraph at lines 111--113
+Overfull \hbox (47.66354pt too wide) in paragraph at lines 116--118
  [][] 
  []
 
 
-Overfull \hbox (47.66354pt too wide) in paragraph at lines 111--113
+Overfull \hbox (47.66354pt too wide) in paragraph at lines 116--118
  [] 
  []
 
@@ -1692,28 +1692,28 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [72]
 
-LaTeX Warning: Command \' invalid in math mode on input line 117.
+LaTeX Warning: Command \' invalid in math mode on input line 122.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 117.
+LaTeX Warning: Command \' invalid in math mode on input line 122.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 117.
+LaTeX Warning: Command \' invalid in math mode on input line 122.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 119.
+LaTeX Warning: Command \' invalid in math mode on input line 124.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 119.
+LaTeX Warning: Command \' invalid in math mode on input line 124.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 119.
+LaTeX Warning: Command \' invalid in math mode on input line 124.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 119.
+LaTeX Warning: Command \' invalid in math mode on input line 124.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 119.
+LaTeX Warning: Command \' invalid in math mode on input line 124.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1721,27 +1721,27 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [73]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 123.
+(hyperref)                removing `math shift' on input line 128.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 123.
+(hyperref)                removing `math shift' on input line 128.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 126.
+LaTeX Warning: Command \' invalid in math mode on input line 131.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 126.
+LaTeX Warning: Command \' invalid in math mode on input line 131.
 
 File: figuras/Dm/fft_Ddim.eps Graphic file (type eps)
 <figuras/Dm/fft_Ddim.eps>
-Overfull \hbox (47.66354pt too wide) in paragraph at lines 132--133
+Overfull \hbox (47.66354pt too wide) in paragraph at lines 137--138
  [][] 
  []
 
 File: figuras/Dm/notas_Ddim.eps Graphic file (type eps)
 <figuras/Dm/notas_Ddim.eps>
-Overfull \hbox (6.62148pt too wide) in paragraph at lines 138--139
+Overfull \hbox (6.62148pt too wide) in paragraph at lines 143--144
  [][] 
  []
 
@@ -1749,12 +1749,12 @@ File: figuras/Dm/acordes_1_Ddim.eps Graphic file (type eps)
 <figuras/Dm/acordes_1_Ddim.eps>
 File: figuras/Dm/acordes_2_Ddim.eps Graphic file (type eps)
  <figuras/Dm/acordes_2_Ddim.eps>
-Overfull \hbox (47.66354pt too wide) in paragraph at lines 144--146
+Overfull \hbox (47.66354pt too wide) in paragraph at lines 149--151
  [][] 
  []
 
 
-Overfull \hbox (47.66354pt too wide) in paragraph at lines 144--146
+Overfull \hbox (47.66354pt too wide) in paragraph at lines 149--151
  [] 
  []
 
@@ -1763,16 +1763,16 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [74]
 
-LaTeX Warning: Command \' invalid in math mode on input line 150.
+LaTeX Warning: Command \' invalid in math mode on input line 155.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 150.
+LaTeX Warning: Command \' invalid in math mode on input line 155.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 152.
+LaTeX Warning: Command \' invalid in math mode on input line 157.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 152.
+LaTeX Warning: Command \' invalid in math mode on input line 157.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1780,30 +1780,30 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [75]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 156.
+(hyperref)                removing `math shift' on input line 161.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 156.
+(hyperref)                removing `math shift' on input line 161.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 159.
+LaTeX Warning: Command \' invalid in math mode on input line 164.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 159.
+LaTeX Warning: Command \' invalid in math mode on input line 164.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 159.
+LaTeX Warning: Command \' invalid in math mode on input line 164.
 
 File: figuras/Dm/fft_Daum.eps Graphic file (type eps)
 <figuras/Dm/fft_Daum.eps>
-Overfull \hbox (47.66354pt too wide) in paragraph at lines 165--166
+Overfull \hbox (47.66354pt too wide) in paragraph at lines 170--171
  [][] 
  []
 
 File: figuras/Dm/notas_Daum.eps Graphic file (type eps)
 <figuras/Dm/notas_Daum.eps>
-Overfull \hbox (47.66354pt too wide) in paragraph at lines 171--172
+Overfull \hbox (47.66354pt too wide) in paragraph at lines 176--177
  [][] 
  []
 
@@ -1811,12 +1811,12 @@ File: figuras/Dm/acordes_1_Daum.eps Graphic file (type eps)
 <figuras/Dm/acordes_1_Daum.eps>
 File: figuras/Dm/acordes_2_Daum.eps Graphic file (type eps)
  <figuras/Dm/acordes_2_Daum.eps>
-Overfull \hbox (47.66354pt too wide) in paragraph at lines 177--179
+Overfull \hbox (47.66354pt too wide) in paragraph at lines 182--184
  [][] 
  []
 
 
-Overfull \hbox (47.66354pt too wide) in paragraph at lines 177--179
+Overfull \hbox (47.66354pt too wide) in paragraph at lines 182--184
  [] 
  []
 
@@ -1825,32 +1825,32 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [76]
 
-LaTeX Warning: Command \' invalid in math mode on input line 183.
+LaTeX Warning: Command \' invalid in math mode on input line 188.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 183.
+LaTeX Warning: Command \' invalid in math mode on input line 188.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 183.
+LaTeX Warning: Command \' invalid in math mode on input line 188.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 185.
+LaTeX Warning: Command \' invalid in math mode on input line 190.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 185.
+LaTeX Warning: Command \' invalid in math mode on input line 190.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 185.
+LaTeX Warning: Command \' invalid in math mode on input line 190.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [77]
 
-LaTeX Warning: Float too large for page by 32.36568pt on input line 305.
+LaTeX Warning: Float too large for page by 32.36568pt on input line 310.
 
 
-LaTeX Warning: Float too large for page by 32.36568pt on input line 415.
+LaTeX Warning: Float too large for page by 32.36568pt on input line 420.
 
 ) (./editaveis/conclusoesparciais.tex [78] [79] [80]) (./tcc.bbl (./tcc.brf)
 \tf@brf=\write5
@@ -2027,11 +2027,11 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 51.
  ) 
 Here is how much of TeX's memory you used:
  14759 strings out of 493486
- 210820 string characters out of 3143550
- 368853 words of memory out of 3000000
+ 210812 string characters out of 3143550
+ 368835 words of memory out of 3000000
  17729 multiletter control sequences out of 15000+200000
  108673 words of font info for 73 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  45i,13n,74p,2003b,2012s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on tcc.dvi (136 pages, 1220148 bytes).
+Output written on tcc.dvi (136 pages, 1220624 bytes).

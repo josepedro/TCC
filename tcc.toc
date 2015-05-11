@@ -37,7 +37,7 @@
 \contentsline {subsection}{\numberline {3.3.11}Ciclo 10}{62}{subsection.3.3.11}
 \contentsline {subsection}{\numberline {3.3.12}Ciclo 11}{64}{subsection.3.3.12}
 \contentsline {subsection}{\numberline {3.3.13}Ciclo 12}{65}{subsection.3.3.13}
-\contentsline {chapter}{\chapternumberline {4}Resultados Parciais}{67}{chapter.4}
+\contentsline {chapter}{\chapternumberline {4}Resultados}{67}{chapter.4}
 \contentsline {section}{\numberline {4.1}Pr\IeC {\'e}-condi\IeC {\c c}\IeC {\~o}es dos Experimentos}{68}{section.4.1}
 \contentsline {section}{\numberline {4.2}Experimento 1 - Acorde $CM$}{70}{section.4.2}
 \contentsline {section}{\numberline {4.3}Experimento 2 - Acorde $Dm$}{72}{section.4.3}
