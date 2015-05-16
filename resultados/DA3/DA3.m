@@ -28,6 +28,7 @@ function [notes_time, chords_with_bass, chord_pitch, chord_pitch_number] = DA3_w
     for time = 1:time_seconds_total
         % building a window to short fft
         set_of_windows_signals = build_window_short_fft(signal, time, fs);
+        
 
         % get frequency spectrum
         set_of_spectrums = get_frequency_spectrum(set_of_windows_signals, fs);

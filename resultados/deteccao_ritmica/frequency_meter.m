@@ -16,16 +16,16 @@ function number_of_peaks = frequency_meter(file_path)
 
     %filtering the pulses of minor energy
     signal_filtered = filter_signal(bpm_music);
-    signal_pulses = signal_filtered;
 
     % Building array with means movies
-    signal_pulses = decrease_resolution(signal_filtered, file.fs, 1000);
+    %signal_pulses = decrease_resolution(signal_filtered, file.fs, 1000);
+    signal_pulses = downsample(signal_filtered, 22050);
 
     % Beginnnig the correlation
     array_correlation = correlate_moments(signal_pulses);
 	figure
     %1
-    plot(array_correlation)
+    stem(abs(array_correlation))
 
 
     % Graph with correlation done! Now I will calculate the number of peaks
