@@ -9,16 +9,16 @@ Em vista dos procedimentos teóricos aliados a uma solução computacional, obte
     \item detecção de transições rítmicas;
     \item implementação da transformada wavelets;
     \item transcrição de notas ao longo do tempo;
-    \item extração da tonalidade do áudio;
-    \item transcrição automática de acordes ao longo do tempo.
+    \item transcrição automática de acordes ao longo do tempo;
+    \item extração da tonalidade.
 \end{itemize}
 
 % Comentar cada item e o fundamento teórico por trás de cada um
 
 \section{Resposta em Frequência e Sugestões de Notas e Acordes}
 
-Para a demonstração de tais resultados foram feitos experimentos com todas as possibilidades de reconhecimento de acordes proporcionados pelo sistema. Todavia serão detalhados e comentados somente 4 pois para os outros equivalem as mesmas considerações. O resumo dos resultados dos outros acordes estará presente na tabela que se segue logo após. Esses experimentos foram feitos levando em consideração pré-condições e pós-condições.
-\newpage
+Para a demonstração dos resultados dos procedimentos \ref{subsec:procedimento_1}, \ref{subsec:procedimento_2}, \ref{subsec:procedimento_3}, \ref{subsec:procedimento_4}, \ref{subsec:procedimento_5}, \ref{subsec:procedimento_6}, \ref{subsec:procedimento_8}, \ref{subsec:procedimento_9} e \ref{subsec:procedimento_10} e ciclos de desenvolvimento \ref{subsec:ciclo_1}, \ref{subsec:ciclo_2}, \ref{subsec:ciclo_3}, \ref{subsec:ciclo_4}, \ref{subsec:ciclo_7}, \ref{subsec:ciclo_9}, \ref{subsec:ciclo_11} e \ref{subsec:ciclo_12} foram feitos experimentos\footnote{Nesse trabalho contextualizado na computação musical chama-se de experimento o procedimento de verificar saídas da solução computacional dada um conjunto de entradas. Para tal há condições pré-determinadas de ambiente acústico e forma de processamento para que os mesmos possam ser realizados por terceiros.} com todas as possibilidades de reconhecimento de acordes proporcionados pelo sistema. Todavia serão detalhados e comentados somente 4 pois para os outros equivalem as mesmas considerações. O resumo dos resultados dos outros acordes estará presente na tabela que se segue logo após.
+
 
 \subsection{Pré-condições dos Experimentos}
 \label{sec:precondicoes}
@@ -34,7 +34,7 @@ No que tange às pré-condições foram levados em conta:
     \item gravação do áudio no formato de arquivo .wav em codificação 16 pcm.
 \end{itemize}
 
-\newpage
+
 As tríades de acordes foram executadas com base na nota central $C4$ que possui o valor de aproximadamente 261,6 Hz. A figura \ref{fig:teclado} ilustra as regiões e limites usados \cite{teclado}:
 
 \begin{figure}[h]
@@ -53,7 +53,7 @@ O processo de execução do experimento foi dividido em 4 etapas. A primeira rel
   \label{fig:processo}
 \end{figure}
 
-\newpage
+
 \subsection{Experimento 1 - Acorde $CM$}
 \label{sec:experimento1}
 
@@ -82,7 +82,7 @@ Segue os gráficos resultantes:
 	\caption{Gráficos de sugestão de acordes a gravação do acorde $CM$.}
   \label{fig:acordes_CM}
 \end{figure}
-\newpage
+
 Do resultado da primeira camada de processamento é gerado o gráfico da figura \ref{fig:espectro_CM}. Esse gráfico diz respeito a natureza da composição do sinal em senoides em termos de transformada de fourier. O primeiro pico, no valor de 294 Hz, é relativo a nota $Dó$. O segundo pico, no valor de 371 Hz, é relativo a nota $Mi$. O terceiro pico, no valor de 441 Hz, é relativo a nota $Sol$. Os picos seguintes são relativos aos harmônicos dessas três notas.
 
 Do resultado da segunda camada de processamento é gerado gráfico da figura \ref{fig:notas_CM}. É possível perceber nele que as notas $Dó$, $Mi$ e $Sol$ são as que mais possuem energia ou, no ponto de vista de sugestão, as mais sugeridas. De certa forma um dos fatores que contribuiram das notas $Dó$ e $Sol$ ser de maiores energias foi devido a presença dos harmônicos.
@@ -117,7 +117,7 @@ Segue os gráficos resultantes:
 	\caption{Gráficos de sugestão de acordes a gravação do acorde $Dm$.}
   \label{fig:acordes_Dm}
 \end{figure}
-\newpage
+
 
 Do resultado da primeira camada de processamento é gerado o gráfico da figura \ref{fig:espectro_Dm}. Esse gráfico diz respeito a natureza da composição do sinal em senoides em termos de transformada de fourier. O primeiro pico, no valor de 294 Hz, é relativo a nota $Ré$. O segundo pico, no valor de 350 Hz, é relativo a nota $Fá$. O terceiro pico, no valor de 441 Hz, é relativo a nota $Lá$. Os picos seguintes são relativos aos harmônicos dessas três notas.
 
@@ -153,7 +153,7 @@ Segue os gráficos resultantes:
 	\caption{Gráficos de sugestão de acordes a gravação do acorde $Ddim$.}
   \label{fig:acordes_Ddim}
 \end{figure}
-\newpage
+
 
 Do resultado da primeira camada de processamento é gerado o gráfico da figura \ref{fig:espectro_Ddim}. Esse gráfico diz respeito a natureza da composição do sinal em senoides em termos de transformada de fourier. O primeiro pico, no valor de 294 Hz, é relativo a nota $Ré$. O segundo pico, no valor de 350 Hz, é relativo a nota $Fá$. O terceiro pico, no valor de 417 Hz, é relativo a nota $Sol\#$. Os picos seguintes são relativos aos harmônicos dessas três notas.
 
@@ -189,7 +189,7 @@ Segue os gráficos resultantes:
 	\caption{Gráficos de sugestão de acordes a gravação do acorde $Daum$.}
   \label{fig:acordes_Daum}
 \end{figure}
-\newpage
+
 
 Do resultado da primeira camada de processamento é gerado o gráfico da figura \ref{fig:espectro_Daum}. Esse gráfico diz respeito a natureza da composição do sinal em senoides em termos de transformada de fourier. O primeiro pico, no valor de 294 Hz, é relativo a nota $Ré$. O segundo pico, no valor de 371 Hz, é relativo a nota $Fá\#$. O terceiro pico, no valor de 467 Hz, é relativo a nota $Lá\#$. Os picos seguintes são relativos aos harmônicos dessas três notas.
 
@@ -197,158 +197,144 @@ Do resultado da segunda camada de processamento é gerado gráfico da figura \re
 
 Do resultado da terceira camada de processamento são gerados os gráficos da figura \ref{fig:acordes_Daum}. Essa camada é relativa aos resultados das sugestões de acordes musicais. É perceptível a alta sugestão dos acordes $Daum$, $F\#aum$ e $A\#aum$ com a mesma quantidade de energia. Isso é devido às notas comporem os mesmos acordes, diferenciando um do outro somente pela nota mais grave da tríade. Visto que o sistema possui o módulo de extração de baixos, a solução indicou que o acorde tocado foi $Daum$, visto que, como é mostrado no gráfico do espectro de frequências, a nota $Ré$ é a nota mais grave da tríade.
 
-Segue na tabela \ref{tab:label_test} os resultados do sistema dado todas as combinações dos conjuntos de acordes de tríades possíveis. Esses resultados foram gerados pelo script disponível no repositório desse trabalho \footnote{https://github.com/josepedro/TCC}.
+A tabela \ref{tab:label_test} mostra os resultados do sistema dado todas as combinações dos conjuntos de acordes de tríades possíveis. Esses resultados foram gerados pelo script disponível no repositório desse trabalho \footnote{https://github.com/josepedro/TCC}.
 
-\begin{table}[ht!]
+\begin{table}[h]
   %Vertical lines as column separators
   \centering
-  \resizebox{0.9\textwidth}{!}{
-  \begin{tabular}{ | c | c | c | c |}
-    \hline
-    - & \textbf{Acorde Fundamental} & \textbf{Quinta Invertida} & \textbf{Terça Invertida}\\
-    \hline
-    \textbf{C} & C & C/G & C/E \\
-    \hline
-    \textbf{Cm} & Cm & Cm/G & Cm/D\# \\
-    \hline
-    \textbf{Caum} & Caum & G\#aum & Eaum \\
-    \hline
-    \textbf{Cdim} & Cdim & Cdim/F\# & Cdim/D\# \\
-    \hline
-    \textbf{C\#} & C\# & C\#/G\# & C\#/F \\
-    \hline
-    \textbf{C\#m} & C\#m & C\#m/G\# & C\#m/E \\
-    \hline
-    \textbf{C\#aum} & C\#aum & Aaum & Faum \\
-    \hline
-    \textbf{C\#dim} & C\#dim & C\#dim/G & C\#dim/E \\
-    \hline
-    \textbf{D} & D & D/A & D/F\# \\
-    \hline
-    \textbf{Dm} & Dm & Dm/A & Dm/F \\
-    \hline
-    \textbf{Daum} & Daum & A\#aum & F\#aum \\
-    \hline
-    \textbf{Ddim} & Ddim & Ddim/G\# & Ddim/F \\
-    \hline
-    \textbf{D\#} & D\# & D\#/A\# & D\#/G \\
-    \hline
-    \textbf{D\#m} & D\#m & D\#m/A\# & D\#m/F\# \\
-    \hline
-    \textbf{D\#aum} & D\#aum & Baum & Gaum \\
-    \hline
-    \textbf{D\#dim} & D\#dim & D\#dim/A & D\#dim/F\# \\
-    \hline
-    \textbf{E} & E & E/B & E/G\# \\
-    \hline
-    \textbf{Em} & Em & Em/B & Em/G \\
-    \hline
-    \textbf{Eaum} & Eaum & Caum & G\#aum \\
-    \hline
-    \textbf{Edim} & Edim & Edim/A\# & Edim/G \\
-    \hline
-    \textbf{FM} & F & F/C & F/A \\
-    \hline
-    \textbf{Fm} & Fm & Fm/C & Fm/G\# \\
-    \hline
-    \textbf{Faum} & Faum & C\#aum & Aaum \\
-    \hline
-    \textbf{Fdim} & Fdim & Fdim/B & Fdim/G\# \\
-    \hline
-    \textbf{F\#} & F\# & F\#/C\# & F\#/A\# \\
-    \hline
-    \textbf{F\#m} & F\#m & F\#m/C\# & F\#m/A \\
-    \hline
-    \textbf{F\#aum} & F\#aum & Daum & A\#aum \\
-    \hline
-    \textbf{F\#dim} & F\#dim & F\#dim/C & F\#dim/A \\
-    \hline
-    \textbf{G} & G & G/D & G/B \\
-    \hline
-    \textbf{Gm} & Gm & Gm/D & Gm/A\# \\
-    \hline
-    \textbf{Gaum} & Gaum & D\#aum & Baum \\
-    \hline
-    \textbf{Gdim} & Gdim & Gdim/C\# & Gdim/A\# \\
-    \hline
-    \textbf{G\#} & G\# & G\#/D\# & G\#/C \\
-    \hline
-    \textbf{G\#m} & G\#m & G\#m/D\# & G\#m/B \\
-    \hline
-    \textbf{G\#aum} & G\#aum & Eaum & Caum \\
-    \hline
-    \textbf{G\#dim} & G\#dim & G\#dim/D & G\#dim/B \\
-    \hline
-    \textbf{A} & A & A/E & A/C\# \\
-    \hline
-    \textbf{Am} & Am & Am/E & Am/C \\
-    \hline
-    \textbf{Aaum} & Aaum & Faum & C\#aum \\
-    \hline
-    \textbf{Adim} & Adim & Adim/D\# & Adim/C \\
-    \hline
-    \textbf{A\#} & A\# & A\#/F & A\#/D \\
-    \hline
-    \textbf{A\#m} & A\#m & A\#m/F & A\#m/C\# \\
-    \hline
-    \textbf{A\#aum} & A\#aum & F\#aum & Daum \\
-    \hline
-    \textbf{A\#dim} & A\#dim & A\#dim/E & A\#dim/C\# \\
-    \hline
-    \textbf{B} & B & B/F\# & B/D\# \\
-    \hline
-    \textbf{Bm} & Bm & Bm/F\# & Bm/D \\
-    \hline
-    \textbf{Baum} & Baum & Gaum & D\#aum \\
-    \hline
-    \textbf{Bdim} & Bdim & Bdim/F & Bdim/D \\
-    \hline
-  \end{tabular}
-  }
+  \includegraphics[keepaspectratio=true,scale=0.8]{figuras/tabela_acordes_completos.eps}
   \caption{Tabela de resultados dado os acordes tocados com inversões.}
   \label{tab:label_test}
 \end{table}
 
 \section{Detecção de Transições Rítmicas}
-% MOSTRAR O GRAFICO ALGORITMO DE CORRELACAO
-Com o intuito de detectar acordes ao longo do tempo, foi pensado um algoritmo baseado correlação de níveis de energia ao longo do tempo que delimitariam, em teoria, ocorrências de acordes. Com essa delimitação seria possível ajustar a janela de análise em frequência nos limites energéticos.
 
-A figura \ref{fig:deteccao_ritmica_1} ilustra um exemplo de acordes tocados ao longo do tempo. 
+Com o intuito de detectar acordes ao longo do tempo, foi pensado um algoritmo baseado em correlação de níveis de energia ao longo do tempo abordado no ciclo de desenvolvimento \ref{subsec:ciclo_5} que delimitaria, em teoria, número de ocorrências e instante de ocorrência de acordes. Com essa delimitação seria possível ajustar a janela de análise em frequência nos limites energéticos. A figura \ref{fig:deteccao_ritmica_1} ilustra um exemplo de acordes tocados ao longo do tempo. 
 
 \begin{figure}[h]
-  \centering
-    \includegraphics[keepaspectratio=true,scale=0.49]{figuras/deteccao_ritmica_1.eps}
+    \centering
+    \includegraphics[keepaspectratio=true,scale=0.45]{figuras/deteccao_ritmica_1.eps}
   \caption{Acordes tocados ao longo do tempo.}
   \label{fig:deteccao_ritmica_1}
 \end{figure}
 
-Na figura acima é perceptível observar, pelos níveis de energia, 8 acordes tocados. Para validar a solução, o gráfico de picos de transição rítmica deverá apresentar 8 picos ao longo do tempo, destacando, além do número de picos, a localidade coesa de cada pico.
-
-A figura \ref{fig:deteccao_ritmica_2} mostra o gráfico de picos de transição rítmica.
+Na figura acima é perceptível observar, pelos níveis de energia, 8 acordes tocados. Para validar a solução, o gráfico de picos de transição rítmica deverá apresentar 8 picos ao longo do tempo, destacando, além do número de picos, a localidade coesa de cada pico. A figura \ref{fig:deteccao_ritmica_2} mostra o gráfico de picos de transição rítmica.
 
 \begin{figure}[h]
-  \centering
-    \includegraphics[keepaspectratio=true,scale=0.49]{figuras/deteccao_ritmica_2.eps}
-  \caption{Acordes tocados ao longo do tempo.}
+    \centering
+    \includegraphics[keepaspectratio=true,scale=0.45]{figuras/deteccao_ritmica_2.eps}
+  \caption{Gráfico de picos de transição rítmica.}
   \label{fig:deteccao_ritmica_2}
 \end{figure}
 
-Pode-se observar da figura acima que a quantidade de picos é coerente com a quantidade encontrar na figura \ref{fig:deteccao_ritmica_1}, entretanto as localizações 
-
-
-
-
-
-% MOSTRAR OS GRAFICOS DAS JANELAS DESLOCADAS
+Pode-se observar da figura acima que a quantidade de picos é coerente com a quantidade encontrada na figura \ref{fig:deteccao_ritmica_1}, entretanto os instantes das localidades dos picos não estão coerentes. Um exemplo desse fato é o último acorde da figura \ref{fig:deteccao_ritmica_1} ser tocado as proximidades de 12 segundos e, na figura \ref{fig:deteccao_ritmica_2}, o pulso do mesmo acorde estar localizado as proximidades de 14 segundos.
 
 \section{Implementação da Transformada Wavelets}
 % MOSTRAR O GRAFICO DA TRANSFORMADA WAVELETS COM O A440 SATURADO
+Com o intuito de se localizar notas musicais ao longo do tempo, foi levantado uma hipótese do uso da transformada wavelets no ciclo de desenvolvimento \ref{subsec:ciclo_6}. Esse tipo de técnica de processamento de sinais é de significativa importância de ser considerada pois a mesma possui definição em escala tempo e frequência. A escala tempo-frequência pode ser adaptada para que cada saída do banco de filtros (técnica para a implementação da transformada wavelets) pertencer a uma característica frequencial de uma nota musical. A figura \ref{fig:banco_de_filtros} ilustra a hipótese abordada.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[keepaspectratio=true,scale=0.7]{figuras/wavelet_figura.eps}
+  \caption{Hipótese ilustrativa do banco de filtros da transformada wavelets.}
+  \label{fig:banco_de_filtros}
+\end{figure}
+
+Tendo em vista a figura \ref{fig:banco_de_filtros}, a hipótese é usar as iterações do banco de filtros para localizar cada nota musical nas saídas dos mesmos. Para a validação dessa hipótese usou-se wavelets da família $daubechies$ devido a alta correlação das mesmas com a natureza das ondas sonoras. Foi então verificado a viabilidade de se iterar os filtros até chegarem a resolução de uma nota musical (faixa restrita de frequências). A figura \ref{fig:440_wavelets_1} mostra o gráfico da resposta em frequência de um sinal puro de 440 Hz, oriundo da saída \textbf{H001(z)}, com o banco de filtros iterado em 3 vezes.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[keepaspectratio=true,scale=0.45]{figuras/wavelet_deslocado_1.eps}
+  \caption{Gráfico da resposta em frequência de um sinal puro de 440 Hz em 3 iterações no banco de filtros.}
+  \label{fig:440_wavelets_1}
+\end{figure}
+
+\newpage
+De acordo com a figura \ref{fig:440_wavelets_1} é visível que em 3 iterações no banco de filtro pode se identificar a frequência em integridade de 440 Hz pelo nível de energia máximo. Porém é preciso iterar mais vezes o banco de filtros para poder isolar somente uma nota para cada saída do mesmo. A figura \ref{fig:440_wavelets_2} mostra o gráfico da resposta em frequência do mesmo sinal puro de 440 Hz, oriundo da saída \textbf{H000001(z)}, com o banco de filtros iterado em 10 vezes. Como mostra a figura \ref{fig:440_wavelets_2}, o sinal de 440 Hz na entrada do banco de filtros foi defasado para 249.4 Hz. Esse fato não corrobora com o isolamento das frequências para cada saída do banco de filtros, pois, com o aumento da iteração abordado, o sinal sofreu uma defasagem.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[keepaspectratio=true,scale=0.45]{figuras/wavelet_deslocado.eps}
+  \caption{Gráfico da resposta em frequência de um sinal puro de 440 Hz em 10 iterações no banco de filtros.}
+  \label{fig:440_wavelets_2}
+\end{figure}
 
 \section{Transcrição de Notas ao Longo do Tempo}
 % MOSTRAR 4 CASOS DE GRAFICO DA MATRIZ DE NOTAS POR TEMPO
+Dado os módulos implementados nos procedimentos \ref{subsec:procedimento_2}, \ref{subsec:procedimento_3}, \ref{subsec:procedimento_4} e \ref{subsec:procedimento_5} e os resultados dos ciclos de desenvolvimento \ref{subsec:ciclo_1}, \ref{subsec:ciclo_2}, \ref{subsec:ciclo_3}, \ref{subsec:ciclo_7} e \ref{subsec:ciclo_9}, é consolidado os resultados da transcrição automática de notas ao longo do tempo. A figura \ref{fig:notas_puras} mostra o gráfico binário de transcrição de notas de uma escala cromática, gerada a partir de um áudio de tons puros variando de 260 Hz até 520 Hz.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[keepaspectratio=true,scale=0.4]{figuras/notas_puras.eps}
+  \caption{Gráfico binário de transcrição de notas a partir de um áudio de tons puros variando de 260 Hz até 520 Hz.}
+  \label{fig:notas_puras}
+\end{figure}       
+
+Em vista do que é mostrado na figura \ref{fig:notas_puras}, percebe-se que não só a nota base foi reconhecida mas também o primeiro harmônico da mesma. Esse fato auxilia no reconhecimento de acordes visto que os harmônicos são prepoderantes e decivos para distinguir semitons. No que tange os aspectos de reconhecimento de notas gravadas a partir de um instrumento real, violão e piano respectivamente, as figuras \ref{fig:notas_violao} e \ref{fig:notas_piano} mostram o gráfico binário de transcrição de notas de uma escala cromática no mesmo intervalo de frequências do caso anterior.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[keepaspectratio=true,scale=0.5]{figuras/notas_violao.eps}
+  \caption{Gráfico binário de transcrição de notas a partir de um áudio de tons de violão variando de 260 Hz até 520 Hz.}
+  \label{fig:notas_violao}
+\end{figure}       
+
+Dado a figura \ref{fig:notas_violao}, é perceptível uma escala gradual de semitons de violão junto com notas de ruídos de fundo. Cada nota e cada ruído de fundo gera um harmônico ocasionando em notas que não estão presentes efetivamente no áudio.
+
+Dado a figura \ref{fig:notas_piano}, é perceptível, com mais clareza em relação ao violão, uma escala gradual de semitons de piano. Cada nota gerou também seus respectivos harmônicos mesmo em escala inferior ao do violão.
+
+Mesmo nos contextos de erros de ruídos de fundos mostrados nas figuras anteriores, a rede neural minimiza-os através de padrões de tríades oriundos da teoria musical de acordes.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[keepaspectratio=true,scale=0.5]{figuras/notas_piano.eps}
+  \caption{Gráfico binário de transcrição de notas a partir de um áudio de tons de piano variando de 260 Hz até 520 Hz.}
+  \label{fig:notas_piano}
+\end{figure}
+
 
 \section{Transcrição Automática de Acordes ao Longo do Tempo}
 % MOSTRAR 4 CASOS DE LINHAS DE ACORDES NO TEMPO
+Tendo como referência os módulos implementados nos procedimentos \ref{subsec:procedimento_1}, \ref{subsec:procedimento_2}, \ref{subsec:procedimento_3}, \ref{subsec:procedimento_4}, \ref{subsec:procedimento_5}, \ref{subsec:procedimento_6}, \ref{subsec:procedimento_8}, \ref{subsec:procedimento_9} e \ref{subsec:procedimento_10} e os resultados dos ciclos de desenvolvimento \ref{subsec:ciclo_1}, \ref{subsec:ciclo_2}, \ref{subsec:ciclo_3}, \ref{subsec:ciclo_4}, \ref{subsec:ciclo_7}, \ref{subsec:ciclo_9}, \ref{subsec:ciclo_9}, \ref{subsec:ciclo_10}, \ref{subsec:ciclo_11} e \ref{subsec:ciclo_12}, é consolidado os resultados da transcrição automática de acordes ao longo do tempo. Foi feito 2 experimentos testando a sequência de acordes tocados no piano e no violão. A figura \ref{fig:acordes_piano} mostra o sinal de áudio do piano.
 
-\section{Extração da Tonalidade do Áudio}
+\begin{figure}[h]
+    \centering
+    \includegraphics[keepaspectratio=true,scale=0.3]{figuras/acordes_piano.eps}
+  \caption{Gráfico do sinal de áudio do piano.}
+  \label{fig:acordes_piano}
+\end{figure}
+
+
+Como é visível na figura \ref{fig:acordes_piano}, há 10 acordes tocados ao longo de aproximadamente 20 sengudos e cada acorde foi executado aproximadamente durante 2 segundos. A tabela \ref{tab:acordes_piano} mostra o momento, acordes tocados e os acordes reconhecidos pelo sistema.
+
+\begin{table}[h]
+\centering
+    \includegraphics[keepaspectratio=true,scale=0.5]{figuras/tabela_acordes_piano.eps}
+  \caption{Tabela de acordes tocados e acordes reconhecidos no piano.}
+  \label{tab:acordes_piano}
+\end{table}
+
+Da tabela \ref{tab:acordes_piano} pode-se ver os acordes que a solução computacional errou totalizando em 5 acordes. Dentre 20 acordes tocados em sequência o sistema acertou 15, ocasionando em 75\% de acertos.
+
+Também foi feito o mesmo experimento com o sinal de áudio de violão, sendo representado pela figura \ref{fig:acordes_violao}. Como foi feito também com o piano, são no total 10 acordes, cada um com duração de 2 segundos totalizando num sinal de 20 segundos aproximadamente.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[keepaspectratio=true,scale=0.3]{figuras/acordes_violao.eps}
+  \caption{Gráfico do sinal de áudio do violão.}
+  \label{fig:acordes_violao}
+\end{figure}
+
+Também é evidenciado na tabela \ref{tab:acordes_violao} os acordes tocados e os acordes reconhecidos no violão. O sistema reconheceu incorretamente 10 acordes de 20, totalizando 50\% de acertos no violão.
+
+\begin{table}[h]
+\centering
+    \includegraphics[keepaspectratio=true,scale=0.5]{figuras/tabela_acordes_violao.eps}
+  \caption{Tabela de acordes tocados e acordes reconhecidos no violão.}
+  \label{tab:acordes_violao}
+\end{table}
+
+
+\section{Extração da Tonalidade}
 % MOSTRAR 4 EXEMPLOS DE LINHAS DE ACORDES E O TOM

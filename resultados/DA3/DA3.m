@@ -27,8 +27,7 @@ function [notes_time, chords_with_bass, chord_pitch, chord_pitch_number] = DA3_w
 
     for time = 1:time_seconds_total
         % building a window to short fft
-        set_of_windows_signals = build_window_short_fft(signal, time, fs);
-        
+        set_of_windows_signals = build_window_short_fft(signal, time, fs);        
 
         % get frequency spectrum
         set_of_spectrums = get_frequency_spectrum(set_of_windows_signals, fs);
@@ -54,12 +53,21 @@ function [notes_time, chords_with_bass, chord_pitch, chord_pitch_number] = DA3_w
         set_of_notes_time{set} = notes_time;
     end
 
+
     bass_time = get_bass(set_of_notes_time);
 
     % get chord in pitch
     [chord_pitch, chord_pitch_number] = get_chord_pitch(set_of_notes_time{1}, time_seconds_total, dictionary_chords);
 
     set_of_chords_time = get_set_of_chords_time(set_of_notes_time);
+
+    while(1==1)
+    x = set_of_notes_time{5};
+    %x = x(1,:);
+    %x(21:end) = 0;
+    figure; surf(x);
+    break;
+    end
 
     chords_number = analyse_set_of_chords(set_of_chords_time);
 
