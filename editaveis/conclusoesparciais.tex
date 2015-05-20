@@ -1,15 +1,18 @@
 \chapter{Considerações Finais}
 \label{chap:conclusoes}
 
-Em vista do que foi exposto, conclui-se que o sistema é de viabilidade significativa no que tange a aplicação e função principal: reconhecimento de acordes num conjunto de amostras de sinal de áudio.
+Em vista do que foi exposto, conclui-se que o sistema é de viabilidade significativa no que tange a aplicação e função principal: reconhecimento de harmonias musicais.
 
-No que tange aos problemas de inversões que impactam os acordes aumentados, uma solução de curto prazo é sugerir o primeiro acorde ocorrido de maior energia no conjunto de sugestões. Outra solução, que é de longo prazo, é a implementação de uma camada para detecção de inversões. A partir da detecção de inversão será possível distinguir acordes aumentados e adicionar novos acordes. Nesse trabalho em específico foi implementada a solução de curto prazo porém para o trabalho que se segue (trabalho de conclusão de curso 2) haverá a implementação da camada de detecção de inversões.
+O sistema reconhece com 100\% de eficácia os acordes de todas as possibilidades em tríades gravados em amostras separadas, ou seja, cada acorde, no instrumento musical piano, gravado separadamente em cada arquivo de áudio.
 
-Em relação a consolidação do algorítmo é pertinente expor que o mesmo não está otimizado e nem analisado no ponto de vista de complexidade. No trabalho que se segue haverá uma análise mais profunda sobre esses aspectos.
+No que diz respeito ao reconhecimento de acordes ao longo do tempo, o sistema possui 75\% de eficácia para acordes de piano e 50\% para acordes de violão, ambos tocados ao longo do tempo. Músicas completas não foram testadas pois o presente trabalho focou somente no reconhecimento de acordes ao longo do tempo em contextos polifônicos e mono-instrumentais. Subtende-se que o resultado foi comprometido pelo fato do sistema não ser constituído de um módulo de detecção de acordes não só ao longo do tempo, mas, dado um conjunto de possibilidades harmônicas, resultados em que o acorde se comportaria como totalmente não harmônico poderia ser tratado como um ruído ou silência e não como uma sugestão de acorde. Vale ressaltar que o sistema não possui filtros para pré-processamento de áudio focando a redução de ruídos.
 
-Não houve teste para a presente solução em outros instrumentos harmônicos como o violão. Subentende-se que poderá funcionar corretamente mas com algumas restrições devido ao ataque do instrumento. Para tal poderá ser cabível uma adaptação para cada tipo diferente de instrumento.
+No que tange a extração de tons para as músicas, o sistema funcionou com 67\% de eficácia global, sendo testadas inclusive músicas polifônicas e multi-instrumentais. Devido a dependência dessa funcionalidade com o módulo de reconhecimento de acordes ao longo do tempo, o resultado poderia melhorar com aprimorações nesse módulo. 
 
 \section{Evoluções Futuras}
-\label{sec:precondicoes}
 
-No que diz respeito a futuras evoluções, é passível de consideração o uso das transformadas $wavelets$ para o aprimoramento da detecção de acordes localizados no tempo. É desejável um algorítmo para análise de audio na detecção de transições rítmicas ao longo do tempo, focando localizar aonde os acordes se encontram num determinado compasso musical. Também há a possibilidade de implementação do sistema num produto de software, mais especificamente numa plataforma móvel Android. Para tais atividades futuras foi feito um cronograma referenciado no apêndice \ref{sec:cronograma}.
+Em relação a evoluções futuras, é passível de consideração atualização do sistema com as técnicas de estado da arte publicadas no ISMIR\footnote{http://ismir.net/}. Também pode-se considerar aprimorações no sistema de reconhecimento de notas musicais considerando tipos diferentes de instrumentos.
+
+Sincronizar a extração de notas e acordes com reconhecimento de padrões rítmicos focando começo e fins de compassos também seria de grande importância para distinção de notas presentes em acordes. Também seria de grande valia para o sistema a implementação de um módulo de pré-processamento de sinal de áudio com o intuito de amenizar ruídos.
+
+

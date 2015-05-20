@@ -338,3 +338,23 @@ Também é evidenciado na tabela \ref{tab:acordes_violao} os acordes tocados e o
 
 \section{Extração da Tonalidade}
 % MOSTRAR 4 EXEMPLOS DE LINHAS DE ACORDES E O TOM
+
+A extração da tonalidade das músicas foi consolidada de acordo com os procedimentos \ref{subsec:procedimento_1}, \ref{subsec:procedimento_2}, \ref{subsec:procedimento_3}, \ref{subsec:procedimento_4}, \ref{subsec:procedimento_5}, \ref{subsec:procedimento_6} e \ref{subsec:procedimento_7} e ciclos de desenvolvimento \ref{subsec:ciclo_1}, \ref{subsec:ciclo_2}, \ref{subsec:ciclo_3}, \ref{subsec:ciclo_4}, \ref{subsec:ciclo_8} e \ref{subsec:ciclo_9}. Para validar a extração do tom da música foi feito 6 experimentos com 4 músicas completas e diferentes e 2 sequências de acordes iguais porém com instrumentos diferentes (sequências essas oriundas do caso abordado de extração de acordes ao longo do tempo). A tabela \ref{tab:tons} mostra o resultados dos experimentos em relação ao tom de fato da música\footnote{Os tons das músicas que não foram tocadas manualmente foram tirados do site http://www.cifraclub.com.br/} e tom reconhecimento pelo sistema.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+Musica                           & Tom da Música & Tom Reconhecido \\ \hline
+Sequência de Acordes no Piano    & C             & C               \\ \hline
+Sequência de Acordes no Violão   & C             & Em (errado)     \\ \hline
+The Beatles - Oh Darling         & A             & A               \\ \hline
+Deep Purple - Smoke on the Water & Gm            & G (errado)      \\ \hline
+Legião Urbana - Eduardo e Mônica & E             & E               \\ \hline
+The Beatles - Yesterday          & F             & F               \\ \hline
+\end{tabular}
+\label{tab:tons}
+\end{table}
+
+Diante do que é mostrado na tabela \ref{tab:tons}, o sistema errou 2 músicas de 6 músicas no total, ocasionando em 67\% de acertos globais.
+
