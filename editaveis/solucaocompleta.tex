@@ -109,7 +109,7 @@ primeira posição com valor 1 de cada tempo.
 		\item Pode-se referenciar um acorde invertido ou aumentado apartir da combinação de acordes fundamentais e baixos extraídos para cada período respectivo.
 		O critério para avaliar essa hipótese é:
 			\begin{itemize}
-				\item Extração de todas as possibilidades de acordes em tríades reconhecidos com sucesso.
+				\item Extração de todas as possibilidades de acordes em tríades reconhecidas com sucesso.
 			\end{itemize}
 	\end{itemize}
 \end{itemize}
@@ -135,27 +135,36 @@ A solução começa com a chamada da função DA3. Ela recebe como parâmetro um
 \subsection{Procedimento 1: Separar Janelas de 1 Segundo em 5 Partes}
 \label{subsec:procedimento_1}
 
-Após o sinal ser carregado num vetor de audio $stereo$, ele deverá ser transformado num do tipo mono. Sinal mono de áudio é aquele com somente um canal. Isso é necessário para que o processamento não fosse redundante. Não agregaria valor nesse caso processar um sinal de duplo canal sendo que a fonte emissora de ondas sonoras é comum para ambos. Após essa conversão o sinal é repartidos em 5 partes de tamanhos iguais a 1 segundo, porém deslocadas a 0.2 segundos de cada um. Esse processo é para a segmentar áudio no intuito de achar o acorde mais provável num intervalo de tempo de um segundo, fazendo com que acordes de transição ou ruidosos sejam suprimidos. A figura \ref{fig:procedimento_1} ilustra o processo descrito e o código do mesmo está presente na secção \ref{sec:codigo_procedimento_1} dos apêndices.
+Após o sinal ser carregado num vetor de audio $stereo$, ele deverá ser transformado num do tipo mono. Sinal mono de áudio é aquele com somente um canal. Isso é necessário para que o processamento não fosse redundante. Não agregaria valor nesse caso processar um sinal de duplo canal sendo que a fonte emissora de ondas sonoras é comum para ambos. Após essa conversão, cada segundo do sinal é repartido em 5 partes de tamanhos iguais a 1 segundo, porém deslocadas a 0.2 segundos de cada um. Esse processo é para a segmentar áudio no intuito de achar o acorde mais provável num intervalo de tempo de um segundo, fazendo com que acordes de transição ou ruidosos sejam suprimidos. A figura \ref{fig:procedimento_1} ilustra o processo descrito e o código do mesmo está presente na secção \ref{sec:codigo_procedimento_1} dos apêndices.
 
 \begin{figure}[h] 
   \centering
     \includegraphics[keepaspectratio=true, scale=0.7]{figuras/procedimento_1}
-    \caption{Ilustração do procedimento 1 que se refere a separação de uma janela de 1 segundo em 5 partes deslocadas.}
+    \caption{Segmentação de áudio - janelas de 1 segundo em 5 partes deslocadas.}
     \label{fig:procedimento_1}
 \end{figure}
 
-
-Basicamente a variável de entrada dessa função é reescrita como uma matriz 1 por N, tal qual N é o número de amostras do sinal. No laço seguinte cria-se um conjunto de 5 células, cada uma comportando uma parte do sinal.
+Como é mostrado na figura \ref{fig:procedimento_1}, A cada segundo do sinal são criadas 5 janelas (A, B, C, D e E), de tamanhos iguais a 5 segundos, deslocadas numa escala de 0.2 segundos entre si. A primeira janela (A) é a mesma em sua posição original e as próximas janelas são recortadas do sinal a partir de um deslocamento de 0.2 segundos assim como é mostrado nas equações em \ref{equacao_janela_1}, \ref{equacao_janela_2}, \ref{equacao_janela_3} e \ref{equacao_janela_4}.
+\begin{eqnarray}
+\label{equacao_janela_1}
+	A(t) = B(t + 0.2) \\
+	\label{equacao_janela_2}
+	B(t) = C(t + 0.2) \\
+	\label{equacao_janela_3}
+	C(t) = D(t + 0.2) \\
+	\label{equacao_janela_4}
+	D(t) = E(t + 0.2)
+\end{eqnarray}
 
 \subsection{Procedimento 2: Aplicar Janelas de Blackman}
 \label{subsec:procedimento_2}
 
-Dado que o contexto da solução se deu por $Short$-$Time$-$Fourier$-$Transform$, é preciso minimizar as distorções oriundas dos janelamentos. Para tal foi proposto a multiplicação de cada parte das janelas ao longo do tempo por uma janela de blackman, uma do tipo gaussiana. A figura \ref{fig:procedimento_2} ilustra o processo descrito e o código do mesmo está presente na secção \ref{sec:codigo_procedimento_2} dos apêndices.
+Dado que o contexto da solução se deu por $Short$ $Time$ $Fourier$ $Transform$, é preciso minimizar as distorções oriundas dos janelamentos. Para tal foi proposto a multiplicação de cada parte das janelas ao longo do tempo por uma janela de blackman, uma do tipo gaussiana abordada nos trabalhos \cite{cabral2005automatic} e \cite{thoshkahna2011transient}. A figura \ref{fig:procedimento_2} ilustra o processo descrito e o código do mesmo está presente na secção \ref{sec:codigo_procedimento_2} dos apêndices.
 
 \begin{figure}[h] 
   \centering
     \includegraphics[keepaspectratio=true, scale=0.7]{figuras/procedimento_2}
-    \caption{Ilustração do procedimento 2 que se refere a multiplicação do sinal pela janela de blackman.}
+    \caption{Multiplicação do sinal pela janela de blackman.}
     \label{fig:procedimento_2}
 \end{figure}
 
@@ -167,7 +176,7 @@ O passo seguinte é adquirir os espectros de frequências oriundos do cálculo d
 \begin{figure}[h] 
   \centering
     \includegraphics[keepaspectratio=true, scale=0.5]{figuras/procedimento_3}
-    \caption{Ilustração do procedimento 3 que se refere a transformação do sinal no domínio do tempo (representado no gráfico a esquerda) para o domínio frequencial (representado no gráfico a direita).}
+    \caption{Transformação do domínio temporal para o domínio frequencial.}
     \label{fig:procedimento_3}
 \end{figure}
 
@@ -181,7 +190,7 @@ Nesse procedimento cada espectro de frequência é correlacionado com conjunto d
 \begin{figure}[h] 
   \centering
     \includegraphics[keepaspectratio=true, scale=0.55]{figuras/procedimento_4}
-    \caption{Ilustração do procedimento 4 que se refere ao calculo das energias de cada nota (gráfico a direita) segundo um espectro de frequências (gráfico a esquerda).}
+    \caption{Cálculo das energias de cada nota.}
     \label{fig:procedimento_4}
 \end{figure}
 
@@ -195,7 +204,7 @@ Esse passo compreende o processo de limiarização das energias das notas em 0's
 \begin{figure}[h] 
   \centering
     \includegraphics[keepaspectratio=true, scale=0.55]{figuras/procedimento_5}
-    \caption{Ilustração do procedimento 5 que se refere realocar 1 nas energias de notas de grande magnitude e 0 nas notas de pequena magnitude.}
+    \caption{Binarização das notas.}
     \label{fig:procedimento_5}
 \end{figure}
 
@@ -209,7 +218,7 @@ Com o intuito de determinar acordes com inversões e discernir os que são de na
 \begin{figure}[h] 
   \centering
     \includegraphics[keepaspectratio=true, scale=0.55]{figuras/procedimento_6}
-    \caption{Ilustração do procedimento 6 que se refere na extração da nota mais grave dado um conjunto de notas binarizadas.}
+    \caption{Extração da nota mais grave.}
     \label{fig:procedimento_6}
 \end{figure}
 
@@ -223,7 +232,7 @@ A extração de tonalidade é um módulo do sistema que possui como entrada o co
 \begin{figure}[h] 
   \centering
     \includegraphics[keepaspectratio=true, scale=0.55]{figuras/procedimento_7}
-    \caption{Ilustração do procedimento 7 que se refere na extração da tonalidade do áudio dado a soma do aparecimento das notas ao longo do mesmo.}
+    \caption{Extração da tonalidade da música.}
     \label{fig:procedimento_7}
 \end{figure}
 
@@ -237,7 +246,7 @@ A extração de acordes fundamentais é um módulo do sistema que possui como en
 \begin{figure}[h] 
   \centering
     \includegraphics[keepaspectratio=true, scale=0.55]{figuras/procedimento_8}
-    \caption{Ilustração do procedimento 8 que se refere na extração de acordes dado um conjunto de notas a cada segundo.}
+    \caption{Extração de acordes fundamentais a cada segundo.}
     \label{fig:procedimento_8}
 \end{figure}
 
@@ -252,7 +261,7 @@ A extração de acorde recorrente é um módulo do sistema que possui como entra
 \begin{figure}[h] 
   \centering
     \includegraphics[keepaspectratio=true, scale=0.55]{figuras/procedimento_9}
-    \caption{Ilustração do procedimento 9 que se refere na aquisição do acorde mais recorrente dado as 5 partes deslocadas de uma determinada janela de áudio.}
+    \caption{Aquisição do acorde mais recorrente dado as 5 partes deslocadas.}
     \label{fig:procedimento_9}
 \end{figure}
 
@@ -267,7 +276,7 @@ Da última etapa do sistema, a extração de acordes com inversões tem como fin
 \begin{figure}[h] 
   \centering
     \includegraphics[keepaspectratio=true, scale=0.55]{figuras/procedimento_10}
-    \caption{Ilustração do procedimento 10 que se refere na construção de acordes com inversões dado um baixo e o acorde num determinado instante.}
+    \caption{A construção de acordes invertidos e aumentados.}
     \label{fig:procedimento_10}
 \end{figure}
 
@@ -284,7 +293,7 @@ Nesta presente parte do trabalho será descrito os ciclos de desenvolvimento par
 \begin{figure}[h] 
   \centering
     \includegraphics[keepaspectratio=true, scale=0.85]{figuras/ciclo_desenvolvimento}
-    \caption{Modelo de Ciclo Adaptado}
+    \caption{Modelo de ciclo adaptado.}
 \end{figure}
 
 Fases do ciclo de desenvolvimento:
@@ -296,7 +305,7 @@ Fases do ciclo de desenvolvimento:
 \item \textbf{Retrospectiva:} Dado os resultados dos testes conceituais e código refatorado, é feitto uma avaliação do que foi produzido e decisões técnicas são tomadas.
 \end{itemize}
   
-\subsection{Ciclo 1}
+\subsection{Ciclo 1: Espectro de Frequências}
 \label{subsec:ciclo_1}
 
 \begin{itemize}
@@ -314,7 +323,7 @@ SINAL=SINAL/max(SINAL);
 \item \textbf{Retrospectiva:} A Transformada de Fourier, em específico a $Fast Fourier Transform$, realmente produz resultados satisfatórios em determinar o espectro de energia da frequências. Mas as informações não estão configuradas para localizar as notas musicais.
 \end{itemize}
 
-\subsection{Ciclo 2}
+\subsection{Ciclo 2: Realocação das Frequências em 1 Unidade}
 \label{subsec:ciclo_2}
 \begin{itemize}
 \item \textbf{Pergunta:} Como configurar essas informações para localizar as notas musicais?
@@ -349,7 +358,7 @@ l = 0; j = 0; i = 0;
 \item \textbf{Retrospectiva:} A estratégia de realocar as energias decimais das frequências numa unidade de frequência se adere corretamente ao objetivo de encontrar as notas musicais. Entretanto as frequências não estão associadas as notas musicais.
 \end{itemize}
 
-\subsection{Ciclo 3}
+\subsection{Ciclo 3: Frequências e Notas Musicais}
 \label{subsec:ciclo_3}
 \begin{itemize}
 \item \textbf{Pergunta:} Dado um conjunto de frequências, como associar essas as notas musicais?
@@ -390,7 +399,7 @@ end
 \item \textbf{Retrospectiva:} A rede neural PNN foi bastante eficaz em classificar as frequências em termos de notas musicais. Porém as notas musicais não estão associadas a acordes musicais.
 \end{itemize}
 
-\subsection{Ciclo 4}
+\subsection{Ciclo 4: Determinação dos Acordes Fundamentais}
 \label{subsec:ciclo_4}
 \begin{itemize}
 \item \textbf{Pergunta:} Como adicionar as próximas camadas da rede para determinação dos acordes?
@@ -434,7 +443,7 @@ end
 \item \textbf{Retrospectiva:} De certo o acerto não foi total pois falta implementar uma camada que reconheça inversões.
 \end{itemize}
 
-\subsection{Ciclo 5}
+\subsection{Ciclo 5: Detecção de Transições Rítmicas}
 \label{subsec:ciclo_5}
 \begin{itemize}
 \item \textbf{Pergunta:} Como reconhecer acordes no tempo de tal forma a saber onde eles ocorrem?
@@ -460,7 +469,7 @@ um filtro passa-baixas para suavização do sinal e aplicar um método de auto-c
 \item \textbf{Retrospectiva:} De certo modo detectar onde acorde ocorre no sinal não agrega valor para o escopo desse trabalho pois os níveis de energia são muito variáveis e não há um padrão como para a detecção.
 \end{itemize} 
 
-\subsection{Ciclo 6}
+\subsection{Ciclo 6: Aplicação da Transformada Wavelets}
 \label{subsec:ciclo_6}
 \begin{itemize}
 \item \textbf{Pergunta:} Como ler o sinal todo e ter a visilibilidade dele em tempo e frequência?
@@ -511,7 +520,7 @@ end
 \item \textbf{Retrospectiva:} Dado a barreira técnica de deslocamento de fase do sinal, ainda não foi encontrado uma solução de resolução tempo-frequência.
 \end{itemize}
 
-\subsection{Ciclo 7}
+\subsection{Ciclo 7: Aplicação da Transformada de Fourier Janelada}
 \label{subsec:ciclo_7}
 \begin{itemize}
 \item \textbf{Pergunta:} Como ler o sinal todo e ter a visilibilidade dele em tempo e frequência?
@@ -571,7 +580,7 @@ max(energy_chords))};
 \item \textbf{Retrospectiva:} A solução da transformada de fourier janelada se encaixou bem no conjunto.  
 \end{itemize}
 
-\subsection{Ciclo 8}
+\subsection{Ciclo 8: Extração de Tonalidade}
 \label{subsec:ciclo_8}
 \begin{itemize}
 \item \textbf{Pergunta:} Como extrair o tom da música?
@@ -615,7 +624,7 @@ get_chord_pitch(notes_time, time_seconds_total, chords)
 \item \textbf{Retrospectiva:} A quantidade de energia está atrapalhando a extração do tom. O tom é definido como a frequência de aparecimento das notas ao longo da música.
 \end{itemize}
 
-\subsection{Ciclo 9}
+\subsection{Ciclo 9: Binarização de Energia das Notas}
 \label{subsec:ciclo_9}
 \begin{itemize}
 \item \textbf{Pergunta:} Como trabalhar com a frequencia de aparecimento das notas?
@@ -643,7 +652,7 @@ get_chord_pitch(notes_time, time_seconds_total, chords)
 \item \textbf{Retrospectiva:} Com essa binarização o tom da música foi efetivamente corrigido.
 \end{itemize}
 
-\subsection{Ciclo 10}
+\subsection{Ciclo 10: Segmentação de Áudio}
 \label{subsec:ciclo_10}
 \begin{itemize}
 \item \textbf{Pergunta:} Em relação aos acordes transitórios, como corrigir?
@@ -727,7 +736,7 @@ build_window_short_fft(signal, time, fs)
 \item \textbf{Retrospectiva:} Com essa correção os acordes maiores, menores e diminutos estão sendo reconhecidos corretamente.
 \end{itemize}
 
-\subsection{Ciclo 11}
+\subsection{Ciclo 11: Extração de Baixos}
 \label{subsec:ciclo_11}
 \begin{itemize}
 \item \textbf{Pergunta:} Como extrair a nota mais grave (baixo) de cada período do tempo?
@@ -771,7 +780,7 @@ end
 \end{itemize}
 
 
-\subsection{Ciclo 12}
+\subsection{Ciclo 12: Extração de Acordes Invertidos e Aumentados}
 \label{subsec:ciclo_12}
 \begin{itemize}
 \item \textbf{Pergunta:} Como incluir a nota mais grave (baixo) de cada período do tempo aos acordes aumentados e invertidos?

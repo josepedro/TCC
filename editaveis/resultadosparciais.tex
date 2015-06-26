@@ -16,6 +16,7 @@ Em vista dos procedimentos teóricos aliados a uma solução computacional, obte
 % Comentar cada item e o fundamento teórico por trás de cada um
 
 \section{Resposta em Frequência e Sugestões de Notas e Acordes}
+\label{sec:resposta}
 
 Para a demonstração dos resultados dos procedimentos \ref{subsec:procedimento_1}, \ref{subsec:procedimento_2}, \ref{subsec:procedimento_3}, \ref{subsec:procedimento_4}, \ref{subsec:procedimento_5}, \ref{subsec:procedimento_6}, \ref{subsec:procedimento_8}, \ref{subsec:procedimento_9} e \ref{subsec:procedimento_10} e ciclos de desenvolvimento \ref{subsec:ciclo_1}, \ref{subsec:ciclo_2}, \ref{subsec:ciclo_3}, \ref{subsec:ciclo_4}, \ref{subsec:ciclo_7}, \ref{subsec:ciclo_9}, \ref{subsec:ciclo_11} e \ref{subsec:ciclo_12} foram feitos experimentos\footnote{Nesse trabalho contextualizado na computação musical chama-se de experimento o procedimento de verificar saídas da solução computacional dada um conjunto de entradas. Para tal há condições pré-determinadas de ambiente acústico e forma de processamento para que os mesmos possam ser realizados por terceiros.} com todas as possibilidades de reconhecimento de acordes proporcionados pelo sistema. Todavia serão detalhados e comentados somente 4 pois para os outros equivalem as mesmas considerações. O resumo dos resultados dos outros acordes estará presente na tabela que se segue logo após.
 
@@ -201,11 +202,14 @@ A tabela \ref{tab:label_test} mostra os resultados do sistema dado todas as comb
 
 \begin{table}[h]
   %Vertical lines as column separators
+  \label{tab:label_test}
   \centering
   \includegraphics[keepaspectratio=true,scale=0.8]{figuras/tabela_acordes_completos.eps}
   \caption{Tabela de resultados dado os acordes tocados com inversões.}
-  \label{tab:label_test}
 \end{table}
+
+\newpage
+Em vista do que foi apresentado de resultados em amostras separadas de acordes gravados (explicitados na tabela \ref{tab:label_test}), o sistema reconhece, com 100\% de acerto, todas as possibilidades numa tríade de notas - acordes maiores, menores, aumentados, diminutos e invertidos. Esses resultados são os mesmos que o primeiro trabalho na área \cite{fujishima1999realtime} chegou, porém, utilizando outro método de reconhecimento de acordes.
 
 \section{Detecção de Transições Rítmicas}
 
@@ -245,18 +249,17 @@ Tendo em vista a figura \ref{fig:banco_de_filtros}, a hipótese é usar as itera
 \begin{figure}[h]
     \centering
     \includegraphics[keepaspectratio=true,scale=0.45]{figuras/wavelet_deslocado_1.eps}
-  \caption{Gráfico da resposta em frequência de um sinal puro de 440 Hz em 3 iterações no banco de filtros.}
+  \caption{Espectro de sinal puro de 440 Hz em 3 iterações no banco de filtros.}
   \label{fig:440_wavelets_1}
 \end{figure}
 
-\newpage
 De acordo com a figura \ref{fig:440_wavelets_1} é visível que em 3 iterações no banco de filtro pode se identificar a frequência em integridade de 440 Hz pelo nível de energia máximo. Porém é preciso iterar mais vezes o banco de filtros para poder isolar somente uma nota para cada saída do mesmo. A figura \ref{fig:440_wavelets_2} mostra o gráfico da resposta em frequência do mesmo sinal puro de 440 Hz, oriundo da saída \textbf{H000001(z)}, com o banco de filtros iterado em 10 vezes. Como mostra a figura \ref{fig:440_wavelets_2}, o sinal de 440 Hz na entrada do banco de filtros foi defasado para 249.4 Hz. Esse fato não corrobora com o isolamento das frequências para cada saída do banco de filtros, pois, com o aumento da iteração abordado, o sinal sofreu uma defasagem.
 
 
 \begin{figure}[h]
     \centering
     \includegraphics[keepaspectratio=true,scale=0.45]{figuras/wavelet_deslocado.eps}
-  \caption{Gráfico da resposta em frequência de um sinal puro de 440 Hz em 10 iterações no banco de filtros.}
+  \caption{Espectro de sinal puro de 440 Hz em 10 iterações no banco de filtros.}
   \label{fig:440_wavelets_2}
 \end{figure}
 
@@ -267,7 +270,7 @@ Dado os módulos implementados nos procedimentos \ref{subsec:procedimento_2}, \r
 \begin{figure}[h]
     \centering
     \includegraphics[keepaspectratio=true,scale=0.4]{figuras/notas_puras.eps}
-  \caption{Gráfico binário de transcrição de notas a partir de um áudio de tons puros variando de 260 Hz até 520 Hz.}
+  \caption{Transcrição de notas de um áudio de tons puros (260 Hz até 520 Hz).}
   \label{fig:notas_puras}
 \end{figure}       
 
@@ -276,7 +279,7 @@ Em vista do que é mostrado na figura \ref{fig:notas_puras}, percebe-se que não
 \begin{figure}[h]
     \centering
     \includegraphics[keepaspectratio=true,scale=0.5]{figuras/notas_violao.eps}
-  \caption{Gráfico binário de transcrição de notas a partir de um áudio de tons de violão variando de 260 Hz até 520 Hz.}
+  \caption{Transcrição de notas de um áudio de tons de violão (260 Hz até 520 Hz).}
   \label{fig:notas_violao}
 \end{figure}       
 
@@ -289,14 +292,14 @@ Mesmo nos contextos de erros de ruídos de fundos mostrados nas figuras anterior
 \begin{figure}[h]
     \centering
     \includegraphics[keepaspectratio=true,scale=0.5]{figuras/notas_piano.eps}
-  \caption{Gráfico binário de transcrição de notas a partir de um áudio de tons de piano variando de 260 Hz até 520 Hz.}
+  \caption{Transcrição de notas de um áudio de tons de piano (260 Hz até 520 Hz).}
   \label{fig:notas_piano}
 \end{figure}
 
 
 \section{Transcrição Automática de Acordes ao Longo do Tempo}
 % MOSTRAR 4 CASOS DE LINHAS DE ACORDES NO TEMPO
-Tendo como referência os módulos implementados nos procedimentos \ref{subsec:procedimento_1}, \ref{subsec:procedimento_2}, \ref{subsec:procedimento_3}, \ref{subsec:procedimento_4}, \ref{subsec:procedimento_5}, \ref{subsec:procedimento_6}, \ref{subsec:procedimento_8}, \ref{subsec:procedimento_9} e \ref{subsec:procedimento_10} e os resultados dos ciclos de desenvolvimento \ref{subsec:ciclo_1}, \ref{subsec:ciclo_2}, \ref{subsec:ciclo_3}, \ref{subsec:ciclo_4}, \ref{subsec:ciclo_7}, \ref{subsec:ciclo_9}, \ref{subsec:ciclo_9}, \ref{subsec:ciclo_10}, \ref{subsec:ciclo_11} e \ref{subsec:ciclo_12}, é consolidado os resultados da transcrição automática de acordes ao longo do tempo. Foi feito 2 experimentos testando a sequência de acordes tocados no piano e no violão. A figura \ref{fig:acordes_piano} mostra o sinal de áudio do piano.
+Tendo como referência os módulos implementados nos procedimentos \ref{subsec:procedimento_1}, \ref{subsec:procedimento_2}, \ref{subsec:procedimento_3}, \ref{subsec:procedimento_4}, \ref{subsec:procedimento_5}, \ref{subsec:procedimento_6}, \ref{subsec:procedimento_8}, \ref{subsec:procedimento_9} e \ref{subsec:procedimento_10} e os resultados dos ciclos de desenvolvimento \ref{subsec:ciclo_1}, \ref{subsec:ciclo_2}, \ref{subsec:ciclo_3}, \ref{subsec:ciclo_4}, \ref{subsec:ciclo_7}, \ref{subsec:ciclo_9}, \ref{subsec:ciclo_9}, \ref{subsec:ciclo_10}, \ref{subsec:ciclo_11} e \ref{subsec:ciclo_12}, foram consolidados os resultados da transcrição automática de acordes ao longo do tempo. Dois experimentos foram feitos testando a sequência de acordes tocados no piano e no violão. A figura \ref{fig:acordes_piano} mostra o sinal de áudio do piano.
 
 \begin{figure}[h]
     \centering
@@ -335,6 +338,7 @@ Também é evidenciado na tabela \ref{tab:acordes_violao} os acordes tocados e o
   \label{tab:acordes_violao}
 \end{table}
 
+Dado as análises apresentadas nas amostras de áudio, o sistema obteve 75\% de acertos para acordes de piano e 50\% para acordes de violão, ambos tocados ao longo do tempo. Os resultados de reconhecimento de acordes foram abaixos dos expostos em amostras separadas de acordes apresentados em \ref{sec:precondicoes} devido a dificuldade, parcialmente mitigada no processo segmentaçao de áudio apresentado em \ref{subsec:procedimento_1}, em detectar a ocorrência de acordes ao longo do tempo. Músicas completas não foram testadas pois o presente trabalho se limitou somente no reconhecimento de acordes ao longo do tempo em contextos polifônicos e mono-instrumentais. É plausível de afirmação que o resultado foi comprometido pelo fato do sistema não ser constituído de um módulo de detecção de acordes não só ao longo do tempo, mas, dado um conjunto de possibilidades harmônicas, resultados em que o acorde se comportaria como totalmente não harmônico, ou seja, ruído ou silêncio.
 
 \section{Extração da Tonalidade}
 % MOSTRAR 4 EXEMPLOS DE LINHAS DE ACORDES E O TOM
@@ -356,5 +360,5 @@ The Beatles - Yesterday          & F             & F               \\ \hline
 \label{tab:tons}
 \end{table}
 
-Diante do que é mostrado na tabela \ref{tab:tons}, o sistema errou 2 músicas de 6 músicas no total, ocasionando em 67\% de acertos globais.
+Diante do que é mostrado na tabela \ref{tab:tons}, o sistema-solução errou 2 músicas de 6 músicas no total, ocasionando em 67\% de acertos globais. Esse resultado é razoável pois o sistema-solução conseguiu, além de identificar tonalidade de música mono-instrumental, identificar tonalidades de músicas multi-instrumentais. Devido a dependência dessa funcionalidade com o módulo de reconhecimento de acordes ao longo do tempo, o resultado poderia melhorar utilizando aprimorações por regras da teoria musical.
 

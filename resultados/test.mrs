@@ -1,0 +1,4 @@
+Series {
+    -> SoundFileSource { filename = "A440pure.wav" }
+    -> AudioSink
+}

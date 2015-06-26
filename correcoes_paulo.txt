@@ -1,0 +1,108 @@
+Coorientador na capa
+Data errada (2014)
+retirar parenteses em "Engenharia de Software", na contracapa
+Coorientador na ficha de aprovação/banca
+
+
+Resumo
+
+Atualmente,
+à várias
+abordagens...abordagem
+prototipar um solução
+Para tal fim,
+priorizou-se
+
+Abstract está escrito em inglês, mas na estrutura de português
+
+
+Apenas tem siglas da área de música?
+
+Introdução
+Iniciou a introdução igual ao resumo...
+
+Retirar:
+Exemplos de artistas que usam são Rihanna,
+Justin Bieber, Demi Lovato, Bruno Mars, Kelly Clarkson e Lady Gaga.
+
+O presente trabalho tem como objetivo apresentar um protótipo de uma solução computacional de suporte ao músico para ... ???
+
+Os músicos, em geral,
+
+ser citados, como, por exemplo,
+
+(procurar advérbio e ver vírgulas)
+
+Capítulo (maiúsculo)
+
+Retirar: "presente" de todo o texto
+
+Capítulo 2
+
+do contexto?
+
+2.1 sem referência
+
+referenciar figura 3 corretamente e explicá-la
+
+2.2 muitos conceitos, com poucos referências.
+
+2.3
+normalmente... normalmente
+
+2.4
+
+"muito o que tange", no seu texto
+
+Falta referência nas figuras 4 e 5, e está referenciando errado as figuras no texto.
+
+Não teve nenhuma contextualização desses conceitos com o que será apresentado no trabalho.
+
+Houve uma falta de cuidados com as referência para um capítulo de conceitos.
+
+capítulo 3
+
+Cortas os 4 primeiros parágrafos da 3.1
+
+Iterativa e incremental, pois
+
+foram abordadas questões
+
+figura 6 é sua? referenciar no texto, corretamente: explicar a figura.
+
+áudio.Nos -> áudio. Nos
+
+Após essa conversão,
+
+Figura em maiúsculo
+
+Lendar enormes: explicar figura no texto e não na legenda
+
+3.3
+Nesta presente parte do trabalho ???
+
+o que e eficaz? por que tal coisa foi eficaz?
+
+Acho que falou explicar um pouco que estava em cada implementação
+
+Capítulo 4
+
+Dos experimentos, alguns gráfico estão bem explicados ou não: revisar
+
+fazer a Tabela 1 em latex (ou ela não é sua?)
+
+citar, no texto, corretamente a Figura 32
+
+Explicar melhor as figura 37, 38 e 39. Por que certas coisas são perceptíveis?
+
+Tabela 4.6?
+
+Não fechou o capítulo 4
+
+Capítulo 5 é "Conclusão"
+
+primeiro parágrafo é especulação: retirar
+
+Conclusão fraca: refazer, sem especulações.
+
+Colocar as fraquezas e limitações do trabalho, para depois falar de passos futuros
