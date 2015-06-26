@@ -4,7 +4,7 @@
 -Coorientador na ficha de aprovação/banca
 
 
-Resumo
+-Resumo
 
 -Atualmente,
 -à várias
@@ -13,10 +13,10 @@ Resumo
 -Para tal fim,
 -priorizou-se
 
-Abstract está escrito em inglês, mas na estrutura de português
+-Abstract está escrito em inglês, mas na estrutura de português
 
 
-Apenas tem siglas da área de música?
+-Apenas tem siglas da área de música?
 
 Introdução
 Iniciou a introdução igual ao resumo...
