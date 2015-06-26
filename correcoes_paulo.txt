@@ -1,17 +1,17 @@
-Coorientador na capa
-Data errada (2014)
-retirar parenteses em "Engenharia de Software", na contracapa
-Coorientador na ficha de aprovação/banca
+-Coorientador na capa
+-Data errada (2014)
+-retirar parenteses em "Engenharia de Software", na contracapa
+-Coorientador na ficha de aprovação/banca
 
 
 Resumo
 
-Atualmente,
-à várias
-abordagens...abordagem
-prototipar um solução
-Para tal fim,
-priorizou-se
+-Atualmente,
+-à várias
+-abordagens...abordagem
+-prototipar um solução
+-Para tal fim,
+-priorizou-se
 
 Abstract está escrito em inglês, mas na estrutura de português
 
