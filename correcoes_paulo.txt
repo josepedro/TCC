@@ -19,23 +19,23 @@
 -Apenas tem siglas da área de música?
 
 Introdução
-Iniciou a introdução igual ao resumo...
+-Iniciou a introdução igual ao resumo...
 
-Retirar:
-Exemplos de artistas que usam são Rihanna,
-Justin Bieber, Demi Lovato, Bruno Mars, Kelly Clarkson e Lady Gaga.
+-Retirar:
+-Exemplos de artistas que usam são Rihanna,
+-Justin Bieber, Demi Lovato, Bruno Mars, Kelly Clarkson e Lady Gaga.
 
-O presente trabalho tem como objetivo apresentar um protótipo de uma solução computacional de suporte ao músico para ... ???
+-O presente trabalho tem como objetivo apresentar um protótipo de uma solução computacional de suporte ao músico para ... ???
 
-Os músicos, em geral,
+-Os músicos, em geral,
 
-ser citados, como, por exemplo,
+-ser citados, como, por exemplo,
 
-(procurar advérbio e ver vírgulas)
+-(procurar advérbio e ver vírgulas)
 
-Capítulo (maiúsculo)
+-Capítulo (maiúsculo)
 
-Retirar: "presente" de todo o texto
+-Retirar: "presente" de todo o texto
 
 Capítulo 2
 
