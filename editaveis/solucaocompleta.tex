@@ -11,7 +11,7 @@ No que tange a não-linearidade, variou-se muito o desempenho na concretização
 
 O termo transdisciplinaridade é empregado para um patamar de relações entre disciplinas e domínios de conhecimento. Conceitua-se como tal um processo que transcende as disciplinas, que está entre, além e através das disciplinas \cite{criatividade}. Nesse trabalho foram investigados vários domínios de conhecimento como a engenharia, matemática, neurociências, psicologia, música e computação.
 
-Dado o contexto e características do trabalho foi estabelicido um método de desenvolvimento empírico, iterativo e incremental. Na engenharia de software se destacam dois processos de controle de desenvolvimento: precesso definido e processo empírico. O processo definido é constiuído de um conjunto de sub-processos rigoros nos quais possuem entradas e saídas bem definidas e repetitivas \cite{rup}. Já o processo empírico é constituído de um conjunto de sub-processos imperfeitamente definidos nos quais as entradas e saídas são imprevisíveis e não repetíveis, características essas presentes no desenvolvimento desse trabalho.
+Dado o contexto e características do trabalho foi estabelicido um método de desenvolvimento empírico, iterativo e incremental. Na engenharia de software se destacam dois processos de controle de desenvolvimento: processo definido e processo empírico. O processo definido é constiuído de um conjunto de sub-processos rigoros nos quais possuem entradas e saídas bem definidas e repetitivas \cite{rup}. Já o processo empírico é constituído de um conjunto de sub-processos imperfeitamente definidos nos quais as entradas e saídas são imprevisíveis e não repetíveis, características essas presentes no desenvolvimento desse trabalho.
 
 A metodologia empírica de desenvolvimento de software se embasa em três fundamentos: precisa ser transparente, visto que o máximo de variáveis devem estar visíveis para os envolvidos no projeto; dado as variáveis expostas a metodologia precisa ser frequentemente inspecionada; feito as inspeções objetivo final é adaptar de acordo com as necessidades. Esses três fundamentos visam ajustar o processo de desenvolvimento para evitar variações de produção inaceitáveis e maximizar a mesma \cite{empirical}.
 
@@ -30,16 +30,16 @@ Com o intuito de atingir os objetivos, serão abordados questões, hipóteses e 
 			\end{itemize}
 	\end{itemize}
 
-	\item Como configurar essas informações para localizar as notas musicais?
+	\item Como configurar essas informações para localizar as notas musicais? Dessa questão, surge a seguinte hipótese:
 	\begin{itemize}
-		\item Dado que cada nota musical é um conjunto de frequências, realocar as energias frequenciais da transformada de fourier afim de que cada posição do vetor seje 1 unidedade de frequência (Hz) pode mapear a energia de cada nota. Os critérios para avaliar essa hipótese são:
+		\item Dado que cada nota musical é um conjunto de frequências, realocar as energias frequenciais da transformada de fourier afim de que cada posição do vetor seja 1 unidade de frequência (Hz) pode mapear a energia de cada nota. Os critérios para avaliar essa hipótese são:
 			\begin{itemize}
 				\item Vetor com os níveis de energia relacionados a cada frequência deve ter o tamanho de 22050 posições.
 				\item Cada posição do vetor de energia relacionados a cada frequência possui valor de 1 Hz.		
 			\end{itemize}
 	\end{itemize}
 
-	\item Como adicionar as próximas camadas da rede para determinação dos acordes?
+	\item Como adicionar as próximas camadas da rede para determinação dos acordes? Dessa questão, surge a seguinte hipótese:
 	\begin{itemize}
 		\item  Visto que associar as frequências as notas musicas é uma tarefa muito complexa para uma solução determinística, uma rede neural de aprendizado não supervisionado do tipo $Probabilistic Neural Network$ (PNN) pode classificar um conjunto de frequências em sua respectiva nota musical. O critério para avaliar essa hipótese é:
 			\begin{itemize}
@@ -47,72 +47,78 @@ Com o intuito de atingir os objetivos, serão abordados questões, hipóteses e 
 			\end{itemize}
 	\end{itemize}
 	
-	\item Como reconhecer acordes no tempo de tal forma a saber onde eles ocorrem?
+	\item Como reconhecer acordes no tempo de tal forma a saber onde eles ocorrem? Dessa questão, surge a seguinte hipótese:
 	\begin{itemize}
-		\item A transformada de fourier pode construir o espectro de frequências do sinal.
+		\item Uma solução de reconhecimento de energias ao longo do tempo pode ser
+eficaz para a determinação do rítmo. Em tese é calcular a energia do sinal, aplicar
+um filtro passa-baixas para suavização do sinal e aplicar um método de auto-correlação com o intuito de caracterizar picos de repetição de níveis elevados de energia.
 		O critério para avaliar essa hipótese é:
 			\begin{itemize}
-				\item Vetor com os níveis de energia relacionados a cada frequência.		
+				\item Vetor com picos demonstrando a localização de ocorrência de cada acorde no tempo.		
 			\end{itemize}
 	\end{itemize}
-	\item Como ler o sinal todo e ter a visilibilidade em tempo e frequência?
+	\item Como ler o sinal todo e ter a visilibilidade em tempo e frequência? Dessa questão, surge a seguinte hipótese:
 	\begin{itemize}
-		\item A transformada de fourier pode construir o espectro de frequências do sinal.
+		\item Para se ter uma resolução do sinal em tempo em frequência é
+preciso ter uma transformada que agregue esses dois aspectos. Pode-se testar isso
+com a transformada wavelets.
 		O critério para avaliar essa hipótese é:
 			\begin{itemize}
-				\item Vetor com os níveis de energia relacionados a cada frequência.		
+				\item Matriz contendo às várias bandas de frequências filtradas relativas a cada notas ao longo do tempo.
 			\end{itemize}
 	\end{itemize}
-	\item Como ler o sinal todo e ter a visilibilidade em tempo e frequência?
+	\item Como extrair o tom da música? Dessa questão, surge a seguinte hipótese:
 	\begin{itemize}
-		\item A transformada de fourier pode construir o espectro de frequências do sinal.
+		\item Para extrair o tom da música é preciso somar a energia das notas totais
+ao longo da música e em seguida extrair o acorde mais provável.
 		O critério para avaliar essa hipótese é:
 			\begin{itemize}
-				\item Vetor com os níveis de energia relacionados a cada frequência.		
+				\item Extração de um acorde maior ou menor ao final do processo.		
 			\end{itemize}
 	\end{itemize}
-	\item Como extrair o tom da música?
+	\item Como trabalhar com a frequência de aparecimento das notas? Dessa questão, surge a seguinte hipótese:
 	\begin{itemize}
-		\item A transformada de fourier pode construir o espectro de frequências do sinal.
+		\item Se binarizar com 1 e 0 o mapa de notas no tempo a soma das notas será
+unitária, equivalente a frequência.
 		O critério para avaliar essa hipótese é:
 			\begin{itemize}
-				\item Vetor com os níveis de energia relacionados a cada frequência.		
+				\item A extração automática dos acordes deverá ser determinado pela quantidade de notas tocadas e não pela energia das notas tocadas.		
 			\end{itemize}
 	\end{itemize}
-	\item Como trabalhar com a frequência de aparecimento das notas?
+	\item Em relação aos acordes transitórios, como corrigir? Dessa questão, surge a seguinte hipótese:
 	\begin{itemize}
-		\item A transformada de fourier pode construir o espectro de frequências do sinal.
+		\item Se ao deslocar a janela de tamanho de 1 segundo em passos de 0.2
+segundos e calcular o espectro de frequência de cada passo pode-se fazer a média do
+acorde de cada tempo e poder cancelar os acordes transitórios.
 		O critério para avaliar essa hipótese é:
 			\begin{itemize}
-				\item Vetor com os níveis de energia relacionados a cada frequência.		
+				\item Os acordes transitórios devem ser cancelados.		
 			\end{itemize}
 	\end{itemize}
-	\item Em relação aos acordes transitórios, como corrigir?
+	\item Como extrair a nota mais grave (baixo) de cada período do tempo? Dessa questão, surge a seguinte hipótese:
 	\begin{itemize}
-		\item A transformada de fourier pode construir o espectro de frequências do sinal.
+		\item Com o mapa de notas binarizado é possível extrair o baixo pegando a
+primeira posição com valor 1 de cada tempo.
 		O critério para avaliar essa hipótese é:
 			\begin{itemize}
-				\item Vetor com os níveis de energia relacionados a cada frequência.		
+				\item Posição de valor 1 mais grave extraídas do conjunto de energias das notas.		
 			\end{itemize}
 	\end{itemize}
-	\item Como extrair a nota mais grave (baixo) de cada período do tempo?
+	\item Como incluir a nota mais grave (baixo) de cada período do tempo aos acordes aumentados e invertidos? Dessa questão, surge a seguinte hipótese:
 	\begin{itemize}
-		\item A transformada de fourier pode construir o espectro de frequências do sinal.
+		\item Pode-se referenciar um acorde invertido ou aumentado apartir da combinação de acordes fundamentais e baixos extraídos para cada período respectivo.
 		O critério para avaliar essa hipótese é:
 			\begin{itemize}
-				\item Vetor com os níveis de energia relacionados a cada frequência.		
-			\end{itemize}
-	\end{itemize}
-	\item Como extrair a nota mais grave (baixo) de cada período do tempo e incluir os acordes aumentados e invertidos?
-	\begin{itemize}
-		\item A transformada de fourier pode construir o espectro de frequências do sinal.
-		O critério para avaliar essa hipótese é:
-			\begin{itemize}
-				\item Vetor com os níveis de energia relacionados a cada frequência.		
+				\item Extração de todas as possibilidades de acordes em tríades reconhecidos com sucesso.
 			\end{itemize}
 	\end{itemize}
 \end{itemize}
 
+\subsection{Linguagem de Programação}
+
+Existem algumas ferramentas para muitas linguagens de programação que focam processamento de sinais. Uma delas é uma biblioteca em C++ desenvolvida por David Weenink baseada no processomento Mel Frequency Cepstral Coefficients (MFCC) \footnote{http://kaldi.sourceforge.net/feat.html\#feat\_mfcc}. Ela dá suporte a extração de dados de arquivos, cálculo da transformada de fourier (FFT), seu respectivo espectro de energia e cálculo da transformada de cosseno. Uma outra vantagem do uso dela é a linguagem de programação C++ que é bastante rápida em relação ao Java, Ruby e Python. Porém ela não dá suporte a estruturas de álgebra linear e cálculos estatísticos como operação de correlação. Processamento de sinais e redes neurais demanda também muito esforço no uso de matrizes e suas respectivas operações, fato esse torna o uso da linguagem C++ e da biblioteca citada desvantajosos.
+
+Em vista das necessidades expostas, a linguagem de programação/ferramental escolhida para o trabalho é o Matlab \footnote{http://www.mathworks.com/}. Matlab é um software científico para computação numérica. Essa escolha foi feita primeiramente por tratar de ser um software voltado para aplicações científicas e para os axiomas da álgebra linear. Além disso, essa plataforma possui um conjunto de ferramentas para visualização de gráficos, pacotes de fórmulas matemáticas pré-programadas e estruturas de dados voltadas para a análise numérica e matricial. Ela possui uma característica de ser interpretada e dinamicamente tipada.
 
 \section{Técnicas Utilizadas para Desenvolvimento do Sistema-Solução}
 
@@ -120,7 +126,7 @@ Nesta secção será descrito o desenvolvimento da solução e as técnicas util
 
 \begin{figure}[h]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.51]{figuras/dfd_2.eps}
+		\includegraphics[keepaspectratio=true,scale=0.49]{figuras/dfd_2.eps}
 	\caption{Diagrama de Fluxo de Dados}
 \end{figure}
 
@@ -347,7 +353,7 @@ l = 0; j = 0; i = 0;
 \label{subsec:ciclo_3}
 \begin{itemize}
 \item \textbf{Pergunta:} Dado um conjunto de frequências, como associar essas as notas musicais?
-\item \textbf{Hipótese:} Visto que associar as frequências as notas musicas é uma tarefa muito complexa para uma solução determinística, uma rede neural de aprendizado não supervisionado do tipo $Probabilistic Neural Network$ (PNN) pode classificar um conjunto de frequências em sua respectiva nota musical.
+\item \textbf{Hipótese:} Visto que associar as frequências as notas musicas é uma tarefa muito complexa para uma solução determinística, uma rede neural de aprendizado não supervisionado do tipo $Probabilistic$ $Neural$ $Network$ (PNN) pode classificar um conjunto de frequências em sua respectiva nota musical.
 \item \textbf{Implementação:} 
 \begin{lstlisting}
 %BASE DE DADOS DE NOTAS MUSICAIS DA REDE NEURAL
@@ -432,7 +438,9 @@ end
 \label{subsec:ciclo_5}
 \begin{itemize}
 \item \textbf{Pergunta:} Como reconhecer acordes no tempo de tal forma a saber onde eles ocorrem?
-\item \textbf{Hipótese:} Uma solução de reconhecimento de energias ao longo do tempo pode ser eficaz para a determinação do rítmo. Em tese é calcular a energia do sinal e aplicar um filtro passa-baixas para identificação dos picos de energia.
+\item \textbf{Hipótese:} Uma solução de reconhecimento de energias ao longo do tempo pode ser
+eficaz para a determinação do rítmo. Em tese é calcular a energia do sinal, aplicar
+um filtro passa-baixas para suavização do sinal e aplicar um método de auto-correlação com o intuito de caracterizar picos de repetição de níveis elevados de energia.
 \item \textbf{Implementação:} 
 \begin{lstlisting}
     % opening the file
@@ -567,7 +575,7 @@ max(energy_chords))};
 \label{subsec:ciclo_8}
 \begin{itemize}
 \item \textbf{Pergunta:} Como extrair o tom da música?
-\item \textbf{Hipótese:} Para extrair o tom da música é preciso somar a energia das notas totais ao longo da música.
+\item \textbf{Hipótese:} Para extrair o tom da música é preciso somar a energia das notas totais ao longo da música e em seguida extrair o acorde mais provável.
 \item \textbf{Implementação:} 
 \begin{lstlisting}
 function [chord_pitch, chord_pitch_number] = ...
@@ -723,7 +731,7 @@ build_window_short_fft(signal, time, fs)
 \label{subsec:ciclo_11}
 \begin{itemize}
 \item \textbf{Pergunta:} Como extrair a nota mais grave (baixo) de cada período do tempo?
-\item \textbf{Hipótese:} Com o mapa de ntoas binarizado é possível extrair o baixo pegando a primeira posição com valor 1 de cada tempo.
+\item \textbf{Hipótese:} Com o mapa de notas binarizado é possível extrair o baixo pegando a primeira posição com valor 1 de cada tempo.
 \item \textbf{Implementação:}
 \begin{lstlisting}
 function bass_time = get_bass(set_of_notes_time)
@@ -766,8 +774,8 @@ end
 \subsection{Ciclo 12}
 \label{subsec:ciclo_12}
 \begin{itemize}
-\item \textbf{Pergunta:} Como extrair a nota mais grave (baixo) de cada período do tempo e incluir os acordes aumentados e invertidos?
-\item \textbf{Hipótese:} Com o mapa de ntoas binarizado é possível extrair o baixo pegando a primeira posição com valor 1 de cada tempo.
+\item \textbf{Pergunta:} Como incluir a nota mais grave (baixo) de cada período do tempo aos acordes aumentados e invertidos?
+\item \textbf{Hipótese:} Pode-se referenciar um acorde invertido ou aumentado apartir da combinação de acordes fundamentais e baixos extraídos para cada período respectivo.
 \item \textbf{Implementação:}
 \begin{lstlisting}
 function chords_with_bass = ...
@@ -798,7 +806,7 @@ dictionary_chords = ...
 end
 \end{lstlisting}
 \item \textbf{Testes Conceituais:} Todas as possibilidades de acordes foram reconhecidos com sucesso.
-\item \textbf{Retrospectiva:} Os objetivos do trabalho foram alcançados com sucesso.
+\item \textbf{Retrospectiva:} Tal hipótese resolveu definitivamente a problemática de acordes invertidos e aumentados identificados de forma incorreta.
 \end{itemize}
 
 Em visto do que foi desenvolvido nesse capítulo, foi apresentado a metodologia de execução do presente trabalho, o desenvolvimento do sistema-solução como um todo e o andamento em ciclos de execução de desenvolvimento da solução proposta. Vale ressaltar que cada módulo do sistema-solução desenvolvido gera resultados no que tange o processamento de áudio, que serão apresentados no capítulo seguinte. 
