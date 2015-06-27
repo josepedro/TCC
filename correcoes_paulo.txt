@@ -39,26 +39,26 @@ Introdução
 
 Capítulo 2
 
-do contexto?
+-do contexto?
 
-2.1 sem referência
+-2.1 sem referência
 
-referenciar figura 3 corretamente e explicá-la
+-referenciar figura 3 corretamente e explicá-la
 
-2.2 muitos conceitos, com poucos referências.
+-2.2 muitos conceitos, com poucos referências.
 
-2.3
-normalmente... normalmente
+-2.3
+-normalmente... normalmente
 
 2.4
 
-"muito o que tange", no seu texto
+-"muito o que tange", no seu texto
 
-Falta referência nas figuras 4 e 5, e está referenciando errado as figuras no texto.
+-Falta referência nas figuras 4 e 5, e está referenciando errado as figuras no texto.
 
-Não teve nenhuma contextualização desses conceitos com o que será apresentado no trabalho.
+-Não teve nenhuma contextualização desses conceitos com o que será apresentado no trabalho.
 
-Houve uma falta de cuidados com as referência para um capítulo de conceitos.
+-Houve uma falta de cuidados com as referência para um capítulo de conceitos.
 
 capítulo 3
 

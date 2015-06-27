@@ -1,18 +1,18 @@
 \chapter{Fundamentos Teóricos}
 \label{chap:fundamentosteoricos}
 
-Nesse presente capítulo será introduzido conceitos teóricos para a definição de axiomas e ferramentas do contexto. Será abordado primeiramente conceitos físicos no que tange a natureza do som como propagação, formação e dinâmica. Após será exposto fundamentos sobre notas musicais e harmonia. Enfim, então, será apresentado teorias computacionais de processamento de sinais e redes neurais de classificação.
+Neste capítulo será introduzido conceitos teóricos para a definição de axiomas e ferramentas físico-matemáticas sobre o som, musicais, de processamento de sinais e redes neurais. Será abordado primeiramente conceitos físicos no que tange a natureza do som como propagação, formação e dinâmica. Após será exposto fundamentos sobre notas musicais e harmonia. Enfim, então, será apresentado teorias computacionais de processamento de sinais e redes neurais de classificação. Tais conceitos serão importantes para delimitar soluções de manipulação do sinal de áudio a fim de extrair informações musicalmente relevantes.
 
 \section{Conceitos Físicos do Som}
 \label{sec:conceitosfiscossom}
 
-O som pode ser visto como uma perturbação mecânica nas moléculas do meio, uma frente de compressão variável  de perfil mecânico e longitudinal com velocidade e pressão. O meio de propagação do som pode ser de diversas naturezas como por exemplo sólido, líquido e gasoso. Dessa perturbação mecânica entende-se como variação de pressão em relação ao tempo e espaço \cite{portela2008caracterizaccao}. Em vista disso, a equação diferencial que expressa o comportamento do som é a de natureza ondulatória $\textbf{p = p(x,t)}$:
+Em vista do que é exposto no trabalho  \cite{portela2008caracterizaccao}, o som pode ser visto como uma perturbação mecânica nas moléculas do meio, uma frente de compressão variável  de perfil mecânico e longitudinal com velocidade e pressão. O meio de propagação do som pode ser de diversas naturezas como por exemplo sólido, líquido e gasoso. Dessa perturbação mecânica entende-se como variação de pressão em relação ao tempo e espaço. Em vista disso, a equação diferencial que expressa o comportamento do som é a de natureza ondulatória $\textbf{p = p(x,t)}$ descrita em \ref{eqn01}.
 \begin{equation}
 \label{eqn01}
 	\frac{\partial^{2}\mathbf{p}}{\partial x^{2}} = \frac{1}{c^{2}}\cdot \frac{\partial^{2}\mathbf{p}}{\partial t^{2}}
 \end{equation}
 
-Na qual $\textbf{p}$ é a pressão, $\textbf{x}$ é a localização longitudinal, $\textbf{c}$ é a velocidade do som e $\textbf{t}$ é a localização temporal. A solução harmônica para a Equação (2.1) é definida por:
+Na qual $\textbf{p}$ é a pressão, $\textbf{x}$ é a localização longitudinal, $\textbf{c}$ é a velocidade do som e $\textbf{t}$ é a localização temporal. A solução harmônica para a Equação (2.1) é definida por \ref{eqn02}.
 \begin{equation}
 \label{eqn02}
 	\mathbf{p(x,t)} = \mathbf{A}.{exp}^{j(wt - kx)} + \mathbf{B}.{exp}^{j(wt + kx)}
@@ -20,34 +20,33 @@ Na qual $\textbf{p}$ é a pressão, $\textbf{x}$ é a localização longitudinal
 
 Em que $\textbf{k}$ é dado por $\textbf{w}/\textbf{c}$ e as constantes complexas $\textbf{A}$ e $\textbf{B}$ são utilizadas para condições de contorno.
 
-Uma solução simples para a equação de onda 2.1 é a seguinte:
+Uma solução simples para a equação de onda \ref{eqn02} pode ser consolidada com a equação \ref{eqn03}.
 \begin{equation}
 \label{eqn03}
 	\mathbf{p(t)} = \mathbf{1}.{cos}(2.\pi.440.t)
 \end{equation}
 
 \newpage
-Nela a variável $\textbf{x}$ foi fixada na origem do sistema cartesiano e o comportamento da onda só está sendo analisado em relação a variável temporal $\textbf{t}$. Há de considerar de suma importância a fixação frequencial $\textbf{w}$ em 440 Hz. Em termos musicais essa nota equivale ao Lá de tom puro, ou seja, nota construída artificialmente sem harmônicos somados (diferentemente dos instrumentos reais que possuem os harmônicos). Um exemplo de gráfico gerado por essa função é dado por:
+Nela a variável $\textbf{x}$ foi fixada na origem do sistema cartesiano e o comportamento da onda só está sendo analisado em relação a variável temporal $\textbf{t}$. Há de considerar de suma importância a fixação frequencial $\textbf{w}$ em 440 Hz. Em termos musicais essa nota equivale ao Lá de tom puro, ou seja, nota construída artificialmente sem harmônicos somados (diferentemente dos instrumentos reais que possuem os harmônicos). Um exemplo de gráfico gerado por essa função é dado pela figura \ref{fig_cos440}.
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.7]{figuras/cos440.eps}
 	\caption{Função da Equação 2.3}
+	\label{fig_cos440}
 \end{figure}
 
-Na forma mais teórica, um acorde, como será apresentado a seguir, é composto de no mínimo 3 ondas sonoras somadas, ou seja, para que seja formado um acorde Am por exemplo a equação total deverá ter essa forma:
+Na forma mais teórica, um acorde, como será apresentado a seguir, é composto de no mínimo 3 ondas sonoras somadas \cite{med1996teoria}, ou seja, para que seja formado um acorde Am, por exemplo, a onda sonora deve ser expressa pela equação \ref{eqn04}.
 \begin{equation}
 \label{eqn04}
 	\mathbf{p(t)} = \mathbf{1}.{cos}(2.\pi.440.t) + \mathbf{0,5}.{cos}(2.\pi.523.t) + \mathbf{1}.{cos}(2.\pi.660.t)
 \end{equation}
 
-Pode-se considerar que cada constante multiplicadora das função cosseno determinará a energia de uma onda sonora específica. Nesse caso as ondas sonoras de mais energia são as de 440 Hz e 600 Hz. A onda de menor energia é a de 523 Hz que possui a metade da energia das outras. Esse fato será decisivo para a detecção de acordes. É pertinente comentar que esse acorde montado é um modelo simplificado pois possuem somente tons puros (sem harmônicos somados). No contexto da solução trabalhada será considerado também acordes com harmônicos somados assim como é nos instrumentos reais. Esse fato aumenta a complexidade da solução.
-
-\newpage
-Em termos de representação gráfica segue o resultado:
+Pode-se considerar que cada constante multiplicadora das função cosseno determinará a energia de uma onda sonora específica. Nesse caso as ondas sonoras de mais energia são as de 440 Hz e 600 Hz. A onda de menor energia é a de 523 Hz que possui a metade da energia das outras. Esse fato será decisivo para a detecção de acordes. É pertinente comentar que esse acorde montado é um modelo simplificado pois possuem somente tons puros (sem harmônicos somados). No contexto da solução trabalhada será considerado também acordes com harmônicos somados assim como é nos instrumentos reais. Esse fato aumenta a complexidade da solução. Em termos de representação gráfica da função, o acorde Am pode visualizado segundo a figura \ref{fig_Am}.
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=1]{figuras/Amcos.eps}
-	\caption{Função da Equação 2.4}
+	\caption{Função da Equação \ref{eqn04} (Am)}
+	\label{fig_Am}
 \end{figure}
 
 \section{Conceitos Musicais}
@@ -73,12 +72,13 @@ O sons que formam as melodias e as harmonias possuem características principais
 
 A altura e intensidade do som são as características essenciais para a formulação dos conceitos de notas e acordes. Em altura entende-se como a divisão das frequências em 7 notas musicas - $Dó$, $Ré$, $Mi$, $Fá$, $Sol$, $Lá$ e $Si$. Também essas mesmas notas possuem uma correspondente em sequência de letras alfabéticas introduzidas pelo Papa Gregório Grande - $C$, $D$, $E$, $F$, $G$, $A$ e $B$. Normalmente essa sequência de letras são usadas para denominar acordes. Entretanto tais divisões de notas não são a menor divisão para o sistema temperado \cite{med1996teoria}. A menor divisão de notas se denomina semitom e são configurados pelos acidentes sustenidos ($\#$) ou bemois ($\flat$). Considerando essa divisão semitonal o sistema fica representado nessa sequência de 12 notas musicais (entre uma divisão e outra há a presença de um semitom): $Dó$, $Dó\#$ ou $Ré\flat$, $Ré$, $Ré\#$ ou $Mi\flat$, $Mi$, $Fá$, $Fá\#$ ou $Sol\flat$, $Sol$, $Sol\#$ ou $Lá\flat$, $Lá$, $Lá\#$ ou $Si\flat$ e $Si$. Ou seguindo a denominação inglesa: $C$, $C\#$ ou $D\flat$, $D$, $D\#$ ou $E\flat$, $E$, $F$, $F\#$ ou $G\flat$, $G$, $G\#$ ou $A\flat$, $A$, $A\#$ ou $B\flat$ e $B$.
 
-\newpage
-Na divisão distributiva das faixas de frequências pelas notas segue um quadro básico \cite{notasfreq}:
+Como foi explicado na seção \ref{sec:conceitosfiscossom}, o som possui características frequenciais e podem ser diferenciados entre si pela frequência de ressonância. Assim ocorrem com as notas musicais que são definidas cada uma pela frequência base na qual é ressoada. A figura \ref{fig:notasfreq} mostra as frequências de cada nota musical num intervalo de 16,352 Hz até 31.608,5 Hz. Na primeira linha da tabela são mostradas as oitavas \footnote{Oitava de uma nota, nesse contexto, é definido como o intervalo de dobro ou a metade da frequência de referência \cite{med1996teoria}.} e a primeira coluna são as notas musicais em si numa sequência de semitons de $dó$ até $si$. O cruzamento da tabela entre oitava e a nota é a frequência da nota dado aquela oitava seguido por, entre parênteses, quantidade de semitons a partir do $dó$ central (destacado em azul no valor de 261,63 Hz). Um exemplo de frequência de uma nota é o $lá$ de afinação (destacado em verde) no valor de 440 Hz. As relações de frequências e notas musicais vão poder delimitar quais notas estão presentes num dado sinal com certas frequências específicas.
+
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.6]{figuras/NOTASpt.eps}
-	\caption{Distribuição das frequências nas notas musicais em Hz}
+	\caption{Frequências das notas musicais em Hz \cite{notasfreq}}
+	\label{fig:notasfreq}
 \end{figure}
 
 Acordes são harmonias formadas por pelo menos uma tríade (três notas)\footnote{Existem acordes mais complexos com mais de 3 notas porém o escopo desse trabalho só se delimita a tríades.} tocadas simultâneamente e são definidos por certas quantidades de semitons entre as notas \cite{med1996teoria}. Essa quantidade se denomina intervalo musical.
@@ -109,7 +109,7 @@ Exemplos de acordes diminutos são:
 	\item lá sustenido diminuto - $A\#dim$ (tríade $Lá\#$, $Dó\#$ e $Mi$).
 \end{itemize}
 
-Na teoria dos acordes também há a presença do conceito de inversões. Inverter um acorde consiste em trocar de posição para uma oitava a cima a nota inferior, trocar a nota mais baixa do acorde por uma outra da mesma denominação só que com o dobro de frequência acima. Em tríades há a presença do acorde em seu estado fundamental, a primeira inversão (a terça fica sendo como a nota mais grave) e a segunda inversão (a quinta fica sendo como a nota mais grave).
+Na teoria dos acordes também há a presença do conceito de inversões \cite{med1996teoria}. Inverter um acorde consiste em trocar de posição para uma oitava a cima a nota inferior, trocar a nota mais baixa do acorde por uma outra da mesma denominação só que com o dobro de frequência acima. Em tríades há a presença do acorde em seu estado fundamental, a primeira inversão (a terça fica sendo como a nota mais grave) e a segunda inversão (a quinta fica sendo como a nota mais grave).
 
 Segue exemplos de acordes em estado fundamental:
 \begin{itemize}
@@ -138,7 +138,7 @@ Segue exemplos de acordes em segunda inversão:
 \section{Conceitos de Processamento de Sinais}
 \label{sec:conceitosprocessamentosinais}
 %sinal o que é
-O conceito de processamento de sinais está inteiramente ligado à natureza do sinal e a aplicação que normalmente se dá é de modificação ou análise. Sinal pode ser entendido como um objeto matemático, normalmente uma função matemática, que descreve o comportamento de um determinado fenômeno da natureza podendo ser, entre outros, físico, químico, biológico e financeiro \cite{oppenheim}.
+O conceito de processamento de sinais está inteiramente ligado à natureza do sinal e a aplicação que normalmente se dá é de modificação ou análise. Sinal pode ser entendido como um objeto matemático, em geral uma função matemática, que descreve o comportamento de um determinado fenômeno da natureza podendo ser, entre outros, físico, químico, biológico e financeiro \cite{oppenheim}.
 
 Da natureza do sinal abordado, é explícito de que o mesmo é de cunho físico - sinais sonoros. Com a possibilidade de se trabalhar com sinal sonoro, há em processamento de sinais a liberdade de modificar ou extrair informações relevatantes para uma dada aplicação. Nesse contexto o sinal será processado com o intuito de colher informações para serem analisadas de forma a deduzir comportamentos de ondas sonoras.
 
@@ -192,7 +192,7 @@ A representação da transformada inversa de fourier em frequência discreta é 
 
 Identificar padrões num sinal nem sempre é um trabalho trivial ou até mesmo determinístico. Normalmente sinais possuem ruídos intratáveis, sua composição é complexa no sentido de haver muitas amostras para análise e, como os sinais são fenômenos naturais, facilmente são vistos como sistemas complexos \cite{morin}. Determinar uma equação ou um algorítmo fixo e determinístico para classificação e processamento de sinais é bastante limitado e aderente há vários erros.
 
-Além disso, para o reconhecimento de harmonias é preciso usar conceitos de teoria musical no que tange aos acordes e notas para o reconhecimento de padrões presentes no sinal. É preciso então ter alguma forma de representar esse conhecimento musical no ponto de vista computacional.
+Além disso, para o reconhecimento de harmonias é preciso usar conceitos de teoria musical no que diz respeito aos acordes e notas para o reconhecimento de padrões presentes no sinal. É preciso então ter alguma forma de representar esse conhecimento musical no ponto de vista computacional.
 
 Diante desse ambiente de incertezas e requisitos de incorporação do conhecimento musical no campo computacional, uma solução que é aderente ao contexto é o uso de redes neurais artificiais. Essa técnica, além de prover as características necessárias para deixar a solução estável, ela modela o funcionamento neural de organismos vivos. Esse fato é muito interessante visto que surge a possibilidade de usar os mesmos mecanismos (de forma análoga) de reconhecimento de padrões sonoros do cérebro humano num sistema computacional.
 
@@ -200,7 +200,7 @@ Dado um especialista que possui o reconhecimento de padrões dos acordes, basta 
 
 Entende-se por rede neural como ``um processador maciçamente paralelamente distribuído constituído de unidades de processamento simples, que têm a propensão para armazenar conhecimento experimental e torná-lo disponível para o uso'' \cite{haykin2009neural}.
 
-As redes neurais possuem uma característica essencial no que tange o aprendizado empírico. Sua estrutura oferece suporte para que conhecimentos adquiridos de maneira experimental (via ser humano muitas vezes) possam ser aprendidos e usados. O processo de aprendizagem da rede se chama algorítmo de aprendizado e o mesmo pode ser feito de várias formas como lei de Hebb, algorítmo de $backpropagation$, estratégias de competição e máquina de Boltzmann. Além disso é envolvido nesse processo paradígmas de aprendizado que é como o ambiente vai atuar sobre a rede neural para que ela possa aprender. Exemplos de paradígmas de aprendizado são aprendizado supervisionado, aprendizado por reforço e aprendizado não-supervisionado (ou auto-organizado).
+O aprendizado empírico é uma característica essencial nas redes neurais artificiais. Sua estrutura oferece suporte para que conhecimentos adquiridos de maneira experimental (via ser humano muitas vezes) possam ser aprendidos e usados. O processo de aprendizagem da rede se chama algorítmo de aprendizado e o mesmo pode ser feito de várias formas como lei de Hebb, algorítmo de $backpropagation$, estratégias de competição e máquina de Boltzmann. Além disso é envolvido nesse processo paradígmas de aprendizado que é como o ambiente vai atuar sobre a rede neural para que ela possa aprender. Exemplos de paradígmas de aprendizado são aprendizado supervisionado, aprendizado por reforço e aprendizado não-supervisionado (ou auto-organizado) \cite{haykin2009neural}.
 
 Outra característica essencial de uma rede neural é a representação do conhecimento. Essa característica é referente às informações armazenadas ou a modelos utilizados por uma pessoa ou máquina com o intuito de interpretar, prever e responder de forma coerente ao mundo exterior \cite{haykin2009neural}. Para tal representação deve-se levantar em conta quais informações serão abstraídas e tornadas explícitas e como a informação será codificada no sistema. Com o intuito de atingir os objetivos de uma boa representação do conhecimento na rede neural há um conjunto de regras sugeridas a se seguir \cite{haykin2009neural}:
 \begin{itemize}
@@ -210,25 +210,39 @@ Outra característica essencial de uma rede neural é a representação do conhe
 	\item regra 4 - informações prévias e invariâncias devem ser incorporadas a rede para que o sistema fique simples e sem trabalho para aprender as mesmas.
 \end{itemize}
 
-Por fim outra característica importante de uma rede neural é a capacidade de generalização. Isso permite com que entradas desconhecidas possam ser classificadas e tratadas de forma coesa e coerente, fazendo com que circunstâncias críticas e imprevisíveis possam ser contornadas sem grandes prejuízos.
+Por fim outra característica importante de uma rede neural é a capacidade de generalização. Isso permite com que entradas desconhecidas possam ser classificadas e tratadas de forma coesa e coerente, fazendo com que circunstâncias críticas e imprevisíveis possam ser contornadas sem grandes prejuízos. 
 
-A unidade mínima de processamento de uma rede neural é o neurônio artificial. Segue uma representação de um modelo \cite{haykin2009neural}:
+A unidade mínima de processamento de uma rede neural é o neurônio artificial. O modelo do neurônio artificial é representado pela figura \ref{fig_neuronio}.
 
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.7]{figuras/neuron.eps}
-	\caption{Modelo de um neurônio}
+	\caption{Modelo de um neurônio \cite{haykin2009neural}.}
+	\label{fig_neuronio}
 \end{figure}
 
-Como é representado na figura os conjuntos de $w$ representam pesos sinápticos para a modulação dos sinais de entrada. Após há um somador para efetuar operações de combinações lineares. Por último há uma função de ativação, mais conhecido como um limiar de ativação para que a resposta possa ser propagada a outros neurônios.
+Como é representado na figura \ref{fig_neuronio} os conjuntos de $w$ representam pesos sinápticos para a modulação dos sinais de entrada, ou seja, para cada entrada há uma unidade escalar que multiplicará sinais de entrada de acordo com o conhecimento aprendido. Após há um somador $\sum$ para efetuar operações de combinações lineares para a produção de um escalar no final desse processo. Por último há uma função de ativação, mais conhecido como um limiar de ativação para que a resposta possa ser propagada a outros neurônios, caso o escalar resultante do somador for maior que o limiar.
 
-\newpage
-Para o presente problema, foi sugerido o uso da rede neural do tipo PNN (Probabilistic Neural Network). Ela é inerentemente um sistema de classificação bastante simples de aprendizado não-supervisionado, ou seja, novos conhecimentos são adquiridos pela simples inserção de novos neurônios. Segue o modelo arquitetural \cite{neuron-arq}:
+Para o presente problema, foi sugerido o uso da rede neural do tipo $Probabilistic$ $Neural$ $Network$ (PNN) \cite{specht1990probabilistic}. Ela é inerentemente um sistema de classificação bastante simples de aprendizado não-supervisionado, ou seja, novos conhecimentos são adquiridos pela simples inserção de novos neurônios. Segue o modelo arquitetural representado na figura \ref{fig:pnn}.
 
-\begin{figure}[h]
+\begin{figure}[t!]
 	\centering
 		\includegraphics[scale=0.7]{figuras/PNN.eps}
-	\caption{Modelo arquitetural da PNN}
+	\caption{Modelo arquitetural da PNN \cite{neuron-arq}.}
+	\label{fig:pnn}
 \end{figure}
 
-Ela é uma rede de 3 camadas: a primeira é responsável por classificar a probabilidade de um indivíduo ser de uma determinada classe através da distância euclidiana combinada com uma curva gaussiana; a segunda é responsável por somar e fazer uma média simples dessas probabilidades de cada classe; a terceira é responsável por extrair a classe de maior probabilidade, ou seja, pegar o valor máximo dado o conjunto de classes $\textbf{g}$. O valor final de saída é a classificação do sinal de entrada.
+\newpage
+Segundo o estudo \cite{specht1990probabilistic}, a rede neural PNN possui 3 camadas: a primeira, camada de padrões, é responsável por calcular, através de uma função de transferência de base gaussiana \ref{eqn05}, a distância euclidiana entre a entrada $X$ e o valor aprendido pela rede $X_{nm}$, ou seja,  classificar a probabilidade de um indivíduo ser de uma determinada classe; a segunda, camada de soma ponderada, é responsável por realizar uma média simples \ref{eqn06} dessas probabilidades de cada classe; a terceira, camada de classificação por máximo, é responsável por extrair a classe de maior probabilidade, ou seja, pegar o valor máximo dado o conjunto de classes calculadas $\textbf{g}$. O valor final de saída é a classificação do sinal de entrada.
+
+\begin{equation}
+\label{eqn05}
+	Y_{nm} = \exp{(|X - X_{nm}|^2)/(\sigma)^2}
+\end{equation}
+\begin{equation}
+\label{eqn06}
+	G_n(X) = (Y_{nn} + Y_{n(n+1)})/2
+\end{equation}
+
+Dado o que foi exposto nesse capítulo, os fundamentos teóricos apresentados serão, nos capítulos seguintes, a base principal para a investigação de soluções de extrações de informações musicais num sinal de áudio. Dentro do que foi apresentado de fundamentação, os conceitos físicos do som demonstram a natureza do fenômeno trabalhado através de modelos matemáticos que delimitarão as técnicas coerentes a serem implementadas. Os conceitos musicais são as referências, em termos de conhecimento, que serão usadas para alimentar a base de conhecimento da solução computacional proposta. Os conceitos de processamento de sinais serão usados para abstrair informações releventes do sinal de áudio de tal forma que as mesmas sejam tratadas computacionalmente. Os conceitos de redes neurais artificiais, principalmente o modelo arquitetural da PNN, serão usados para prover significação às informações extraídas do processamento de áudio e classificação dado uma base de conhecimento musical.
+
