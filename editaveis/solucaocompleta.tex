@@ -7,12 +7,12 @@ Dado o contexto e características do trabalho foi estabelicido um método de de
 
 A metodologia empírica de desenvolvimento de software se embasa em três fundamentos: precisa ser transparente, visto que o máximo de variáveis devem estar visíveis para os envolvidos no projeto; dado as variáveis expostas a metodologia precisa ser frequentemente inspecionada; feito as inspeções objetivo final é adaptar de acordo com as necessidades. Esses três fundamentos visam ajustar o processo de desenvolvimento para evitar variações de produção inaceitáveis e maximizar a mesma \cite{empirical}.
 
-Para que os procedimentos da metodologia empírica possa ocorrer ela precisa ser de natureza iterativa e incremental. Iterativa e incremental pois terá ciclos curtos de desenvolvimento e a cada ciclo terá incrementos de código. No final de cada ciclo ter-se-à como resultado parâmetros de feedback para a melhoria contínua.
+Para que os procedimentos da metodologia empírica possa ocorrer ela precisa ser de natureza iterativa e incremental. Iterativa e incremental, pois terá ciclos curtos de desenvolvimento e a cada ciclo terá incrementos de código. No final de cada ciclo ter-se-à como resultado parâmetros de feedback para a melhoria contínua.
 
 Outra análise do método empírico é o embasamento no ciclo de melhoria de processos e produtos $Plan$-$Do$-$Check$-$Act$ (PDCA) \cite{pdca}. Ele é constituído em 4 fases: $Plan$ - planejamento do desenvolvimento; $Do$ - executar o que foi planejado; $Check$ - avaliar o que foi feito; $Act$ - propor melhorias para os próximos ciclos.
 
 % QUESTÕES
-Com o intuito de atingir os objetivos, serão abordados questões, hipóteses e critérios relacionados às problemáticas abordadas. No que diz respeito as questões, segue a formulação das mesmas:
+Com o intuito de atingir os objetivos, serão abordados questões, hipóteses e critérios relacionados às problemáticas levantadas na extração e classificação de informações do sinal de áudio. No que diz respeito as questões, segue a formulação das mesmas:
 \begin{itemize}
 	\item Se cada nota é uma frequência de vibração sonora, como analisar o sinal no ponto de vista de frequências? Dessa questão, surge a seguinte hipótese:
 	\begin{itemize}
@@ -41,8 +41,7 @@ Com o intuito de atingir os objetivos, serão abordados questões, hipóteses e 
 	
 	\item Como reconhecer acordes no tempo de tal forma a saber onde eles ocorrem? Dessa questão, surge a seguinte hipótese:
 	\begin{itemize}
-		\item Uma solução de reconhecimento de energias ao longo do tempo pode ser
-eficaz para a determinação do rítmo. Em tese é calcular a energia do sinal, aplicar
+		\item Uma solução de reconhecimento de energias ao longo do tempo pode a determinar o rítmo. Em tese é calcular a energia do sinal, aplicar
 um filtro passa-baixas para suavização do sinal e aplicar um método de auto-correlação com o intuito de caracterizar picos de repetição de níveis elevados de energia.
 		O critério para avaliar essa hipótese é:
 			\begin{itemize}
@@ -114,29 +113,30 @@ Em vista das necessidades expostas, a linguagem de programação/ferramental esc
 
 \section{Técnicas Utilizadas para Desenvolvimento do Sistema-Solução}
 
-Nesta secção será descrito o desenvolvimento da solução e as técnicas utilizadas. A explicação da solução se embasará no seguinte diagrama de fluxo de dados:
+Nesta seção será descrito o desenvolvimento da solução e as técnicas utilizadas. A figura \ref{fig:dfd} mostra o diagrama de fluxo de dados com todas as técnicas e procedimentos implementados no sistema-solução. 
+
+Como é mostrado na figura \ref{fig:dfd}, o fluxo de controle do sistema-solução começa com a chamada da função \textbf{DA3}. Ela recebe como parâmetro um vetor de audio $stereo$, ou seja, ela carrega uma matriz 2 por $N$, tal que $N$ é o tamanho do sinal de áudio (número de amostras). Esse sinal de áudio é retornado através da função $wavread$($<$$caminho$\_$do$\_$arquivo$$>$$)$. O tipo de arquivo lido é do formato-padrão de áudio .wav. Esse formato de arquivo permite um armazenamento dos dados em blocos em modulação de pulsos PCM ($Pulse$ $Code$ $Modulation$). O PCM armazena em arquivo de áudio não-comprimido (sem perdas), ou seja, o processo de amostragem e quantização representa exatamente o que foi descrito na parte de fundamentos teóricos desse trabalho (taxa de amostragem de 44.100 Hz e quantização de 16 bits). Ao final do fluxo há 2 informações extraídas nas saídas: os acordes ao longo do tempo e a tonalidade da música. Nos próximos tópicos serão explicados os detalhes de cada um dos procedimentos e técnicas do diagrama de fluxo de dados.
 
 \begin{figure}[h]
 	\centering
 		\includegraphics[keepaspectratio=true,scale=0.49]{figuras/dfd_2.eps}
 	\caption{Diagrama de Fluxo de Dados}
+	\label{fig:dfd}
 \end{figure}
-
-A solução começa com a chamada da função DA3. Ela recebe como parâmetro um vetor de audio $stereo$, ou seja, ela carrega uma matriz 2 por N, tal que N é o tamanho do sinal de áudio (número de amostras). Esse sinal de áudio é retornado através da função $wavread$($<$$caminho$ $do$ $arquivo$$>$$)$. O tipo de arquivo lido é do formato-padrão de áudio .wav. Esse formato de arquivo permite um armazenamento dos dados em blocos em modulação de pulsos PCM ($pulse$-$code$-$modulation$). O PCM armazena em arquivo de áudio não-comprimido (sem perdas), ou seja, o processo de amostragem e quantização representa exatamente o que foi descrito na parte de fundamentos teóricos desse trabalho (taxa de amostragem de 44.100 Hz e quantização de 16 bits). Ao final do fluxo há 2 saídas: os acordes ao longo do tempo e o tom do áudio.Nos próximos tópicos serão explicados os comportanmentos de cada uma das caixas de processamento do diagrama de fluxo de dados.
 
 \subsection{Procedimento 1: Separar Janelas de 1 Segundo em 5 Partes}
 \label{subsec:procedimento_1}
 
-Após o sinal ser carregado num vetor de audio $stereo$, ele deverá ser transformado num do tipo mono. Sinal mono de áudio é aquele com somente um canal. Isso é necessário para que o processamento não fosse redundante. Não agregaria valor nesse caso processar um sinal de duplo canal sendo que a fonte emissora de ondas sonoras é comum para ambos. Após essa conversão, cada segundo do sinal é repartido em 5 partes de tamanhos iguais a 1 segundo, porém deslocadas a 0.2 segundos de cada um. Esse processo é para a segmentar áudio no intuito de achar o acorde mais provável num intervalo de tempo de um segundo, fazendo com que acordes de transição ou ruidosos sejam suprimidos. A figura \ref{fig:procedimento_1} ilustra o processo descrito e o código do mesmo está presente na secção \ref{sec:codigo_procedimento_1} dos apêndices.
+Após o sinal ser carregado num vetor de audio $stereo$, ele deverá ser transformado num do tipo mono. Sinal mono de áudio é aquele com somente um canal. Isso é necessário para que o processamento não fosse redundante. Não agregaria valor nesse caso processar um sinal de duplo canal sendo que a fonte emissora de ondas sonoras é comum para ambos. Após essa conversão, cada segundo do sinal é repartido em 5 partes de tamanhos iguais a 1 segundo, porém deslocadas numa escala 0.2 segundos. Esse processo é para a segmentar áudio no intuito de achar o acorde mais provável num intervalo de tempo de 1 segundo, fazendo com que acordes de transição ou ruidosos sejam suprimidos. A figura \ref{fig:procedimento_1} ilustra o processo descrito e o código do mesmo está presente na secção \ref{sec:codigo_procedimento_1} dos apêndices.
 
 \begin{figure}[h] 
   \centering
-    \includegraphics[keepaspectratio=true, scale=0.7]{figuras/procedimento_1}
+    \includegraphics[keepaspectratio=true, scale=1.1]{figuras/procedimento_1}
     \caption{Segmentação de áudio - janelas de 1 segundo em 5 partes deslocadas.}
     \label{fig:procedimento_1}
 \end{figure}
 
-Como é mostrado na figura \ref{fig:procedimento_1}, A cada segundo do sinal são criadas 5 janelas (A, B, C, D e E), de tamanhos iguais a 5 segundos, deslocadas numa escala de 0.2 segundos entre si. A primeira janela (A) é a mesma em sua posição original e as próximas janelas são recortadas do sinal a partir de um deslocamento de 0.2 segundos assim como é mostrado nas equações em \ref{equacao_janela_1}, \ref{equacao_janela_2}, \ref{equacao_janela_3} e \ref{equacao_janela_4}.
+Como é mostrado na figura \ref{fig:procedimento_1}, a cada segundo do sinal são criadas 5 janelas (A, B, C, D e E), de tamanhos iguais a 1 segundo, deslocadas numa escala de 0.2 segundos entre si. A primeira janela (A) é a mesma em sua posição original e as próximas janelas são recortadas do sinal a partir de um deslocamento de 0.2 segundos assim como é mostrado nas equações em \ref{equacao_janela_1}, \ref{equacao_janela_2}, \ref{equacao_janela_3} e \ref{equacao_janela_4}.
 \begin{eqnarray}
 \label{equacao_janela_1}
 	A(t) = B(t + 0.2) \\
@@ -278,14 +278,14 @@ No início desse processo há o carregamento de um vetor de acordes, cada um com
 
 \section {Ciclos de Desenvolvimento}
  
-Nesta presente parte do trabalho será descrito os ciclos de desenvolvimento para a construção do sistema-solução. Os detalhes e o código completo podem ser encontrados no repositório $github$ \footnote{https://github.com/josepedro/TCC}.
+Nesta parte do trabalho serão descritos os ciclos de desenvolvimento para a construção do sistema-solução. Os detalhes e o código completo podem ser encontrados no repositório $github$ \footnote{https://github.com/josepedro/TCC}.
 
 \subsection{Estrutura do Ciclo}
 
 \begin{figure}[h] 
   \centering
     \includegraphics[keepaspectratio=true, scale=0.85]{figuras/ciclo_desenvolvimento}
-    \caption{Modelo de ciclo adaptado.}
+    \caption{Modelo de ciclo de desenvolvimento adaptado.}
 \end{figure}
 
 Fases do ciclo de desenvolvimento:
@@ -303,7 +303,14 @@ Fases do ciclo de desenvolvimento:
 \begin{itemize}
 \item \textbf{Pergunta:} Para saber da harmonia da música é preciso saber as notas dela. Se cada nota é uma frequência de vibração sonora, como analisar o sinal no ponto de vista de frequências? É possível?
 \item \textbf{Hipótese:} A Transformada de Fourier pode construir o espectro de frequências do sinal.
-\item \textbf{Implementação:} 
+\item \textbf{Implementação:}
+\begin{itemize} 
+	\item o sinal é convertido para mono;
+	\item o sinal é normalizado;
+	\item é calculado a transformada de fourier do sinal;
+	\item o valor absoluto da transformada de fourier é calculado;
+	\item o valor absoluto da transformada de fourier é normalizado.
+\end{itemize}
 \begin{lstlisting}
 som = som(1:length(som));
 som = som/max(som);
@@ -315,12 +322,18 @@ SINAL=SINAL/max(SINAL);
 \item \textbf{Retrospectiva:} A Transformada de Fourier, em específico a $Fast Fourier Transform$, realmente produz resultados satisfatórios em determinar o espectro de energia da frequências. Mas as informações não estão configuradas para localizar as notas musicais.
 \end{itemize}
 
-\subsection{Ciclo 2: Realocação das Frequências em 1 Unidade}
+\subsection{Ciclo 2: Realocação das Frequências em 1 Unidade de Hz}
 \label{subsec:ciclo_2}
 \begin{itemize}
 \item \textbf{Pergunta:} Como configurar essas informações para localizar as notas musicais?
-\item \textbf{Hipótese:} Dado que cada nota musical é um conjunto de frequências, realocar as energias frequenciais da transformada de fourier afim de que cada posição do vetor seje 1 unidedade de frequência (Hz) pode mapear a energia de cada nota.
+\item \textbf{Hipótese:} Dado que cada nota musical é um conjunto de frequências, realocar as energias frequenciais da transformada de fourier a fim de que cada posição do vetor seja 1 unidedade de frequência (Hz) pode mapear a energia de cada nota.
 \item \textbf{Implementação:} 
+\begin{itemize} 
+	\item o valor da taxa de amostragem é definido;
+	\item um vetor de frequências é definido dado o tamanho do sinal;
+	\item é calculado o valor absoluto e normalizado da transformada de fourier do sinal;
+	\item a estrutura de laço recalcula as componentes da transformada de fourier de tal forma que cada posição do vetor seja 1 unidade em Hz de frequência.
+\end{itemize}
 \begin{lstlisting}
 fs = 44100;
 f = (0:length(som)-1)*fs/length(som);
@@ -355,7 +368,11 @@ l = 0; j = 0; i = 0;
 \begin{itemize}
 \item \textbf{Pergunta:} Dado um conjunto de frequências, como associar essas as notas musicais?
 \item \textbf{Hipótese:} Visto que associar as frequências as notas musicas é uma tarefa muito complexa para uma solução determinística, uma rede neural de aprendizado não supervisionado do tipo $Probabilistic$ $Neural$ $Network$ (PNN) pode classificar um conjunto de frequências em sua respectiva nota musical.
-\item \textbf{Implementação:} 
+\item \textbf{Implementação:}
+\begin{itemize} 
+	\item uma matriz de base de dados com as notas musicais e seus respectivos pesos é carregada;
+	\item um laço é executado para calcular a probabilidade (energia) de cada nota musical da saída de cada neurônio.
+\end{itemize} 
 \begin{lstlisting}
 %BASE DE DADOS DE NOTAS MUSICAIS DA REDE NEURAL
 %NOTAS
@@ -387,8 +404,8 @@ while (i <= 12)
 end
 
 \end{lstlisting}
-\item \textbf{Testes Conceituais:} Foram testadas 3 funções de transferência do neurônio. A primeira função de transferência - a exponencial da subtração dos valores - não foi muito eficaz pois para notas adjacentes as mesmas eram confundidas pela rede. Esse fato se dá pelo retorno de baixa magnitude da subtração de valores. A segunda função de transferência - a correlação dos valores - foi bastante eficaz para caracterizar notas. Porém a operação de subtração da média faz com que a energia final seja baixa, além de requisitar mais operações. A terceira função de transferência - a multiplicação dos valores - foi bastante eficaz para caracterizar notas e é rápida pois é uma forma simples da segunda função de transferência.
-\item \textbf{Retrospectiva:} A rede neural PNN foi bastante eficaz em classificar as frequências em termos de notas musicais. Porém as notas musicais não estão associadas a acordes musicais.
+\item \textbf{Testes Conceituais:} Foram testadas 3 funções de transferência do neurônio. A primeira função de transferência - a exponencial da subtração dos valores - não obteve resultados satisfatórios pois para notas adjacentes as mesmas eram confundidas pela rede. Esse fato se dá pelo retorno de baixa magnitude da subtração de valores. A segunda função de transferência - a correlação dos valores - caracterizou as notas. Porém a operação de subtração da média faz com que a energia final seja baixa, além de requisitar mais operações. A terceira função de transferência - a multiplicação dos valores - foi caraterizou as notas e se mostrou rápida, em relação as funções de transferência anteriores, pois envolve poucas operações matématicas.
+\item \textbf{Retrospectiva:} A rede neural PNN foi bastante classificou corretamente as frequências em termos de notas musicais. Porém as notas musicais não estão associadas a acordes musicais.
 \end{itemize}
 
 \subsection{Ciclo 4: Determinação dos Acordes Fundamentais}
@@ -397,6 +414,10 @@ end
 \item \textbf{Pergunta:} Como adicionar as próximas camadas da rede para determinação dos acordes?
 \item \textbf{Hipótese:} Para poder mapear as notas é preciso adicionar mais 2 camadas. Uma camada para classificação de acordes, dado um conjunto de notas musicais e a outra para classificação de um acorde dado os conjuntos possíveis de acordes.
 \item \textbf{Implementação:} 
+\begin{itemize} 
+	\item uma matriz de base de dados com acordes musicais e seus respectivos pesos é carregada;
+	\item um laço é executado para calcular a probabilidade (energia) de cada acorde musical da saída de cada neurônio.
+\end{itemize}
 \begin{lstlisting}
 % BASE DE DADOS PARA ACORDES
 
@@ -439,10 +460,16 @@ end
 \label{subsec:ciclo_5}
 \begin{itemize}
 \item \textbf{Pergunta:} Como reconhecer acordes no tempo de tal forma a saber onde eles ocorrem?
-\item \textbf{Hipótese:} Uma solução de reconhecimento de energias ao longo do tempo pode ser
-eficaz para a determinação do rítmo. Em tese é calcular a energia do sinal, aplicar
+\item \textbf{Hipótese:} Uma solução de reconhecimento de energias ao longo do tempo pode determinar o rítmo. Em tese é calcular a energia do sinal, aplicar
 um filtro passa-baixas para suavização do sinal e aplicar um método de auto-correlação com o intuito de caracterizar picos de repetição de níveis elevados de energia.
 \item \textbf{Implementação:} 
+\begin{itemize} 
+	\item um sinal de áudio é carregado;
+	\item é calculado o valor absoluto do sinal de áudio;
+	\item o valor absoluto do sinal de áudio é filtrado por um passa-baixas;
+	\item é feito uma subamostragem de 22050 no sinal;
+	\item o sinal é autocorrelacionado para gerar os picos de energia correlacionadas.
+\end{itemize}
 \begin{lstlisting}
     % opening the file
     file = open(file_path);
@@ -466,7 +493,12 @@ um filtro passa-baixas para suavização do sinal e aplicar um método de auto-c
 \begin{itemize}
 \item \textbf{Pergunta:} Como ler o sinal todo e ter a visilibilidade dele em tempo e frequência?
 \item \textbf{Hipótese:} Para se ter uma resolução completa do sinal em tempo em frequência é preciso de ter uma transformada que agregue esses dois aspectos. Poder testar isso com a transformada wavelets.   
-\item \textbf{Implementação:} 
+\item \textbf{Implementação:}
+\begin{itemize} 
+	\item são definidos critérios de parada da iteração de filtros da transformada wavelets;
+	\item são definidos iterações de filtros passa-baixas do tipo daubechies 45;
+	\item são definidos iterações de filtros passa-altas do tipo daubechies 45.
+\end{itemize}
 \begin{lstlisting}
 function [signal, imin, imax, iterations, energy] = ...
 tree_iterator(signal, mini, maxi, imin, imax, iterations, energy)
@@ -516,8 +548,13 @@ end
 \label{subsec:ciclo_7}
 \begin{itemize}
 \item \textbf{Pergunta:} Como ler o sinal todo e ter a visilibilidade dele em tempo e frequência?
-\item \textbf{Hipótese:} Para se ter uma resolução completa do sinal em tempo em frequência é preciso de ter uma transformada que agregue esses dois aspectos. Poder testar isso com a $Short Fourier Transform$ (Transformada de Fourier Janelada).   
+\item \textbf{Hipótese:} Para se ter uma resolução completa do sinal em tempo em frequência é preciso de ter uma transformada que agregue esses dois aspectos. Poder testar isso com a $Short$ $Fourier$ $Transform$ (Transformada de Fourier Janelada).   
 \item \textbf{Implementação:} 
+\begin{itemize} 
+	\item são carregados as bases de dados de notas e acordes musicais;
+	\item o tempo total da música é definido;
+	\item um laço, que irá percorrer segundo a segundo a música, é executado calculando a STFT em cada segundo.
+\end{itemize}
 \begin{lstlisting}
 function [notes_time, chords_time, chord_pitch] = DA3(signal, fs)
 
@@ -577,7 +614,12 @@ max(energy_chords))};
 \begin{itemize}
 \item \textbf{Pergunta:} Como extrair o tom da música?
 \item \textbf{Hipótese:} Para extrair o tom da música é preciso somar a energia das notas totais ao longo da música e em seguida extrair o acorde mais provável.
-\item \textbf{Implementação:} 
+\item \textbf{Implementação:}
+\begin{itemize} 
+	\item todas as ocorrências de notas da música são somadas;
+	\item as oitavas das notas também são somadas;
+	\item é calculado o tom mais provável para a música.
+\end{itemize}
 \begin{lstlisting}
 function [chord_pitch, chord_pitch_number] = ...
 get_chord_pitch(notes_time, time_seconds_total, chords)
@@ -621,7 +663,12 @@ get_chord_pitch(notes_time, time_seconds_total, chords)
 \begin{itemize}
 \item \textbf{Pergunta:} Como trabalhar com a frequencia de aparecimento das notas?
 \item \textbf{Hipótese:} Se binarizar com 1 e 0 o mapa de notas no tempo a soma das notas será unitária, equivalente a frequência.
-\item \textbf{Implementação:} 
+\item \textbf{Implementação:}
+\begin{itemize} 
+	\item o primeiro laço define qual parte será binarizada;
+	\item o segundo laço define o instante de tempo que será binarizado;
+	\item o terceiro laço define as notas que serão binarizadas.
+\end{itemize}
 \begin{lstlisting}
 % binarize set of notes
     for set = 1:5
@@ -650,6 +697,14 @@ get_chord_pitch(notes_time, time_seconds_total, chords)
 \item \textbf{Pergunta:} Em relação aos acordes transitórios, como corrigir?
 \item \textbf{Hipótese:} Se ao deslocar a janela de tamanho de 1 segundo em passos de 0.2 segundos e calcular o espectro de frequência de cada passo pode-se fazer a média do acorde de cada tempo e poder cancelar os acordes transitórios.
 \item \textbf{Implementação:}
+\begin{itemize} 
+	\item a parte A é definida com 0 segundos de deslocamento;
+	\item a parte B é definida com 0.2 segundos de deslocamento;
+	\item a parte C é definida com 0.4 segundos de deslocamento;
+	\item a parte D é definida com 0.6 segundos de deslocamento;
+	\item a parte E é definida com 0.8 segundos de deslocamento;
+	\item as 5 partes são associadas a uma estrutura de célula.
+\end{itemize}
 \begin{lstlisting}
 function set_of_windows_signals = ...
 build_window_short_fft(signal, time, fs)
@@ -734,6 +789,12 @@ build_window_short_fft(signal, time, fs)
 \item \textbf{Pergunta:} Como extrair a nota mais grave (baixo) de cada período do tempo?
 \item \textbf{Hipótese:} Com o mapa de notas binarizado é possível extrair o baixo pegando a primeira posição com valor 1 de cada tempo.
 \item \textbf{Implementação:}
+\begin{itemize} 
+	\item são definidas as partes de janela em suas respectivas variáveis;
+	\item são extraídos os valores de notas mais recorrentes em cada instante de tempo;
+	\item são extraídos os baixos dado o primeiro maior valor máximo;
+	\item é calculado o módulo da posição do baixo para que o mesmo sempre fique nas posições mais iniciais do vetor.
+\end{itemize}
 \begin{lstlisting}
 function bass_time = get_bass(set_of_notes_time)
 
@@ -778,6 +839,10 @@ end
 \item \textbf{Pergunta:} Como incluir a nota mais grave (baixo) de cada período do tempo aos acordes aumentados e invertidos?
 \item \textbf{Hipótese:} Pode-se referenciar um acorde invertido ou aumentado apartir da combinação de acordes fundamentais e baixos extraídos para cada período respectivo.
 \item \textbf{Implementação:}
+\begin{itemize} 
+	\item acordes fundamentais e baixos são associados;
+	\item dado uma associação de acordes fundamentais e baixos os mesmos são referenciados como string num vetor de dicionário de acordes.
+\end{itemize}
 \begin{lstlisting}
 function chords_with_bass = ...
 get_chords_bass(chords_number, bass_time)

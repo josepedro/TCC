@@ -60,30 +60,30 @@ Capítulo 2
 
 -Houve uma falta de cuidados com as referência para um capítulo de conceitos.
 
-capítulo 3
+-capítulo 3
 
-Cortas os 4 primeiros parágrafos da 3.1
+-Cortas os 4 primeiros parágrafos da 3.1
 
-Iterativa e incremental, pois
+-Iterativa e incremental, pois
 
-foram abordadas questões
+-foram abordadas questões
 
-figura 6 é sua? referenciar no texto, corretamente: explicar a figura.
+-figura 6 é sua? referenciar no texto, corretamente: explicar a figura.
 
-áudio.Nos -> áudio. Nos
+-áudio.Nos -> áudio. Nos
 
-Após essa conversão,
+-Após essa conversão,
 
-Figura em maiúsculo
+****Figura em maiúsculo (Justificar pois é o padrão)
 
-Lendar enormes: explicar figura no texto e não na legenda
+-Lendar enormes: explicar figura no texto e não na legenda
 
-3.3
-Nesta presente parte do trabalho ???
+-3.3
+-Nesta presente parte do trabalho ???
 
-o que e eficaz? por que tal coisa foi eficaz?
+-o que e eficaz? por que tal coisa foi eficaz?
 
-Acho que falou explicar um pouco que estava em cada implementação
+-Acho que falou explicar um pouco que estava em cada implementação
 
 Capítulo 4
 
