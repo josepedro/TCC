@@ -85,24 +85,24 @@ Capítulo 2
 
 -Acho que falou explicar um pouco que estava em cada implementação
 
-Capítulo 4
+-Capítulo 4
 
-Dos experimentos, alguns gráfico estão bem explicados ou não: revisar
+-Dos experimentos, alguns gráfico estão bem explicados ou não: revisar
 
-fazer a Tabela 1 em latex (ou ela não é sua?)
+-fazer a Tabela 1 em latex (ou ela não é sua?)
 
-citar, no texto, corretamente a Figura 32
+-citar, no texto, corretamente a Figura 32
 
-Explicar melhor as figura 37, 38 e 39. Por que certas coisas são perceptíveis?
+-Explicar melhor as figura 37, 38 e 39. Por que certas coisas são perceptíveis?
 
-Tabela 4.6?
+-1abela 4.6?
 
-Não fechou o capítulo 4
+-Não fechou o capítulo 4
 
-Capítulo 5 é "Conclusão"
+-Capítulo 5 é "Conclusão"
 
-primeiro parágrafo é especulação: retirar
+-primeiro parágrafo é especulação: retirar
 
-Conclusão fraca: refazer, sem especulações.
+-Conclusão fraca: refazer, sem especulações.
 
-Colocar as fraquezas e limitações do trabalho, para depois falar de passos futuros
+-Colocar as fraquezas e limitações do trabalho, para depois falar de passos futuros
