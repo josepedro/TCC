@@ -55,38 +55,37 @@ O processo de execução do experimento foi dividido em 4 etapas. A primeira rel
 \end{figure}
 
 
-\subsection{Experimento 1 - Acorde $CM$}
+\section{Experimento 1 - Acorde $DM$}
 \label{sec:experimento1}
 
-Nesse experimento foi tocado a tríade $Dó$ (baixo e tônica), $Mi$ e $Sol$ equivalente ao acorde $CM$. A tríade foi tocada ao mesmo tempo e com a mesma força para todas as notas.
+Nesse experimento foi tocado a tríade $Ré$ (baixo e tônica), $Fá\#$ e $Lá$ equivalente ao acorde $DM$. A tríade foi tocada ao mesmo tempo e com a mesma força para todas as notas.
+
+Segue os gráficos resultantes:
 
 \begin{figure}[h]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.49]{figuras/CM/fft_cm.eps}
-	\caption{Gráfico da resposta em frequência para a gravação do acorde $CM$.}
-  \label{fig:espectro_CM}
+		\includegraphics[keepaspectratio=true,scale=0.49]{figuras/Dm/fft_DM.eps}
+	\caption{Gráfico da resposta em frequência para a gravação do acorde $DM$}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.49]{figuras/CM/notas_cm.eps}
-	\caption{Gráfico de sugestão de notas para a gravação do acorde $CM$.}
-  \label{fig:notas_CM}
+		\includegraphics[keepaspectratio=true,scale=0.49]{figuras/Dm/notas_DM.eps}
+	\caption{Gráfico de sugestão de notas para a gravação do acorde $DM$}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.45]{figuras/CM/acordes_1_cm.eps}
-		\includegraphics[keepaspectratio=true,scale=0.45]{figuras/CM/acordes_2_cm.eps}
-	\caption{Gráficos de sugestão de acordes para a gravação do acorde $CM$.}
-  \label{fig:acordes_CM}
+		\includegraphics[keepaspectratio=true,scale=0.45]{figuras/Dm/acordes_1_DM.eps}
+		\includegraphics[keepaspectratio=true,scale=0.45]{figuras/Dm/acordes_2_DM.eps}
+	\caption{Gráficos de sugestão de acordes a gravação do acorde $DM$}
 \end{figure}
+\newpage
+Do resultado da primeira camada de processamento é gerado o gráfico da Figura 16. Esse gráfico diz respeito a natureza da composição do sinal em senoides em termos de transformada de fourier. O primeiro pico, no valor de 294 Hz, é relativo a nota $Ré$. O segundo pico, no valor de 371 Hz, é relativo a nota $Fá\#$. O terceiro pico, no valor de 441 Hz, é relativo a nota $Lá$. Os picos seguintes são relativos aos harmônicos dessas três notas.
 
-Do resultado da primeira camada de processamento é gerado o gráfico da figura \ref{fig:espectro_CM}. Esse gráfico diz respeito a natureza da composição do sinal em senoides em termos de transformada de fourier. O primeiro pico, no valor de 294 Hz, é relativo a nota $Dó$. O segundo pico, no valor de 371 Hz, é relativo a nota $Mi$. O terceiro pico, no valor de 441 Hz, é relativo a nota $Sol$. Os picos seguintes são relativos aos harmônicos dessas três notas.
+Do resultado da segunda camada de processamento é gerado gráfico da Figura 17. É possível perceber nele que as notas $Ré$, $Fá\#$ e $Lá$ são as que mais possuem energia ou, no ponto de vista de sugestão, as mais sugeridas. De certa forma um dos fatores que contribuiram das notas $Ré$ e $Lá$ ser de maiores energias foi devido a presença dos harmônicos.
 
-Do resultado da segunda camada de processamento é gerado gráfico da figura \ref{fig:notas_CM}. É possível perceber nele que as notas $Dó$, $Mi$ e $Sol$ são as que mais possuem energia ou, no ponto de vista de sugestão, as mais sugeridas. De certa forma um dos fatores que contribuiram das notas $Dó$ e $Sol$ ser de maiores energias foi devido a presença dos harmônicos.
-
-Do resultado da terceira camada de processamento são gerados os gráficos da figura \ref{fig:acordes_CM}. Essa camada é relativa aos resultados das sugestões de acordes musicais. É perceptível ver a presença de altas sugestões nos acordes $CM$, $C\#dim$, $Em$ e $Edim$. A maior sugestão, ocasionando em resultado correto, foi no acorde $CM$. As sugestões altas nos acordes $C\#dim$, $Em$ e $Edim$ se deram devido à presença de duas notas de alta energia que formam esses acordes.
+Do resultado da terceira camada de processamento são gerados os gráficos da Figura 18. Essa camada é relativa ao resultados das sugestões de acordes musicais. É perceptível ver a presença sugestão mais alta no acorde $DM$.
 
 \subsection{Experimento 2 - Acorde $Dm$}
 \label{sec:experimento2}
