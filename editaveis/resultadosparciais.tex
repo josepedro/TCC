@@ -10,7 +10,8 @@ Em vista dos procedimentos teóricos aliados a uma solução computacional, obte
     \item implementação da transformada wavelets;
     \item transcrição de notas ao longo do tempo;
     \item transcrição automática de acordes ao longo do tempo;
-    \item extração da tonalidade.
+    \item extração da tonalidade;
+    \item exemplo de uso.
 \end{itemize}
 
 % Comentar cada item e o fundamento teórico por trás de cada um
@@ -364,6 +365,18 @@ The Beatles - Yesterday          & F             & F               \\ \hline
 
 Diante do que é mostrado na tabela \ref{tab:tons}, o sistema-solução errou 2 músicas de 6 músicas no total, ocasionando em 67\% de acertos globais. Esse resultado é razoável pois o sistema-solução conseguiu, além de identificar tonalidade de música mono-instrumental, identificar tonalidades de músicas multi-instrumentais. Devido a dependência dessa funcionalidade com o módulo de reconhecimento de acordes ao longo do tempo, o resultado poderia melhorar utilizando aprimorações por regras da teoria musical.
 
+\section{Exemplo de Uso}
+\label{sec:exemplo_uso}
+
+Um exemplo de uso, apresentado também no arquivo README do repositório $github$\footnote{https://github.com/josepedro/recognizer\_musical\_harmonies}, pode ser executado a partir do $script$ \textbf{example.m} presente na pasta \textbf{example} e o resultado pode ser conferido na figura \ref{fig:exemplo_uso}.
+
+\begin{figure}[h] 
+  \centering
+    \includegraphics[keepaspectratio=true, scale=0.4]{figuras/exemplo_uso}
+    \caption{Exemplo de uso.}
+    \label{fig:exemplo_uso}
+\end{figure}
+
 Esse capítulo teve como objetivo expor os resultados obtidos através do desenvolvimento do protótipo de uma solução computacional para reconhecimento de harmonias musicais. Os resultados bem sucedidos, em conjunto, formam a funcionalidade do sistema como um todo.
 
 O primeiro resultado foi a resposta em frequência e sugestões de acordes musicais debatido na seção \ref{sec:resposta}. Esses resultados mostram que, através do espectro de frequência calculado via transformada de fourier, as notas e os acordes estão sendo corretamente reconhecidos em amostras de áudio separadas para cada acorde. Esse fato resultou em 100\% de acertos para acordes maiores, menores, aumentados, diminutos e invertidos.
@@ -377,5 +390,9 @@ O quarto resultado, debatido na seção \ref{sec:notas}, foi a transcrição de 
 O quinto resultado, debatido na seção \ref{sec:acordes}, foi a transcrição de acordes ao longo do tempo. A transcrição de acordes foi parcialmente satisfatória visto que, para acordes de violão e piano, obteve 50\% e 75\% respectivamente. Tal resultado foi implementado no sistema.
 
 O sexto resultado, debatido na seção \ref{sec:tom}, foi a extração de tonalidade da música. Tal processo obteve 67\% de acertos globais, demonstrando que foi satisfatório o resultado pois também foram submetidos para análise, no sistema-solução, músicas polifônicas e multi-instrumentais. Tal resultado foi implementado no sistema-solução.
+
+Também há o resultado do exemplo de uso na seção \ref{sec:exemplo_uso}, tal resultado demonstra a execução do $script$ de exemplo no repositório e as informações de saída, acordes ao longo do tempo com precisão de 1 segundo e tonalidade da música.
+
+Há de considerar como resultado o método de avaliação da solução computacional. Esse método se embasa nas entradas submetidas e as saídas. Dessa forma uma verificação de acertos e erros é realizada a fim de estimar uma porcentagem resultados satisfatórios do protótipo computacional. A forma mais adequada, na comunidade científica, de avaliar uma solução de computação musical é o MIREX\footnote{http://www.music-ir.org/mirex/wiki/MIREX\_HOME}. $Music$ $Information$ $Retrieval$ $Evaluation$ $eXchange$ (MIREX) é um processo de avaliação de algorítmos e soluções computacionais para computação musical. Tal processo é aberto todo ano com datas pré-definidas para cada tema (como por exemplo $Audio$ $Fingerprinting$, $Audio$ $Chord$ $Estimation$ e $Audio$ $Melody$ $Extraction$). Esse processo é realizado pelo laboratório $Music$ $Information$ $Retrieval$ $Systems$ $Evaluation$ $Laboratory$ (IMIRSEL) e, após avaliação da solução, a mesma pode ser comparada com as outras de forma objetiva. Esse trabalho não foi possível de ser avaliado devido ao prazo do processo de avaliação.
 
 De 6 resultados, 1 foi totalmente sucedido, 2 não foram sucedidos e 3 foram parcialmente sucedidos. Os resultados sucedidos foram implementados no protótipo sistema-solução e delimitaram funcionalidades e limitações que serão discutidas no capítulo seguinte.

@@ -113,16 +113,25 @@ Em vista das necessidades expostas, a linguagem de programação/ferramental esc
 
 \section{Técnicas Utilizadas para Desenvolvimento do Sistema-Solução}
 
-Nesta seção será descrito o desenvolvimento da solução e as técnicas utilizadas. A figura \ref{fig:dfd} mostra o diagrama de fluxo de dados com todas as técnicas e procedimentos implementados no sistema-solução. 
-
-Como é mostrado na figura \ref{fig:dfd}, o fluxo de controle do sistema-solução começa com a chamada da função \textbf{DA3}. Ela recebe como parâmetro um vetor de audio $stereo$, ou seja, ela carrega uma matriz 2 por $N$, tal que $N$ é o tamanho do sinal de áudio (número de amostras). Esse sinal de áudio é retornado através da função $wavread$($<$$caminho$\_$do$\_$arquivo$$>$$)$. O tipo de arquivo lido é do formato-padrão de áudio .wav. Esse formato de arquivo permite um armazenamento dos dados em blocos em modulação de pulsos PCM ($Pulse$ $Code$ $Modulation$). O PCM armazena em arquivo de áudio não-comprimido (sem perdas), ou seja, o processo de amostragem e quantização representa exatamente o que foi descrito na parte de fundamentos teóricos desse trabalho (taxa de amostragem de 44.100 Hz e quantização de 16 bits). Ao final do fluxo há 2 informações extraídas nas saídas: os acordes ao longo do tempo e a tonalidade da música. Nos próximos tópicos serão explicados os detalhes de cada um dos procedimentos e técnicas do diagrama de fluxo de dados.
+Nesta seção serão apresentadas as técnicas usadas para o desenvolvimento da solução, no intuito de reconhecer e extrair informações de harmonias em músicas comportadas em arquivos de áudio. A figura \ref{fig:dfd} mostra o diagrama de atividades em alto nível da modelagem matemática prototipada computacionalmente.
 
 \begin{figure}[h]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.49]{figuras/dfd_2.eps}
-	\caption{Diagrama de Fluxo de Dados}
+		\includegraphics[keepaspectratio=true,scale=0.35]{figuras/diagrama_atividades_1.eps}
+	\caption{Diagrama de Atividades das Técnicas Utilizadas}
 	\label{fig:dfd}
 \end{figure}
+
+\newpage
+No início do processo, há como entrada um arquivo de áudio do tipo WAVE e, no final, duas saídas que são os acordes ao longo do tempo e o tom da música. O fluxo para a extração de tonalidade musical é definido, em sequência, por processar o áudio, extrair notas e extrair tom. O fluxo para a extração de acordes ao longo do tempo é definido, em sequência, por processar o áudio, extrair notas e extrair acordes. As atividades são definidas em:
+\begin{enumerate}
+	\item \textbf{Processar Áudio}: composta pelos procedimentos 1, 2 e 3, é responsável por segmentar e extrair informações relevantes relacionadas a frequências do sinal de áudio;
+	\item \textbf{Extrair Notas}: composta pelos procedimentos 4 e 5, é responsável por extrair informações de notas musicais dado o espectro de frequência. Essa atividade está relacionada a camada de reconhecimento de notas musicais da rede neural;
+	\item \textbf{Extrair Tom}: composta pelos procedimentos 7, é responsável por extrair o tom da música. Essa atividade está relacionada a camada de reconhecimento de acordes musicais da rede neural;
+	\item \textbf{Extrair Acordes}: composta pelos procedimentos 6, 8, 9 e 10, é responsável por os acordes ao longo do tempo. Essa atividade está relacionada a camada de reconhecimento de acordes musicais da rede neural.
+\end{enumerate}
+
+A seguir será explicado cada um dos procedimentos que formam as atividades apresentadas. Ao final será apresentado um diagrama de atividades da interação dos procedimentos em conjunto. 
 
 \subsection{Procedimento 1: Separar Janelas de 1 Segundo em 5 Partes}
 \label{subsec:procedimento_1}
@@ -274,7 +283,44 @@ Da última etapa do sistema, a extração de acordes com inversões tem como fin
 
 No início desse processo há o carregamento de um vetor de acordes, cada um com uma nomeclatura de acorde. Após é construído pares de acordes e baixos para mapear os acordes tocados dentro do vetor de acordes nominais. Ao final do processo as células de acordes e baixos identificados são referenciados dentro do vetor de acordes nominais com inversões, através das células de pares de acordes e baixos.
 
+\newpage
+\subsection{Modelo Matemático do Protótipo}
 
+Dado os procedimentos apresentados que consolidam o modelo matemático do protótipo proposto, a figura \ref{fig:atividades_2} mostra a interação deles em conjunto.
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[keepaspectratio=true,scale=0.45]{figuras/diagrama_atividades_2.eps}
+	\caption{Diagrama de Atividades dos Procedimentos}
+	\label{fig:atividades_2}
+\end{figure}
+
+O fluxo apresentado na figura \ref{fig:atividades_2} tem como entrada uma música em arquivo áudio e duas saídas: sequência de acordes a cada 1 segundo num vetor de $strings$ e uma tonalidade da música numa $string$.
+
+Dar-se-á, para o processo de extração de acordes ao longo do tempo, os seguintes procedimentos:
+\begin{itemize}
+	\item \textbf{1 - Separar Janelas de 1 Segundo em 5 Partes}: cada 1 segundo do áudio-música é segmentado em 5 partes gerando uma estrutura de 5 janelas de 1 segundo;
+	\item \textbf{2 - Aplicar Janelas de Blackman}: as janelas de áudio são submetidas a uma multiplicação com janelas de Blackman;
+	\item \textbf{3 - Calcular o Espectro de Frequências}: para cada janela, são calculados espectros de frequência;
+	\item \textbf{4 - Adquirir Energias das Notas}: dado os espectros de frequência, há o cálculo das energias das notas via camada de rede neural;
+	\item \textbf{5 - Binarizar Energia das Notas}: as energias das notas musicais são binarizadas (1 ou 0), pois para o sistema só é preciso saber se as notas ocorreram e não a intensidade que elas ocorreram;
+	\item \textbf{6 - Extrair Baixos}: os baixos de cada segundo são extraídos;
+	\item \textbf{8 - Extrair Acordes Fundamentais}: os acordes fundamentais são extraídos via camada de rede neural;
+	\item \textbf{9 - Extrair Acorde Recorrente das Partes}: os acordes fundamentais mais recorrentes são selecionados para cada 1 segundo de tempo;
+	\item \textbf{10 - Extrair Acordes com Inversões}: os acordes fundamentais são combinados com os baixos extraídos para gerar os acordes invertidos e aumentados.
+\end{itemize}
+
+Dar-se-á, para o processo de extração de tonalidade musical, os seguintes procedimentos:
+\begin{itemize}
+	\item \textbf{1 - Separar Janelas de 1 Segundo em 5 Partes}: cada 1 segundo do áudio-música é segmentado em 5 partes gerando uma estrutura de 5 janelas de 1 segundo;
+	\item \textbf{2 - Aplicar Janelas de Blackman}: as janelas de áudio são submetidas a uma multiplicação com janelas de Blackman;
+	\item \textbf{3 - Calcular o Espectro de Frequências}: para cada janela, são calculados espectros de frequência;
+	\item \textbf{4 - Adquirir Energias das Notas}: dado os espectros de frequência, há o cálculo das energias das notas via camada de rede neural;
+	\item \textbf{5 - Binarizar Energia das Notas}: as energias das notas musicais são binarizadas (1 ou 0), pois para o sistema só é preciso saber se as notas ocorreram e não a intensidade que elas ocorreram;
+	\item \textbf{7 - Extrair Tonalidade}: todas as energias unitárias das notas ao longo da música são somadas gerando um vetor de ocorrência das notas. Dado esse vetor é calculado, usando a camada da rede neural de reconhecimento de acordes, o tom mais apropriado.
+\end{itemize}
+
+Em vista do que foi exposto, na seção seguinte é mostrado o desenvolvimento da aplicação das técnicas e procedimentos mostrados anteriormente. Também será discutido como cada procedimento obteve resultados satisfatórios. 
 
 \section {Ciclos de Desenvolvimento}
  
@@ -292,8 +338,8 @@ Nesta parte do trabalho serão descritos os ciclos de desenvolvimento para a con
 Fases do ciclo de desenvolvimento:
 \begin{itemize}
 \item \textbf{Pergunta:} No início de cada ciclo é feito uma pergunta a ser respondida que se adere aos objetivos do trabalho.
-\item \textbf{Hipótese:} A partir dessa pergunta é feita hipóteses que possam responder;
-\item \textbf{Implementação:} As hipóteses são pensadas, construidas e implementadas num script;
+\item \textbf{Hipótese:} A partir dessa pergunta é feita hipóteses que possam responder. Vale ressaltar que a hipótese aqui referenciada é uma afirmação a ser verificada e validada e, portanto, difere da hipótese de uma questão de pesquisa;
+\item \textbf{Implementação:} As hipóteses são pensadas, construídas e implementadas num script;
 \item \textbf{Testes Conceituais:} Cada hipótese implementada é testada conforme a teoria usada;
 \item \textbf{Retrospectiva:} Dado os resultados dos testes conceituais e código refatorado, é feitto uma avaliação do que foi produzido e decisões técnicas são tomadas.
 \end{itemize}
@@ -876,4 +922,109 @@ end
 \item \textbf{Retrospectiva:} Tal hipótese resolveu definitivamente a problemática de acordes invertidos e aumentados identificados de forma incorreta.
 \end{itemize}
 
-Em visto do que foi desenvolvido nesse capítulo, foi apresentado a metodologia de execução do presente trabalho, o desenvolvimento do sistema-solução como um todo e o andamento em ciclos de execução de desenvolvimento da solução proposta. Vale ressaltar que cada módulo do sistema-solução desenvolvido gera resultados no que tange o processamento de áudio, que serão apresentados no capítulo seguinte. 
+\section{Protótipo da Solução Proposta}
+\label{sec:prototipo}
+
+O protótipo da solução proposta codificada em MATLAB se encontra no repositório do $github$\footnote{https://github.com/josepedro/recognizer\_musical\_harmonies}. A figura \ref{fig:github} mostra a página principal do repositório.
+
+\begin{figure}[h] 
+  \centering
+    \includegraphics[keepaspectratio=true, scale=0.4]{figuras/github}
+    \caption{Página principal do repositório.}
+    \label{fig:github}
+\end{figure}
+
+A estrutura de pastas na raiz do projeto está da seguinte forma:
+\begin{itemize}
+	\item \textbf{example}: pasta contendo amostras de música em arquivo WAVE e um $script$ contendo um exemplo de uso do protótipo;
+	\item \textbf{src}: pasta contendo os $scripts$ modularizados do protótipo ;
+	\item \textbf{LICENSE}: arquivo de texto contendo o tipo de licença que é do tipo $Apache$ $License$, $Version$ $2$$.$$0$;
+	\item \textbf{README}: arquivo de texto contendo informações iniciais e instruções para executar o $script$ de exemplo de uso.
+\end{itemize}
+
+A seguinte estrutura está presente dentro da pasta \textbf{src}:
+\begin{itemize}
+	\item \textbf{audio\_processing}: módulo para processar o sinal de áudio. É formado pelos scripts:
+		\begin{itemize}
+			\item \textbf{build\_window\_short\_fft.m}: $script$ resultado referente aos ciclos de desenvolvimento 7 (subseção \ref{subsec:ciclo_7}) e 10 (subseção \ref{subsec:ciclo_10});  
+			\item \textbf{get\_frequency\_spectrum.m}: $script$ resultado referente aos ciclos de desenvolvimento 1 (subseção \ref{subsec:ciclo_1}), 2 (subseção \ref{subsec:ciclo_2}) e 7 (subseção \ref{subsec:ciclo_7}).
+		\end{itemize}		
+	\item \textbf{chords\_extractor}: módulo para extrair acordes ao longo do tempo. É formado pelos scripts:
+		\begin{itemize}
+			\item \textbf{analyse\_set\_of\_chords.m}: $script$ resultado referente ao ciclo de desenvolvimento 10 (subseção \ref{subsec:ciclo_10});
+			\item \textbf{get\_chords\_bass.m}: $script$ resultado referente ao ciclo de desenvolvimento 12 (subseção \ref{subsec:ciclo_12});
+			\item \textbf{get\_set\_of\_chords\_time.m}: $script$ resultado referente ao ciclo de desenvolvimento 4 (subseção \ref{subsec:ciclo_4});
+			\item \textbf{load\_chords\_tone.m}: $script$ resultado referente ao ciclo de desenvolvimento 4 (subseção \ref{subsec:ciclo_4});
+			\item \textbf{load\_dictionary\_chords.m}: $script$ resultado referente ao ciclo de desenvolvimento 12 (subseção \ref{subsec:ciclo_12}).
+		\end{itemize}
+	\item \textbf{key\_extractor}: módulo para extrair tonalidade musical. É formado pelo script:
+		\begin{itemize}
+			\item \textbf{get\_chord\_pitch.m}: $script$ resultado referente ao ciclo de desenvolvimento 8 (subseção \ref{subsec:ciclo_8}).
+		\end{itemize}
+	\item \textbf{notes\_extractor}: módulo para extrair notas musicais ao longo do tempo. É formado pelos scripts:
+		\begin{itemize}
+			\item \textbf{binarize\_notes.m}: $script$ resultado referente ao ciclo de desenvolvimento 9 (subseção \ref{subsec:ciclo_9});
+			\item \textbf{get\_bass.m}: $script$ resultado referente ao ciclo de desenvolvimento 11 (subseção \ref{subsec:ciclo_11});
+			\item \textbf{get\_energy\_notes.m}: $script$ resultado referente ao ciclo de desenvolvimento 3 (subseção \ref{subsec:ciclo_3});
+			\item \textbf{load\_notes.m}: $script$ resultado referente ao ciclo de desenvolvimento 3 (subseção \ref{subsec:ciclo_3}).
+		\end{itemize}
+	\item \textbf{main.m}: $script$ principal que irá executar os módulos e foi formado incrementalmente no andamento dos ciclos citados.
+\end{itemize}
+
+A figura \ref{fig:diagrama_componentes_1} mostra o diagrama de componentes dos $scripts$ que formam o protótipo da solução proposta. Pode-se observar que o $script$ principal $main.m$ é responsável por fazer chamadas de todos os $scripts$ exceto os que estão relacionados a alocação de constantes e dados para a rede neural, exemplos desses $scripts$ são \textbf{load\_notes.m}, \textbf{load\_chords\_tone.m} e \textbf{load\_dictionary\_chords.m}.
+
+\begin{figure}[h] 
+  \centering
+    \includegraphics[keepaspectratio=true, scale=0.4]{figuras/diagrama_componentes_1}
+    \caption{Diagrama de componentes do protótipo da solução proposta.}
+    \label{fig:diagrama_componentes_1}
+\end{figure}
+
+\section{Projeto da Solução Computacional}
+
+\subsection{Escopo}
+O projeto da solução computacional do protótipo apresentado está inserido no contexto de uma ferramenta computacional para extração de informações harmônicas numa música, continda inicialmente num arquivo de áudio $WAVE$. Essa ferramenta deverá ser implementada em linguagem de programação Python, pois a mesma possui suporte multiparadigma, bibliotecas específicas para operações matriciais, métodos numéricos e processamento de sinais, além ser de fácil suporte, manutenção e evolução.
+
+\subsection{Requisitos Funcionais}
+Dado o contexto de extração de informações harmônicas numa música em arquivo $WAVE$, os requisitos funcionais são:
+\begin{itemize}
+	\item Extrair acordes (maiores, menores, aumentados, diminutos e invertidos) ao longo do tempo com 1 segundo de precisão e dispor ao usuário uma $string$ com os acordes;
+	\item Extrair tonalidade musical e dispor ao usuário uma $string$ com o tom da música.
+\end{itemize}
+
+\subsection{Modelagem do Projeto}
+
+A figura \ref{fig:dominio} mostra o diagrama de componentes dos módulos básicos de domínio da solução. São 5 componentes básicos de domínio:
+\begin{itemize}
+	\item \textbf{main.py}: componente responsável por iniciar o processo, configurar dependências e executar os outros módulos;
+	\item \textbf{Processador de Áudio}: componente responsável por processar o áudio e extrair informações de domínio da frequência necessárias para identificação de notas;
+	\item \textbf{Extrator de Notas}: componente responsável por extrair notas musicais ao longo do tempo numa precisão de 1 segundo, dado as informações de espectro de frequência do áudio;
+	\item \textbf{Extrator de Tom}: componente responsável por extrair tom da música, dada as notas extraídas;
+	\item \textbf{Extrator de Acordes}: componente responsável por extrair acordes (maiores, menores, aumentados, diminutos e invertidos), ao longo da música, numa precisão de 1 segundo.
+\end{itemize}
+
+\begin{figure}[h] 
+  \centering
+    \includegraphics[keepaspectratio=true, scale=0.4]{figuras/diagrama_componente_projeto_1}
+    \caption{Diagrama de componentes básicos de domínio.}
+    \label{fig:dominio}
+\end{figure}
+
+No ponto de vista de scprits e dependências da linguagem Python, a figura \ref{fig:diagrama_componente_projeto_2} mostra o diagrama de componentes dos mesmos.
+
+\begin{figure}[h] 
+  \centering
+    \includegraphics[keepaspectratio=true, scale=0.6]{figuras/diagrama_componente_projeto_2}
+    \caption{Diagrama de componentes básicos de domínio.}
+    \label{fig:diagrama_componente_projeto_2}
+\end{figure}
+
+Para que o projeto seja viável, a solução proposta necessita de 2 bibliotecas escritas em Python que são:
+\begin{itemize}
+	\item \textbf{Numpy}\footnote{Mais informações sobre essa biblioteca podem ser encontradas em http://www.numpy.org/}: biblioteca para cálculos científicos fundamentais em Python.  Possui um objeto matriz N-dimensional e vastas operações de álgebra linear. Para esse contexto essa biblioteca será usada para as operações de janelamento de blackman ($numpy$.$blackman$) e transformada de fourier ($numpy$.$fft$);
+	\item \textbf{Scipy}\footnote{Mais informações sobre essa biblioteca podem ser encontradas em http://www.scipy.org/}: biblioteca para cálculos matemáticos, estatísticos e probabilísticos. Ela é mais abrangente que Numpy porém é focada para cálculos matemáticos básicos. Nela serão usadas as funções de correlação linear de pearson ($scipy$.$stats$.$pearsonr$).
+\end{itemize}
+
+Os $scripts$ próprios do projeto seguem a mesma estrutura e funcionamento dos expostos na seção \ref{sec:prototipo}. Porém vale ressaltar que cabe adaptações para que o objeto matemático-computacional alocado pela biblioteca Numpy possa ser adequadamente processado.
+
+Em visto do que foi desenvolvido nesse capítulo, foi apresentado a metodologia de execução do presente trabalho, o desenvolvimento do protótipo do sistema-solução como um todo, o andamento em ciclos de execução de desenvolvimento da solução proposta, a apresentação do protótipo da solução em MATLAB e o projeto em software da solução computacional em Python. Vale ressaltar que cada módulo do sistema-solução desenvolvido gera resultados no que tange o processamento de áudio, que serão apresentados no capítulo seguinte.

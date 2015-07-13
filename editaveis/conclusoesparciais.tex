@@ -20,6 +20,14 @@ No que diz respeito a extração de tonalidade musical, foi mostrado resultados 
 
 Também há de se questionar as metodologias de avaliação e análise do sistema-solução como um todo. O método quantitativo foi baseado em acertos e erros nos resultados finais do protótipo numa base de músicas relativamente pequena.
 
+\section{Desdobramentos}
+
+Ao decorrer desse trabalho, especificamente ao tratar de uma solução matemática para a substituição da transformada de fourier janelada através da hipótese das transformadas wavelets (seção \ref{sec:wavelets}), houve um desdobramento no trabalho. Como o uso das transformadas wavelets, nesse contexto, não foi satisfatório, foi investigado uma nova adaptação dessa transformada para o problema de identificação de notas musicais.
+
+No que diz respeito aos fundamentos da álgebra linear, a transformada de fourier e as demais, inclusive wavelets, possui uma função primordial que é projetar em bases a informação a ser processada e tratada. A transformada de fourier e wavelets projetam os sinais em bases ortonormais fazendo com que o produto final dessa operação seja coeficientes energéticos distribuídos ao longo de cada componente da base. Na transformada wavelets a operação que faz com que o sinal seja projetado em bases wavelets é a convolução. Dado que projetar o sinal em bases de famílias wavelets não proporcionou resultados satisfatórios, pensou-se na projeção do sinal em bases de notas musicais, ou seja, projetar o sinal, através da operação de convolução, em senos frequências bem definidas somados com seus respectivos harmônicos. Ao final, para analisar se determinadas notas estão presentes no sinal, é plausível de se calcular a energia do sinal para cada nota. Ao final do processo um conjunto de energias de notas serão calculadas, explicitando assim, quais notas foram realmente tocadas.
+
+Há resultados empíricos satisfatórios dessa estratégia de projeção de notas musicais mas tal método carece de uma metodologia rigorosa através de prova matemática e comparações com métodos do estado da arte da computação musical. Esse desdobramento foi submetido ao congresso ISMIR 2015\footnote{http://ismir2015.uma.es/} e, por causa desses pontos citados, não foi aceito e ainda está sendo trabalhado.
+
 \section{Trabalhos Futuros}
 
 Há de se considerar, em trabalhos futuros, análises e testes do protótipo da solução desenvolvida com outros instrumentos musicais. Tais sugestões podem revelar novas hipóteses a serem discutidas e implementadas a fim de melhorar o sistema-solução e simplificar alguns processos.
@@ -29,3 +37,5 @@ Também deve-se revisar, discutir e reimplementar o procedimento de segmentaçã
 Outra característica que poderia ser implementada e atribuída ao protótipo sistema-solução é um módulo de pré-processamento de áudio, objetivando a amenização de ruídos mesmo contendo cortes em alguns harmônicos do instrumento tocado. Quando mais o áudio se aproximar a tons puros, melhor o sistema-solução irá classificar o áudio.
 
 Em relação às metodologias de avaliação e análise do sistema-solução como um todo, sugere-se o uso das ferramentas disponíveis em MIREX\footnote{http://www.music-ir.org/mirex/wiki/MIREX\_HOME}. Essas ferramentas oferecem um suporte mais sistemático e criterioso na avaliação de sistemas de recuperação musical no geral. As soluções de computação musical de estado da arte são avalidas por esse modo e, fazendo o uso abrangente, pode-se comparar com mais fidedignidade esse e mais outros trabalhos no campo da computação musical.
+
+Como trabalho futuro também há a necessidade de se implementar o projeto proposto, em Python, do protótipo de solução computacional apresentado nesse trabalho. A implementação desse trabalho num projeto de solução de engenharia de software oferecerá ambiente propício para boa manutenibilidade e evolução do sistema. Vários contribuidores poderão trabalhar no sistema visto que há poucas soluções de código aberto sobre as funcionalidades de extração de acordes e tonalidades musicais.
